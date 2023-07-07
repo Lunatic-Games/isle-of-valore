@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://djotxtf6uv0lb"]
+
+[ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_26snv"]
+[ext_resource type="Texture2D" uid="uid://kknfardvfuq8" path="res://assets/art/structures/den_wolf_placeholder.png" id="2_4b0am"]
+[ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_f40ry"]
+[ext_resource type="PackedScene" uid="uid://c4j4eo05twugp" path="res://data/units/wolf/wolf.tscn" id="4_45rmb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
+radius = 14.9999
+height = 246.0
+
+[node name="WolfDen" instance=ExtResource("1_26snv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(-2, -65)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_4b0am")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(3, 1)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_3pfdu")
+
+[node name="SpawningComponent" parent="." index="2" instance=ExtResource("3_f40ry")]
+position = Vector2(0, 77)
+unit_to_spawn = ExtResource("4_45rmb")
+time_until_spawn = 20.0

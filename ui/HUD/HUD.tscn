@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsofnkaffifsd"]
+[gd_scene load_steps=5 format=3 uid="uid://dsofnkaffifsd"]
 
 [ext_resource type="Script" path="res://ui/HUD/HUD.gd" id="1_dpath"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="1_mgjmc"]
+[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/trunk.png" id="2_vfwnm"]
+[ext_resource type="Texture2D" uid="uid://kknfardvfuq8" path="res://assets/art/structures/den_wolf_placeholder.png" id="4_c8y2v"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_dpath")
@@ -21,3 +23,37 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 text = "0"
 fit_content = true
+
+[node name="AbilityContainer" type="HBoxContainer" parent="."]
+offset_left = 840.0
+offset_top = 967.0
+offset_right = 1036.0
+offset_bottom = 1063.0
+
+[node name="WolfDenAbility" type="ColorRect" parent="AbilityContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 6
+color = Color(1, 1, 1, 0.313726)
+
+[node name="TextureRect" type="TextureRect" parent="AbilityContainer/WolfDenAbility"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("4_c8y2v")
+expand_mode = 1
+
+[node name="SquirrelDenAbility" type="ColorRect" parent="AbilityContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 6
+color = Color(0, 0, 0, 0.313726)
+
+[node name="TextureRect" type="TextureRect" parent="AbilityContainer/SquirrelDenAbility"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("2_vfwnm")
+expand_mode = 1
