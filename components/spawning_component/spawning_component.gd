@@ -17,6 +17,9 @@ func _ready() -> void:
 
 
 func spawn_unit() -> void:
+	if GlobalGameState.game == null:
+		return
+	
 	var unit: Unit = unit_to_spawn.instantiate()
 	unit.global_position = global_position
-	print("Spawn: ", str(unit))
+	GlobalGameState.game.add_child(unit)

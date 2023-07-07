@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brgpt5w2nvr0c"]
+[gd_scene load_steps=6 format=3 uid="uid://brgpt5w2nvr0c"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_740vv"]
 [ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/trunk.png" id="2_g6e6p"]
+[ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_li2jx"]
+[ext_resource type="PackedScene" uid="uid://r8adsu6lxnpr" path="res://data/units/player/player.tscn" id="4_0q5j2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
 radius = 27.0
@@ -18,3 +20,7 @@ texture = ExtResource("2_g6e6p")
 position = Vector2(3, 1)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_3pfdu")
+
+[node name="SpawningComponent" parent="." index="2" instance=ExtResource("3_li2jx")]
+position = Vector2(0, 77)
+unit_to_spawn = ExtResource("4_0q5j2")
