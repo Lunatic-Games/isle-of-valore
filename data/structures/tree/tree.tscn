@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctm4vk0bsumfp"]
+
+[ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
+[ext_resource type="Texture2D" uid="uid://baiyqkvw87skr" path="res://assets/art/structures/tree.png" id="2_y0plm"]
+[ext_resource type="PackedScene" uid="uid://bm1dymkqwjrg5" path="res://components/interaction_component/interaction_component.tscn" id="3_xeb6u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1pr0"]
+radius = 7.0
+height = 146.0
+
+[node name="Tree" instance=ExtResource("1_sc78k")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -215)
+texture = ExtResource("2_y0plm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-15, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_r1pr0")
+
+[node name="InteractionComponent" parent="." index="2" instance=ExtResource("3_xeb6u")]
+
+[node name="CollisionShape2D" parent="InteractionComponent" index="0"]
+position = Vector2(-16, -11)
+
+[editable path="InteractionComponent"]
