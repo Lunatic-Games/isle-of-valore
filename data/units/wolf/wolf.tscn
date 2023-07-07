@@ -9,10 +9,10 @@ height = 64.0
 [node name="Wolf" instance=ExtResource("1_guwsx")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(1, -49)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ha20o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(-1, 42)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ovqx7")

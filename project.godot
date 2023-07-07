@@ -60,6 +60,12 @@ perform_ability={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="structure"
+2d_physics/layer_2="non_player_unit"
+2d_physics/layer_3="player"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
