@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://data/structures/structure.gd" id="1_wswni"]
 
-[node name="Structure" type="Node2D"]
+[node name="Structure" type="StaticBody2D"]
 script = ExtResource("1_wswni")

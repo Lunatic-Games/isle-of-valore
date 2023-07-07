@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=4 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
+[ext_resource type="PackedScene" uid="uid://2vqqbo2i8g4o" path="res://data/islands/island.tscn" id="2_hjbwl"]
+[ext_resource type="PackedScene" uid="uid://r8adsu6lxnpr" path="res://data/units/player/player.tscn" id="3_dyan5"]
 
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_0w4wi")
+
+[node name="BackgroundFill" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="BackgroundFill"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.364706, 0.537255, 0.866667, 1)
+
+[node name="Island" parent="." instance=ExtResource("2_hjbwl")]
+
+[node name="Player" parent="." instance=ExtResource("3_dyan5")]
+position = Vector2(886, 509)

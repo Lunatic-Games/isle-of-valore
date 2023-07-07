@@ -1,1 +1,2 @@
-extends Node2D
+class_name Unit
+extends CharacterBody2D

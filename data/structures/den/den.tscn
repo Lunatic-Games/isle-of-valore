@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://brgpt5w2nvr0c"]
+
+[ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_740vv"]
+[ext_resource type="Texture2D" uid="uid://bwv0cdeyaw1ov" path="res://icon.svg" id="2_bpo2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oalnv"]
+size = Vector2(128, 44)
+
+[node name="Den" instance=ExtResource("1_740vv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -64)
+texture = ExtResource("2_bpo2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_oalnv")
