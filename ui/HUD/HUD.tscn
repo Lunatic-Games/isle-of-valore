@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsofnkaffifsd"]
+
+[ext_resource type="Script" path="res://ui/HUD/HUD.gd" id="1_dpath"]
+[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="1_mgjmc"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_dpath")
+
+[node name="CurrencyContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CurrencySprite" type="TextureRect" parent="CurrencyContainer"]
+layout_mode = 2
+texture = ExtResource("1_mgjmc")
+
+[node name="CurrencyLeft" type="RichTextLabel" parent="CurrencyContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "0"
+fit_content = true

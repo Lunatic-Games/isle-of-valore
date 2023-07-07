@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm1dymkqwjrg5"]
+[gd_scene load_steps=3 format=3 uid="uid://bm1dymkqwjrg5"]
+
+[ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="1_orh1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_264dm"]
 size = Vector2(250, 68)
 
 [node name="InteractionComponent" type="Area2D"]
 monitoring = false
+script = ExtResource("1_orh1b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_264dm")

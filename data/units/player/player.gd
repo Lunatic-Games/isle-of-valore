@@ -37,7 +37,7 @@ func perform_ability() -> void:
 func handle_interact() -> void:
 	if !currently_interactive:
 		return
-	print("Interacted with ", currently_interactive)
+	currently_interactive.interact()
 
 
 func _on_interactable_searcher_area_entered(area: Area2D) -> void:
