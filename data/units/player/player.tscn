@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://r8adsu6lxnpr"]
+[gd_scene load_steps=6 format=3 uid="uid://r8adsu6lxnpr"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_07r1j"]
 [ext_resource type="Script" path="res://data/units/player/player.gd" id="2_n2bcx"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y52et"]
 height = 132.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oqk0"]
+size = Vector2(148, 53)
 
 [node name="Player" instance=ExtResource("1_07r1j")]
 collision_layer = 4
@@ -21,3 +24,13 @@ texture = ExtResource("3_uaiqm")
 position = Vector2(0, -8)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_y52et")
+
+[node name="InteractableSearcher" type="Area2D" parent="." index="2"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableSearcher" index="0"]
+position = Vector2(-2, -10.5)
+shape = SubResource("RectangleShape2D_0oqk0")
+
+[connection signal="area_entered" from="InteractableSearcher" to="." method="_on_interactable_searcher_area_entered"]
+[connection signal="area_exited" from="InteractableSearcher" to="." method="_on_interactable_searcher_area_exited"]
