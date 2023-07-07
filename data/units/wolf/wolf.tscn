@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4j4eo05twugp"]
+
+[ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_guwsx"]
+[ext_resource type="Texture2D" uid="uid://cgfvknk4k3hgp" path="res://assets/art/units/wolf.png" id="2_ha20o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
+height = 64.0
+
+[node name="Wolf" instance=ExtResource("1_guwsx")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ha20o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 42)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_ovqx7")

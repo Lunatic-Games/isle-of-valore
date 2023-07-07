@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_740vv"]
 [ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/trunk.png" id="2_g6e6p"]
 [ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_li2jx"]
-[ext_resource type="PackedScene" uid="uid://r8adsu6lxnpr" path="res://data/units/player/player.tscn" id="4_0q5j2"]
+[ext_resource type="PackedScene" uid="uid://c4j4eo05twugp" path="res://data/units/wolf/wolf.tscn" id="4_pkomk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
 radius = 27.0
@@ -23,4 +23,5 @@ shape = SubResource("CapsuleShape2D_3pfdu")
 
 [node name="SpawningComponent" parent="." index="2" instance=ExtResource("3_li2jx")]
 position = Vector2(0, 77)
-unit_to_spawn = ExtResource("4_0q5j2")
+unit_to_spawn = ExtResource("4_pkomk")
+time_until_spawn = 10.0

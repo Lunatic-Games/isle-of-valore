@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=6 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
 [ext_resource type="PackedScene" uid="uid://2vqqbo2i8g4o" path="res://data/islands/island.tscn" id="2_hjbwl"]
 [ext_resource type="PackedScene" uid="uid://r8adsu6lxnpr" path="res://data/units/player/player.tscn" id="3_dyan5"]
 [ext_resource type="Script" path="res://game/camera.gd" id="4_k3nis"]
+[ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="5_m5il1"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -28,3 +29,6 @@ position = Vector2(886, 509)
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 script = ExtResource("4_k3nis")
 follow_target = NodePath("../Player")
+
+[node name="Human" parent="." instance=ExtResource("5_m5il1")]
+position = Vector2(1238, 294)
