@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1m0ja4p2lngf"]
+
+[ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_kb5hv"]
+[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/trunk.png" id="2_4jh0a"]
+[ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_8k5ol"]
+[ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="4_dicek"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjnhy"]
+radius = 30.0
+height = 194.0
+
+[node name="HQ" instance=ExtResource("1_kb5hv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+self_modulate = Color(0.976471, 0.176471, 0.423529, 1)
+position = Vector2(6, -96)
+texture = ExtResource("2_4jh0a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_kjnhy")
+
+[node name="SpawningComponent" parent="." index="2" instance=ExtResource("3_8k5ol")]
+position = Vector2(0, 117)
+unit_to_spawn = ExtResource("4_dicek")
+time_until_spawn = 5.0

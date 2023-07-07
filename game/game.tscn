@@ -27,11 +27,11 @@ color = Color(0.329412, 0.501961, 0.839216, 1)
 [node name="Island" parent="." instance=ExtResource("2_hjbwl")]
 
 [node name="Player" parent="." instance=ExtResource("3_dyan5")]
-position = Vector2(886, 509)
+position = Vector2(461, 475)
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 script = ExtResource("4_k3nis")
 follow_target = NodePath("../Player")
 
 [node name="Human" parent="." instance=ExtResource("5_m5il1")]
-position = Vector2(1238, 294)
+position = Vector2(962, 700)

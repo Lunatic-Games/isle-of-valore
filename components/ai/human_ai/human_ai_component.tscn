@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4gs06x5qiuj6"]
+
+[ext_resource type="Script" path="res://components/ai/human_ai/human_ai_component.gd" id="1_v8v8p"]
+
+[node name="HumanAIComponet" type="NavigationAgent2D"]
+script = ExtResource("1_v8v8p")
