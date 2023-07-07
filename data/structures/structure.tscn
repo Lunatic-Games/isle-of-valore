@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv3j651purmj0"]
+
+[ext_resource type="Script" path="res://data/structures/structure.gd" id="1_wswni"]
+
+[node name="Structure" type="Node2D"]
+script = ExtResource("1_wswni")

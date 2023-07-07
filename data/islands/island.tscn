@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2vqqbo2i8g4o"]
+
+[ext_resource type="Script" path="res://data/islands/island.gd" id="1_3pcty"]
+
+[node name="Island" type="Node2D"]
+script = ExtResource("1_3pcty")
