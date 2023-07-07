@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=9 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Texture2D" uid="uid://baiyqkvw87skr" path="res://assets/art/structures/tree.png" id="2_y0plm"]
 [ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="3_wp46i"]
+[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="4_77g8i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1pr0"]
 radius = 7.0
@@ -10,6 +11,51 @@ height = 146.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_264dm"]
 size = Vector2(250, 68)
+
+[sub_resource type="Animation" id="Animation_0gtrg"]
+resource_name = "generate_currency"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CurrencyUpdated:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CurrencyUpdated:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-44, -442), Vector2(-44, -442), Vector2(-44, -442), Vector2(-44, -478)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CurrencyUpdated:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cbbt"]
+_data = {
+"generate_currency": SubResource("Animation_0gtrg")
+}
 
 [node name="Tree" instance=ExtResource("1_sc78k")]
 
@@ -29,3 +75,35 @@ script = ExtResource("3_wp46i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" index="0"]
 position = Vector2(-16, -11)
 shape = SubResource("RectangleShape2D_264dm")
+
+[node name="InfusedLabel" type="RichTextLabel" parent="." index="3"]
+visible = false
+offset_left = -40.0
+offset_top = -47.0
+offset_right = 21.0
+offset_bottom = -7.0
+text = "Infused"
+
+[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="4"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_left = -44.0
+offset_top = -478.0
+offset_right = 122.0
+offset_bottom = -428.0
+
+[node name="TextureRect" type="TextureRect" parent="CurrencyUpdated" index="0"]
+layout_mode = 2
+texture = ExtResource("4_77g8i")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CurrencyUpdated" index="1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+text = "+5"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_2cbbt")
+}

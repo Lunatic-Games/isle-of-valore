@@ -9,7 +9,9 @@ func interact() -> void:
 
 func infuse():
 	get_tree().create_timer(INFUSE_TIMER).connect("timeout", infuse_trigger)
+	$InfusedLabel.visible = true
 
 func infuse_trigger() -> void:
 	GlobalGameState.HUD.update_currency(CURRENCY_GENERATED)
 	get_tree().create_timer(INFUSE_TIMER).connect("timeout", infuse_trigger)
+	$AnimationPlayer.play("generate_currency")
