@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://2vqqbo2i8g4o"]
+[gd_scene load_steps=5 format=3 uid="uid://2vqqbo2i8g4o"]
 
 [ext_resource type="Script" path="res://data/islands/island.gd" id="1_3pcty"]
 [ext_resource type="PackedScene" uid="uid://brgpt5w2nvr0c" path="res://data/structures/den/den.tscn" id="2_u8k2l"]
+[ext_resource type="PackedScene" uid="uid://b1m0ja4p2lngf" path="res://data/structures/hq/hq.tscn" id="3_0oiis"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_delv7"]
+vertices = PackedVector2Array(224, 85, 1663, 87, 1666, 967, 227, 969)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(224, 85, 1663, 87, 1666, 967, 227, 969)])
 
 [node name="Island" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3pcty")
 
 [node name="Den" parent="." instance=ExtResource("2_u8k2l")]
-position = Vector2(638, 368)
+position = Vector2(456, 293)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 226.0
@@ -16,3 +22,9 @@ offset_top = 88.0
 offset_right = 1663.0
 offset_bottom = 969.0
 color = Color(0.435294, 0.568627, 0.352941, 1)
+
+[node name="HQ" parent="." instance=ExtResource("3_0oiis")]
+position = Vector2(937, 566)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_delv7")
