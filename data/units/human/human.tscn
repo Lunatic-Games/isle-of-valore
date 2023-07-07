@@ -9,7 +9,6 @@
 height = 42.0
 
 [node name="Human" instance=ExtResource("1_lj6nc")]
-collision_layer = 4
 script = ExtResource("2_03m2e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
@@ -23,3 +22,5 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_xf8o2")
 
 [node name="HumanAIComponent" parent="." index="2" instance=ExtResource("3_whyu1")]
+
+[connection signal="velocity_computed" from="HumanAIComponent" to="." method="_on_human_ai_component_velocity_computed"]

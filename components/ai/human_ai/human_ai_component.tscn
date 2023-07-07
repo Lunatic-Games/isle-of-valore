@@ -3,4 +3,7 @@
 [ext_resource type="Script" path="res://components/ai/human_ai/human_ai_component.gd" id="1_v8v8p"]
 
 [node name="HumanAIComponet" type="NavigationAgent2D"]
+avoidance_enabled = true
+max_speed = 100000.0
+debug_enabled = true
 script = ExtResource("1_v8v8p")
