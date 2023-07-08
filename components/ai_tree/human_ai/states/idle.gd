@@ -21,7 +21,7 @@ func update():
 	if human.targetted_structure == null:
 		return
 	
-	ai_tree.transition_to("going_to_structure")
+	ai_tree.transition_to("going_to_harvest")
 
 
 func target_new_tree():

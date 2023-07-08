@@ -22,6 +22,9 @@ func update():
 
 
 func transition_to(state_name: String):
+	if current_state and current_state.state_name == state_name:
+		return
+	
 	for child in get_children():
 		var ai_state: AIState = child as AIState
 		if ai_state == null:
@@ -37,3 +40,9 @@ func transition_to(state_name: String):
 			return
 	
 	assert(false, "Uh oh, could not find state with name: '" + state_name + "'")
+
+
+func get_current_state_name() -> String:
+	if current_state:
+		return current_state.state_name
+	return ""
