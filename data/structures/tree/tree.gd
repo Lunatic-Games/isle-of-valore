@@ -7,7 +7,6 @@ const CURRENCY_GENERATED: int = 5
 
 var remaining_wood: int = 20
 var unit_reserving_harvest: Unit = null
-var cost_to_infuse: int = 10
 var infused: bool = false
 
 @onready var animation_palyer: AnimationPlayer = $AnimationPlayer
@@ -21,10 +20,10 @@ func _ready():
 	GlobalGameState.infuse_controller.connect("ready_to_infuse", update_interact_text)
 
 func interact() -> void:
-	if GlobalGameState.HUD.currency >= cost_to_infuse && !infused && GlobalGameState.infuse_controller.can_infuse:
+	if GlobalGameState.HUD.currency >= GlobalGameState.infuse_controller.cost_to_infuse && !infused && GlobalGameState.infuse_controller.can_infuse:
 		infuse()
 		infused = true
-		GlobalGameState.HUD.update_currency(-cost_to_infuse)
+		GlobalGameState.HUD.update_currency(-GlobalGameState.infuse_controller.cost_to_infuse)
 		GlobalGameState.infuse_controller.start_cooldown()
 
 
@@ -54,6 +53,6 @@ func hide_interactive() -> void:
 
 func update_interact_text() -> void:
 	if GlobalGameState.infuse_controller.can_infuse:
-		interact_label.text = "[center]Press F to infuse[/center]"
+		interact_label.text = "[center]Press F to infuse: " + str(GlobalGameState.infuse_controller.cost_to_infuse) + " presence"
 	else:
 		interact_label.text = "[center]Infuse on cooldown[/center]"

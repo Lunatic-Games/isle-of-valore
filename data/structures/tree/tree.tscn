@@ -113,6 +113,18 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_52as2"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_egxbh"]
 resource_name = "despawn_interact"
@@ -200,7 +212,7 @@ offset_bottom = -183.0
 [node name="InteractLabel" type="RichTextLabel" parent="InteractLabel" index="0"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]Press F to infuse[/center]"
+text = "[center]Press F to infuse: 10 presence[/center]"
 fit_content = true
 
 [node name="CurrencyUpdated" type="HBoxContainer" parent="." index="6"]
