@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=36 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
@@ -109,8 +109,24 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_xev46"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InfusedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fcbaw"]
 _data = {
+"RESET": SubResource("Animation_xev46"),
 "infuse": SubResource("Animation_eun7k")
 }
 
@@ -298,10 +314,10 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 4
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0349066, -0.0349066, 0.0174533, 0.0]
@@ -310,10 +326,10 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("InfusedSprite:rotation")
-tracks/1/interp = 1
+tracks/1/interp = 4
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0349066, -0.0349066, 0.0174533, 0.0]
@@ -322,10 +338,10 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("TreeStump:rotation")
-tracks/2/interp = 1
+tracks/2/interp = 4
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0349066, -0.0349066, 0.0174533, 0.0]
@@ -370,18 +386,15 @@ script = ExtResource("2_gamew")
 [node name="TreeStump" type="Sprite2D" parent="." index="0"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1, -28)
-rotation = 0.0349066
 texture = ExtResource("5_gtus0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 position = Vector2(0, -215)
-rotation = 0.0349066
 texture = ExtResource("2_y0plm")
 
 [node name="InfusedSprite" type="Sprite2D" parent="." index="2"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-12, -206)
-rotation = 0.0349066
 texture = ExtResource("4_n6vdl")
 
 [node name="InfusedParticles" type="GPUParticles2D" parent="." index="3"]
@@ -416,7 +429,7 @@ text = "[center]Press F to infuse: 10 presence[/center]"
 fit_content = true
 
 [node name="CurrencyUpdated" type="HBoxContainer" parent="." index="7"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.8)
 z_index = 1
 z_as_relative = false
 offset_left = -44.0

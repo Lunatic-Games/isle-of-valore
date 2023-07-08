@@ -30,7 +30,7 @@ func hide_interactive() -> void:
 	den_container.visible = false
 	is_purchasing_den = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_purchasing_den:
 		if Input.is_action_just_pressed("purchase_slot_1"):
 			spawn_wolf_den()
