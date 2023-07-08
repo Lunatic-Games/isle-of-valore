@@ -42,10 +42,11 @@ hue_variation_max = 0.01
 [node name="Fire" instance=ExtResource("1_g5qmw")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+position = Vector2(0, -27)
 texture = ExtResource("2_44snm")
 
 [node name="SmokeParticles" type="GPUParticles2D" parent="." index="2"]
-position = Vector2(0, -33)
+position = Vector2(0, -60)
 amount = 2
 process_material = SubResource("ParticleProcessMaterial_d42of")
 texture = ExtResource("3_uxq11")
