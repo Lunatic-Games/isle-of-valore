@@ -2,27 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_kb5hv"]
 [ext_resource type="Script" path="res://data/structures/hq/hq.gd" id="2_ibh7s"]
-[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/den_squirrels.png" id="3_el56y"]
+[ext_resource type="Texture2D" uid="uid://npiibpyoon0h" path="res://assets/art/structures/house.png" id="3_viboc"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="6_r86s4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjnhy"]
-radius = 30.0
-height = 194.0
+radius = 20.0
+height = 386.0
 
 [node name="HQ" instance=ExtResource("1_kb5hv")]
 script = ExtResource("2_ibh7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-self_modulate = Color(0.431373, 0, 0.156863, 1)
 position = Vector2(6, -96)
-texture = ExtResource("3_el56y")
+texture = ExtResource("3_viboc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(30, 17)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_kjnhy")
 
 [node name="NavColliderComponent" parent="." index="2" instance=ExtResource("6_r86s4")]
-polygon = PackedVector2Array(-103, -38, 103, -36, 100, 36, -103, 32)
+position = Vector2(8, 16)
+polygon = PackedVector2Array(-171, -21, 223, -20, 219, 26, -177, 27)
 
 [node name="DropOffLocation" type="Marker2D" parent="." index="3"]
 position = Vector2(0, 57)
