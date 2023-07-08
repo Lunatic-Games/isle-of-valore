@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=25 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
@@ -143,8 +143,12 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_52as2"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b2c76"]
 _data = {
+"RESET": SubResource("Animation_52as2"),
 "despawn_interact": SubResource("Animation_egxbh"),
 "spawn_interact": SubResource("Animation_ft3cc")
 }
@@ -185,6 +189,7 @@ polygon = PackedVector2Array(25, -35, -48, -35, -48, -23, 24, -22)
 position = Vector2(-8, 17)
 
 [node name="InteractLabel" type="PanelContainer" parent="." index="5"]
+modulate = Color(1, 1, 1, 0)
 offset_left = -74.0
 offset_top = -211.0
 offset_right = 78.0
