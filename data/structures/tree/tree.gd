@@ -5,8 +5,11 @@ extends Structure
 const INFUSE_TIMER: float = 3.0
 const CURRENCY_GENERATED: int = 5
 
+var remaining_wood: int = 20
+
 @onready var infused_label: RichTextLabel = $InfusedLabel
 @onready var animation_palyer: AnimationPlayer = $AnimationPlayer
+@onready var harvest_location: Node2D = $HarvestLocation
 
 
 func interact() -> void:

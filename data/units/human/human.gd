@@ -1,7 +1,15 @@
+class_name Human
 extends Unit
 
 
 const MOVE_SPEED: float = 200
+const TIME_TO_HARVEST: float = 1.0
+
+const MAX_WOOD_HELD: int = 2
+const MAX_FOOD_HELD: int = 2
+
+var amount_wood_held: int = 0
+var amount_food_held: int = 0
 
 @onready var ai: HumanAIComponent = $HumanAIComponent
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=11 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
 [ext_resource type="Texture2D" uid="uid://baiyqkvw87skr" path="res://assets/art/structures/tree.png" id="2_y0plm"]
 [ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="3_wp46i"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="4_77g8i"]
+[ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_vlnr7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1pr0"]
 radius = 7.0
@@ -78,7 +79,13 @@ script = ExtResource("3_wp46i")
 position = Vector2(-16, -11)
 shape = SubResource("RectangleShape2D_264dm")
 
-[node name="InfusedLabel" type="RichTextLabel" parent="." index="3"]
+[node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_vlnr7")]
+polygon = PackedVector2Array(75, -35, -96, -34, -95, 3, 74, 2)
+
+[node name="HarvestLocation" type="Marker2D" parent="." index="4"]
+position = Vector2(-8, 17)
+
+[node name="InfusedLabel" type="RichTextLabel" parent="." index="5"]
 visible = false
 offset_left = -40.0
 offset_top = -47.0
@@ -86,7 +93,7 @@ offset_right = 21.0
 offset_bottom = -7.0
 text = "Infused"
 
-[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="4"]
+[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="6"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 offset_left = -44.0
@@ -105,7 +112,7 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "+5"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_2cbbt")
 }

@@ -18,7 +18,7 @@ func _get_all_collision_polygons(root_node: Node) -> Array[PackedVector2Array]:
 		var current_node: Node = node_stack.pop_front()
 		node_stack.append_array(current_node.get_children())
 		
-		if current_node is CollisionPolygon2D:
+		if current_node is NavColliderComponent:
 			var poly_transform: Transform2D = current_node.get_global_transform()
 			var poly: PackedVector2Array = current_node.polygon
 			polygons.append(poly_transform * poly)

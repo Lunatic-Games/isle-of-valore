@@ -22,5 +22,6 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_xf8o2")
 
 [node name="HumanAIComponent" parent="." index="2" instance=ExtResource("3_whyu1")]
+target_desired_distance = 50.0
 
 [connection signal="velocity_computed" from="HumanAIComponent" to="." method="_on_human_ai_component_velocity_computed"]

@@ -7,19 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://ctm4vk0bsumfp" path="res://data/structures/tree/tree.tscn" id="4_wms3k"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fqbrj"]
-vertices = PackedVector2Array(227, 85, 1664, 87, 1666, 967, 225, 967)
+vertices = PackedVector2Array(-537, -478, 2456, -474, 2456, 1428, -530, 1410)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(227, 85, 1664, 87, 1666, 967, 225, 967)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-537, -478, 2456, -474, 2456, 1428, -530, 1410)])
 
 [node name="Island" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3pcty")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 226.0
-offset_top = 88.0
-offset_right = 1663.0
-offset_bottom = 969.0
+offset_left = -532.0
+offset_top = -471.0
+offset_right = 2452.0
+offset_bottom = 1415.0
 color = Color(0.435294, 0.568627, 0.352941, 1)
 
 [node name="NavigationRegion" type="NavigationRegion2D" parent="."]
