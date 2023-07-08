@@ -11,3 +11,11 @@ func interact() -> void:
 		get_parent().infuse() # Infuse the tree
 		GlobalGameState.HUD.update_currency(-cost_to_infuse)
 		GlobalGameState.infuse_controller.start_cooldown()
+
+func show_interactive() -> void:
+	if !infused:
+		get_parent().show_interactive()
+
+func hide_interactive() -> void:
+	if !infused:
+		get_parent().hide_interactive()
