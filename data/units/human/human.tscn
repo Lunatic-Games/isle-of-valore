@@ -24,9 +24,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_omvqp")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_vxogn"]
 resource_name = "harvesting_wood"
+loop_mode = 1
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,6 +52,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("5_fuctl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0872665, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ch7bq"]
@@ -54,9 +80,24 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_omvqp")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_3u407"]
 resource_name = "walk"
+length = 0.5
+loop_mode = 1
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -68,6 +109,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("5_0qd6c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4361s"]
@@ -103,11 +156,13 @@ libraries = {
 }
 
 [node name="HumanAITreeComponent" parent="." index="3" instance=ExtResource("3_whyu1")]
+debug_enabled = false
 
 [node name="StructureSightRange" type="Area2D" parent="." index="4"]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StructureSightRange" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_ky8nn")
 
 [node name="UnitSightRange" type="Area2D" parent="." index="5"]
@@ -115,6 +170,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UnitSightRange" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_l10m8")
 debug_color = Color(0.964706, 0, 0.501961, 0.419608)
 
