@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://2vqqbo2i8g4o"]
+[gd_scene load_steps=7 format=3 uid="uid://2vqqbo2i8g4o"]
 
 [ext_resource type="Script" path="res://data/islands/island.gd" id="1_3pcty"]
 [ext_resource type="Script" path="res://data/islands/island_navigation_region.gd" id="2_yjrk1"]
 [ext_resource type="PackedScene" uid="uid://b1m0ja4p2lngf" path="res://data/structures/hq/hq.tscn" id="3_0oiis"]
 [ext_resource type="PackedScene" uid="uid://ctm4vk0bsumfp" path="res://data/structures/tree/tree.tscn" id="4_wms3k"]
+[ext_resource type="PackedScene" uid="uid://gshe1olk3sk0" path="res://data/structures/fire/fire.tscn" id="5_ccikp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fqbrj"]
 vertices = PackedVector2Array(-537, -478, 5432, -474, 5436, 3301, -530, 3304)
@@ -226,3 +227,6 @@ y_sort_enabled = true
 
 [node name="HQ" parent="NavigationRegion/OtherStructures" instance=ExtResource("3_0oiis")]
 position = Vector2(2772, 1343)
+
+[node name="Fire" parent="NavigationRegion/OtherStructures" instance=ExtResource("5_ccikp")]
+position = Vector2(2496, 1465)
