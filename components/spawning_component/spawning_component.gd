@@ -4,8 +4,10 @@ extends Node2D
 
 @export var unit_to_spawn: PackedScene
 @export_range(0.0, 60.0, 0.1, "or_greater") var time_until_spawn: float = 10.0
+@export var cost_to_spawn: int
 
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var currency_animator: AnimationPlayer = get_parent().find_child("CurrencyAnimator")
 
 
 func _ready() -> void:
@@ -17,9 +19,13 @@ func _ready() -> void:
 
 
 func spawn_unit() -> void:
-	if GlobalGameState.game == null:
+	if GlobalGameState.game == null || GlobalGameState.HUD.currency < cost_to_spawn:
 		return
 	
 	var unit: Unit = unit_to_spawn.instantiate()
 	unit.global_position = global_position
 	GlobalGameState.game.add_child(unit)
+	GlobalGameState.HUD.update_currency(-cost_to_spawn)
+	
+	if currency_animator:
+		currency_animator.play("show_cost")

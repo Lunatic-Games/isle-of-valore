@@ -53,6 +53,6 @@ func hide_interactive() -> void:
 
 func update_interact_text() -> void:
 	if GlobalGameState.infuse_controller.can_infuse:
-		interact_label.text = "[center]Press F to infuse: " + str(GlobalGameState.infuse_controller.cost_to_infuse) + " presence"
+		interact_label.text = "[center]Press F to infuse"
 	else:
 		interact_label.text = "[center]Infuse on cooldown[/center]"
