@@ -11,15 +11,14 @@ const MAX_FOOD_HELD: int = 2
 var amount_wood_held: int = 0
 var amount_food_held: int = 0
 
+var targetted_resource_structure: Structure = null
+
 @onready var animation_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var ai: HumanAIComponent = $HumanAIComponent
+@onready var ai: AITreeComponent = $HumanAITreeComponent
 
 
 func _physics_process(_delta: float) -> void:
-	if ai.get_navigation_map() == null:
-		return
-	
 	ai.update()
 	
 	if ai.is_navigation_finished():
@@ -32,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func _on_human_ai_component_velocity_computed(safe_velocity: Vector2) -> void:
+func _on_human_ai_tree_component_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	sprite.flip_h = velocity.x > 0.0
 

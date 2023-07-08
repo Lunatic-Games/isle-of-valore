@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bedvarjm3tlcp"]
+
+[ext_resource type="Script" path="res://components/ai_tree/ai_tree_component.gd" id="1_7xb6a"]
+
+[node name="AITreeComponent" type="NavigationAgent2D"]
+script = ExtResource("1_7xb6a")
