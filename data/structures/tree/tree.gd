@@ -7,9 +7,9 @@ const CURRENCY_GENERATED: int = 5
 
 var remaining_wood: int = 20
 
-@onready var infused_label: RichTextLabel = $InfusedLabel
 @onready var animation_palyer: AnimationPlayer = $AnimationPlayer
 @onready var infuse_animator: AnimationPlayer = $InfuseAnimator
+@onready var infused_particles: GPUParticles2D = $InfusedParticles
 @onready var harvest_location: Node2D = $HarvestLocation
 
 
@@ -19,9 +19,8 @@ func interact() -> void:
 
 func infuse():
 	get_tree().create_timer(INFUSE_TIMER).connect("timeout", infuse_trigger)
-	infused_label.visible = true
 	infuse_animator.play("infuse")
-	
+	infused_particles.emitting = true
 
 
 func infuse_trigger() -> void:
