@@ -38,11 +38,3 @@ func _on_human_ai_tree_component_velocity_computed(safe_velocity: Vector2) -> vo
 	velocity = safe_velocity
 	if abs(velocity.x) > 10.0:
 		sprite.flip_h = velocity.x > 0.0
-
-
-func _on_human_ai_component_started_harvesting_wood() -> void:
-	animation_player.play("harvesting_wood")
-
-
-func _on_human_ai_component_stopped_harvesting_wood() -> void:
-	animation_player.play("idle")

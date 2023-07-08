@@ -27,8 +27,6 @@ func update():
 
 
 func on_exit(_next_state: AIState = null):
-	var human: Human = unit as Human
-	human.animation_player.play("idle")
 	if harvest_timer:
 		harvest_timer.stop()
 

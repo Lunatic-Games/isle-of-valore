@@ -8,6 +8,10 @@ extends StaticBody2D
 @onready var interact_point_container: Node2D = $AIInteractPoints
 
 
+func damage(amount: int):
+	health -= amount
+
+
 func get_closest_interact_position(to_position: Vector2) -> Vector2:
 	var closest_position: Vector2 = interact_point_container.global_position
 	var closest_distance_squared: float = closest_position.distance_squared_to(to_position)

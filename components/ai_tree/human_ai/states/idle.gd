@@ -12,7 +12,7 @@ func on_enter(_previous_state: AIState = null):
 func update():
 	var human: Human = unit as Human
 	if human.amount_wood_held >= human.MAX_WOOD_HELD:
-		ai_tree.transition_to("returning_to_base")
+		ai_tree.transition_to("returning_to_hq")
 		return
 	
 	if human.target == null:
@@ -41,7 +41,7 @@ func target_new_tree():
 	var human: Human = unit as Human
 	var possible_trees: Array[TreeStructure] = []
 	for tree in trees:
-		if tree.unit_reserving_harvest != null:
+		if tree.unit_reserving_harvest != null or tree.remaining_wood <= 0:
 			continue
 		
 		possible_trees.append(tree)

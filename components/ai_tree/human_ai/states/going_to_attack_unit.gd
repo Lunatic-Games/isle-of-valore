@@ -11,8 +11,7 @@ func on_enter(_previous_state: AIState = null):
 
 func update():
 	var human: Human = unit as Human
-	var target: Animal = human.target as Animal
-	if target == null or target.is_queued_for_deletion():
+	if human.target == null or human.target.is_queued_for_deletion():
 		ai_tree.transition_to("idle")
 		return
 	
@@ -30,6 +29,9 @@ func passive_update() -> void:
 	
 	for body in human.unit_sight_range.get_overlapping_bodies():
 		if !(body is Animal):
+			continue
+		
+		if body.health <= 0 or body.is_queued_for_deletion():
 			continue
 		
 		var distance_squared: float = human.global_position.distance_squared_to(body.global_position)

@@ -21,10 +21,19 @@ func on_enter(_previous_state: AIState = null):
 	attack_timer.start()
 
 
+func update():
+	if attack_target == null or attack_target.is_queued_for_deletion():
+		ai_tree.transition_to("idle")
+
+
 func on_exit(_next_state: AIState = null):
-	var human: Human = unit as Human
-	human.animation_player.play("idle")
+	if attack_timer:
+		attack_timer.stop()
 
 
 func _on_attack_timer_timeout():
-	pass
+	var human: Human = unit as Human
+	attack_target.damage(1)
+	
+	if attack_target.health == 0 or attack_target.is_queued_for_deletion():
+		ai_tree.transition_to("idle")
