@@ -4,15 +4,15 @@ extends AIState
 
 func on_enter(_previous_state: AIState = null):
 	var human: Human = unit as Human
-	assert(human.targetted_resource_structure != null, "No target for going to resource")
+	var target_structure: Structure = human.targetted_structure
+	assert(target_structure != null, "No target structure")
 	
-	var as_tree = human.targetted_resource_structure as TreeStructure
-	ai_tree.target_position = as_tree.harvest_location.global_position
+	ai_tree.target_position = target_structure.get_closest_interact_position(human.global_position)
 
 
 func update():
 	var human: Human = unit as Human
-	var target: Structure = human.targetted_resource_structure
+	var target: Structure = human.targetted_structure
 	if target == null or target.is_queued_for_deletion():
 		ai_tree.transition_to("idle")
 		return

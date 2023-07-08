@@ -9,7 +9,8 @@ func on_enter(_previous_state: AIState = null):
 	var human: Human = unit as Human
 	human.animation_player.play("harvesting_wood")
 	
-	tree_harvesting = human.targetted_resource_structure as TreeStructure
+	tree_harvesting = human.targetted_structure as TreeStructure
+	human.sprite.flip_h = tree_harvesting.global_position.x > human.global_position.x
 	
 	if harvest_timer == null:
 		harvest_timer = Timer.new()

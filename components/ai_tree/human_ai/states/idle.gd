@@ -15,13 +15,13 @@ func update():
 		ai_tree.transition_to("returning_to_base")
 		return
 	
-	if human.targetted_resource_structure == null:
+	if human.targetted_structure == null:
 		target_new_tree()
 	
-	if human.targetted_resource_structure == null:
+	if human.targetted_structure == null:
 		return
 	
-	ai_tree.transition_to("going_to_resource")
+	ai_tree.transition_to("going_to_structure")
 
 
 func target_new_tree():
@@ -49,5 +49,5 @@ func target_new_tree():
 			break
 	
 	var chosen_tree: TreeStructure = possible_trees.pick_random()
-	human.targetted_resource_structure = chosen_tree
+	human.targetted_structure = chosen_tree
 	chosen_tree.unit_reserving_harvest = human
