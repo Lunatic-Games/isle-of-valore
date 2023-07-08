@@ -15,6 +15,7 @@ var infused: bool = false
 @onready var infused_particles: GPUParticles2D = $InfusedParticles
 @onready var harvest_location: Node2D = $HarvestLocation
 @onready var interact_label: RichTextLabel = $InteractLabel/InteractLabel
+@onready var tree_cut_animator: AnimationPlayer = $TreeCutAnimator
 
 func _ready():
 	GlobalGameState.infuse_controller.connect("ready_to_infuse", update_interact_text)
@@ -61,6 +62,9 @@ func harvest() -> int:
 	remaining_wood -= 1
 	
 	if remaining_wood <= 0:
-		pass
+		if infused:
+			tree_cut_animator.play("fell_tree_infused")
+		else:
+			tree_cut_animator.play("fell_tree")
 	
 	return 1
