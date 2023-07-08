@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://dny3dsk35pfhj"]
+
+[ext_resource type="Script" path="res://ui/HUD/AbilitySlotUI.gd" id="1_2hb6f"]
+[ext_resource type="Texture2D" uid="uid://dy0l083k12jqk" path="res://assets/art/structures/den_wolf.png" id="2_fowqb"]
+[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="3_pjgyi"]
+
+[sub_resource type="Animation" id="Animation_8ib20"]
+resource_name = "deselect"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CurrencyContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ogxlo"]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CurrencyContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CurrencyContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-44, -89), Vector2(-44, -89)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xj5iu"]
+_data = {
+"deselect": SubResource("Animation_8ib20"),
+"select": SubResource("Animation_ogxlo")
+}
+
+[node name="Ability" type="ColorRect"]
+custom_minimum_size = Vector2(96, 96)
+size_flags_horizontal = 6
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_2hb6f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("2_fowqb")
+expand_mode = 1
+
+[node name="CurrencyContainer" type="HBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -44.0
+offset_top = -89.0
+offset_right = 121.0
+offset_bottom = 3.0
+
+[node name="CurrencySprite" type="TextureRect" parent="CurrencyContainer"]
+layout_mode = 2
+texture = ExtResource("3_pjgyi")
+
+[node name="CurrencyLeft" type="RichTextLabel" parent="CurrencyContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "40"
+fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xj5iu")
+}

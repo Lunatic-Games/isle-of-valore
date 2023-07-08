@@ -80,7 +80,12 @@ func choose_currently_interactive():
 		if !closest_area || global_position.distance_to(area.global_position) < global_position.distance_to(closest_area.global_position):
 			closest_area = area
 	
+	if currently_interactive && currently_interactive != closest_area:
+		currently_interactive.hide_interactive()
+	
 	currently_interactive = closest_area
+	if currently_interactive:
+		currently_interactive.show_interactive()
 
 
 func spawn_wolf_den() -> void:
