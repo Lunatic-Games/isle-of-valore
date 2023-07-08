@@ -111,22 +111,6 @@ _data = {
 "infuse": SubResource("Animation_eun7k")
 }
 
-[sub_resource type="Animation" id="Animation_ft3cc"]
-resource_name = "spawn_interact"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("InteractLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_egxbh"]
 resource_name = "despawn_interact"
 length = 0.3
@@ -141,6 +125,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ft3cc"]
+resource_name = "spawn_interact"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b2c76"]
@@ -185,6 +185,7 @@ polygon = PackedVector2Array(75, -35, -96, -34, -95, 3, 74, 2)
 position = Vector2(-8, 17)
 
 [node name="InteractLabel" type="PanelContainer" parent="." index="5"]
+modulate = Color(1, 1, 1, 0)
 offset_left = -74.0
 offset_top = -211.0
 offset_right = 78.0
