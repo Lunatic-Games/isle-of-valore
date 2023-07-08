@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjbu45creh1hi"]
+[gd_scene load_steps=11 format=3 uid="uid://bjbu45creh1hi"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_rjijt"]
 [ext_resource type="Texture2D" uid="uid://ckgr1ra76khwu" path="res://assets/art/structures/den_bear.png" id="2_75a4j"]
+[ext_resource type="Script" path="res://data/structures/den.gd" id="2_a6aie"]
 [ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_ycoam"]
 [ext_resource type="PackedScene" uid="uid://dcnn5kn0khuas" path="res://data/units/bear/bear.tscn" id="4_64n7f"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_h6b1y"]
@@ -44,6 +45,8 @@ _data = {
 }
 
 [node name="BearDen" instance=ExtResource("1_rjijt")]
+script = ExtResource("2_a6aie")
+tier_cost = Array[int]([0, 0])
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(-2, -161)

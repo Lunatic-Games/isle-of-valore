@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d14dss0mk65ej"]
+[gd_scene load_steps=5 format=3 uid="uid://d14dss0mk65ej"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_0wg7t"]
 [ext_resource type="Texture2D" uid="uid://7yxsf813i1m5" path="res://assets/art/units/squirrel.png" id="2_dx4bd"]
+[ext_resource type="Script" path="res://data/units/animal.gd" id="2_k3du6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
 radius = 1.75
 height = 14.0
 
 [node name="Squirrel" instance=ExtResource("1_0wg7t")]
+script = ExtResource("2_k3du6")
+max_healths = Array[int]([20, 40, 60])
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1, -21)

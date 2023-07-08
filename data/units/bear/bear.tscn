@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcnn5kn0khuas"]
+[gd_scene load_steps=5 format=3 uid="uid://dcnn5kn0khuas"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_mjuep"]
+[ext_resource type="Script" path="res://data/units/animal.gd" id="2_qj521"]
 [ext_resource type="Texture2D" uid="uid://b5ko4atgw55pq" path="res://assets/art/units/bear.png" id="2_wacm1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
@@ -8,6 +9,8 @@ radius = 3.0
 height = 60.0
 
 [node name="Bear" instance=ExtResource("1_mjuep")]
+script = ExtResource("2_qj521")
+max_healths = Array[int]([20, 40, 60])
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1, -35)

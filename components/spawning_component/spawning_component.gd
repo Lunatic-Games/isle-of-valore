@@ -25,6 +25,7 @@ func spawn_unit() -> void:
 	var unit: Unit = unit_to_spawn.instantiate()
 	unit.global_position = global_position
 	GlobalGameState.game.add_child(unit)
+	unit.update_tier(get_parent().current_tier) # Sets the animal tier to the tier of the den
 	GlobalGameState.HUD.update_currency(-cost_to_spawn)
 	
 	if currency_animator:
