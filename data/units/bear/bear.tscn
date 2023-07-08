@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcnn5kn0khuas"]
+
+[ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_mjuep"]
+[ext_resource type="Texture2D" uid="uid://b5ko4atgw55pq" path="res://assets/art/units/bear.png" id="2_wacm1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
+radius = 3.0
+height = 60.0
+
+[node name="Bear" instance=ExtResource("1_mjuep")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(1, -35)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wacm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0.25)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_ovqx7")

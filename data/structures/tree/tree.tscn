@@ -111,6 +111,9 @@ _data = {
 "infuse": SubResource("Animation_eun7k")
 }
 
+[sub_resource type="Animation" id="Animation_52as2"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_egxbh"]
 resource_name = "despawn_interact"
 length = 0.3
@@ -142,9 +145,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_52as2"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b2c76"]
 _data = {

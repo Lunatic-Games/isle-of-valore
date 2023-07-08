@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_nl2nh"]
 [ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/den_squirrels.png" id="2_kwtmg"]
 [ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_vagq7"]
-[ext_resource type="PackedScene" uid="uid://c4j4eo05twugp" path="res://data/units/wolf/wolf.tscn" id="4_aon7q"]
+[ext_resource type="PackedScene" uid="uid://d14dss0mk65ej" path="res://data/units/squirrel/squirrel.tscn" id="4_o5yev"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_h4dsn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
@@ -24,7 +24,7 @@ shape = SubResource("CapsuleShape2D_3pfdu")
 
 [node name="SpawningComponent" parent="." index="2" instance=ExtResource("3_vagq7")]
 position = Vector2(0, 77)
-unit_to_spawn = ExtResource("4_aon7q")
+unit_to_spawn = ExtResource("4_o5yev")
 time_until_spawn = 10.0
 
 [node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_h4dsn")]
