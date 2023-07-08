@@ -1,25 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=16 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
 [ext_resource type="Texture2D" uid="uid://baiyqkvw87skr" path="res://assets/art/structures/tree.png" id="2_y0plm"]
 [ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="3_wp46i"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="4_77g8i"]
-[ext_resource type="Texture2D" uid="uid://ddoco8mvl45np" path="res://assets/art/structures/tree_infused.png" id="4_n6vdl"]
+[ext_resource type="Texture2D" uid="uid://ccfmrsp0q6oeu" path="res://assets/art/structures/tree_infused.png" id="4_n6vdl"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="5_qdq4i"]
+[ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_vlnr7"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8dqx8"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1pr0"]
-radius = 7.0
-height = 146.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_264dm"]
-size = Vector2(250, 68)
 
 [sub_resource type="Animation" id="Animation_0gtrg"]
 resource_name = "generate_currency"
@@ -87,6 +81,13 @@ _data = {
 "infuse": SubResource("Animation_eun7k")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1pr0"]
+radius = 7.0
+height = 146.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_264dm"]
+size = Vector2(250, 68)
+
 [node name="Tree" instance=ExtResource("1_sc78k")]
 script = ExtResource("2_gamew")
 
@@ -103,18 +104,11 @@ texture = ExtResource("4_n6vdl")
 process_material = SubResource("ParticleProcessMaterial_8dqx8")
 texture = ExtResource("5_qdq4i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-position = Vector2(-15, -16)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_r1pr0")
+[node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_vlnr7")]
+polygon = PackedVector2Array(75, -35, -96, -34, -95, 3, 74, 2)
 
-[node name="InteractionComponent" type="Area2D" parent="." index="4"]
-monitoring = false
-script = ExtResource("3_wp46i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" index="0"]
-position = Vector2(-16, -11)
-shape = SubResource("RectangleShape2D_264dm")
+[node name="HarvestLocation" type="Marker2D" parent="." index="4"]
+position = Vector2(-8, 17)
 
 [node name="InfusedLabel" type="RichTextLabel" parent="." index="5"]
 visible = false
@@ -152,3 +146,16 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_fcbaw")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="9"]
+position = Vector2(-15, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_r1pr0")
+
+[node name="InteractionComponent" type="Area2D" parent="." index="10"]
+monitoring = false
+script = ExtResource("3_wp46i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" index="0"]
+position = Vector2(-16, -11)
+shape = SubResource("RectangleShape2D_264dm")

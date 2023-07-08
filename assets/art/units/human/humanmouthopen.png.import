@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccfmrsp0q6oeu"
-path="res://.godot/imported/tree_infused.png-25af7c33ff89c6e001d8f044b1473c6e.ctex"
+uid="uid://b3inlq1ldygxj"
+path="res://.godot/imported/humanmouthopen.png-26eb9b65c99dcda71b5d021f52d8cab9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/structures/tree_infused.png"
-dest_files=["res://.godot/imported/tree_infused.png-25af7c33ff89c6e001d8f044b1473c6e.ctex"]
+source_file="res://assets/art/units/human/humanmouthopen.png"
+dest_files=["res://.godot/imported/humanmouthopen.png-26eb9b65c99dcda71b5d021f52d8cab9.ctex"]
 
 [params]
 

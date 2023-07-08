@@ -2,6 +2,9 @@ class_name HumanAIComponent
 extends NavigationAgent2D
 
 
+signal started_harvesting_wood
+signal stopped_harvesting_wood
+
 enum AIState {
 	IDLE,
 	GOING_TO_RESOURCE,
@@ -14,18 +17,31 @@ const N_TREES_TO_RANDOMLY_CHOOSE_FROM: int = 3
 var state: AIState = AIState.IDLE
 var resource_harvest_target: Structure
 
+@onready var human: Human = get_parent()
+@onready var harvest_timer: Timer = $HarvestTimer
+
+
+func _ready() -> void:
+	harvest_timer.wait_time = human.TIME_TO_HARVEST
+
 
 func update():
 	match state:
 		AIState.IDLE:
-			target_closest_tree()
+			idle_logic()
 		AIState.GOING_TO_RESOURCE:
-			check_for_arriving_at_resource()
+			going_to_resource_logic()
 		AIState.COLLECTING_RESOURCE:
-			check_for_resource_harvested()
+			collecting_resource_logic()
+		AIState.RETURNING:
+			returning_logic()
 
 
-func target_closest_tree():
+func idle_logic():
+	if human.amount_wood_held >= human.MAX_WOOD_HELD:
+		_return_to_hq_for_dropoff()
+		return
+	
 	var trees: Array[Node] = GlobalGameState.game.island.tree_container.get_children()
 	if trees.is_empty():
 		return
@@ -38,21 +54,62 @@ func target_closest_tree():
 			return a_distance_squared < b_distance_squared
 	)
 	
-	var chosen_tree: Structure = trees.slice(0, N_TREES_TO_RANDOMLY_CHOOSE_FROM).pick_random()
-	target_position = chosen_tree.global_position
+	var chosen_tree: TreeStructure = trees.slice(0, N_TREES_TO_RANDOMLY_CHOOSE_FROM).pick_random()
+	target_position = chosen_tree.harvest_location.global_position
 	resource_harvest_target = chosen_tree
 	state = AIState.GOING_TO_RESOURCE
 
 
-func check_for_arriving_at_resource():
+func going_to_resource_logic():
 	if resource_harvest_target == null:
 		state = AIState.IDLE
 		return
 	
 	if is_target_reached():
+		started_harvesting_wood.emit()
 		state = AIState.COLLECTING_RESOURCE
+		target_position = human.global_position
 
 
-func check_for_resource_harvested():
-	if resource_harvest_target != null:
+func collecting_resource_logic():
+	if resource_harvest_target == null:
 		return
+	
+	if harvest_timer.is_stopped():
+		harvest_timer.start()
+
+
+func returning_logic() -> void:
+	if is_target_reached():
+		GlobalGameState.game.island.hq.held_wood += human.amount_wood_held
+		human.amount_wood_held = 0
+		state = AIState.IDLE
+
+
+func _on_harvest_timer_timeout() -> void:
+	if resource_harvest_target == null:
+		state = AIState.IDLE
+		harvest_timer.stop()
+		stopped_harvesting_wood.emit()
+		return
+	
+	var tree: TreeStructure = resource_harvest_target as TreeStructure
+	if tree:
+		if tree.remaining_wood > 0:
+			tree.remaining_wood -= 1
+			human.amount_wood_held += 1
+		
+		if tree.remaining_wood == 0:
+			tree.queue_free()
+			state = AIState.IDLE
+			harvest_timer.stop()
+		
+		if human.amount_wood_held >= human.MAX_WOOD_HELD:
+			harvest_timer.stop()
+			_return_to_hq_for_dropoff()
+
+
+func _return_to_hq_for_dropoff():
+	target_position = GlobalGameState.game.island.hq.drop_off_location.global_position
+	state = AIState.RETURNING
+	stopped_harvesting_wood.emit()

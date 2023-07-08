@@ -3,6 +3,8 @@ extends Unit
 
 
 const MOVE_SPEED: float = 200
+const SQUIRREL_DEN_SCENE: PackedScene = preload("res://data/structures/squirrel_den/squirrel_den.tscn")
+const WOLF_DEN_SCENE: PackedScene = preload("res://data/structures/wolf_den/wolf_den.tscn")
 
 var interactables: Array[Area2D] = []
 var currently_interactive: Area2D
@@ -10,9 +12,6 @@ var ability_map: Dictionary = {
 	0: spawn_wolf_den,
 	1: spawn_squirrel_den
 }
-
-@onready var den_scene: PackedScene = preload("res://data/structures/den/den.tscn")
-@onready var wolf_den_scene: PackedScene = preload("res://data/structures/wolf_den/wolf_den.tscn")
 
 func _physics_process(delta: float) -> void:
 	var movement := Vector2()
@@ -80,12 +79,12 @@ func choose_currently_interactive():
 
 
 func spawn_wolf_den() -> void:
-	var den: Structure = wolf_den_scene.instantiate()
+	var den: Structure = WOLF_DEN_SCENE.instantiate()
 	den.global_position = Vector2(global_position.x, global_position.y - 50)
 	GlobalGameState.game.add_child(den)
 
 
 func spawn_squirrel_den() -> void:
-	var den: Structure = den_scene.instantiate()
-	den.global_position = Vector2(global_position.x, global_position.y - 50)
-	GlobalGameState.game.add_child(den)
+	var squirrel_den: Structure = SQUIRREL_DEN_SCENE.instantiate()
+	squirrel_den.global_position = Vector2(global_position.x, global_position.y - 50)
+	GlobalGameState.game.add_child(squirrel_den)

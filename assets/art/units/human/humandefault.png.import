@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs2gn6tonp1r7"
-path="res://.godot/imported/trunk.png-31da8abb4a04845accb0acb5675b9762.ctex"
+uid="uid://c1bp4kwhgqf80"
+path="res://.godot/imported/humandefault.png-c5cb28d545d8675f1a314a9d92c79cf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/structures/trunk.png"
-dest_files=["res://.godot/imported/trunk.png-31da8abb4a04845accb0acb5675b9762.ctex"]
+source_file="res://assets/art/units/human/humandefault.png"
+dest_files=["res://.godot/imported/humandefault.png-c5cb28d545d8675f1a314a9d92c79cf7.ctex"]
 
 [params]
 

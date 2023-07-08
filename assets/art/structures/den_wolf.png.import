@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccfmrsp0q6oeu"
-path="res://.godot/imported/tree_infused.png-25af7c33ff89c6e001d8f044b1473c6e.ctex"
+uid="uid://dy0l083k12jqk"
+path="res://.godot/imported/den_wolf.png-c29f550f9c27f6cb3659d1c08e70db41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/structures/tree_infused.png"
-dest_files=["res://.godot/imported/tree_infused.png-25af7c33ff89c6e001d8f044b1473c6e.ctex"]
+source_file="res://assets/art/structures/den_wolf.png"
+dest_files=["res://.godot/imported/den_wolf.png-c29f550f9c27f6cb3659d1c08e70db41.ctex"]
 
 [params]
 

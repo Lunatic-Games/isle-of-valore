@@ -1,0 +1,2 @@
+class_name NavColliderComponent
+extends CollisionPolygon2D
