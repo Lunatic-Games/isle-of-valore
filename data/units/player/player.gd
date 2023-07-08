@@ -6,6 +6,10 @@ const MOVE_SPEED: float = 200
 
 var interactables: Array[Area2D] = []
 var currently_interactive: Area2D
+var ability_map: Dictionary = {
+	0: spawn_wolf_den,
+	1: spawn_squirrel_den
+}
 
 @onready var den_scene: PackedScene = preload("res://data/structures/den/den.tscn")
 @onready var wolf_den_scene: PackedScene = preload("res://data/structures/wolf_den/wolf_den.tscn")
@@ -25,6 +29,10 @@ func _physics_process(delta: float) -> void:
 		perform_ability()
 	if Input.is_action_just_pressed("interact"):
 		handle_interact()
+	if Input.is_action_just_pressed("cycle_ability_left"):
+		GlobalGameState.HUD.cycle_ability(-1)
+	if Input.is_action_just_pressed("cycle_ability_right"):
+		GlobalGameState.HUD.cycle_ability(1)
 	
 	if movement.x != 0 || movement.y != 0 && !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play("walking")
@@ -40,11 +48,10 @@ func _physics_process(delta: float) -> void:
 
 
 func perform_ability() -> void:
-	# Check the active ability
-	# Trigger the associated effect
-	
-	# For now just spawning a den
-	spawn_wolf_den()
+	var ability_index = GlobalGameState.HUD.get_current_ability_index()
+	print(ability_index)
+	ability_map[ability_index].call()
+
 
 func handle_interact() -> void:
 	if !currently_interactive:
@@ -72,12 +79,13 @@ func choose_currently_interactive():
 	currently_interactive = closest_area
 
 
-func spawn_squirrel_den() -> void:
-	var den: Structure = den_scene.instantiate()
+func spawn_wolf_den() -> void:
+	var den: Structure = wolf_den_scene.instantiate()
 	den.global_position = Vector2(global_position.x, global_position.y - 50)
 	GlobalGameState.game.add_child(den)
 
-func spawn_wolf_den() -> void:
-	var den: Structure = wolf_den_scene.instantiate()
+
+func spawn_squirrel_den() -> void:
+	var den: Structure = den_scene.instantiate()
 	den.global_position = Vector2(global_position.x, global_position.y - 50)
 	GlobalGameState.game.add_child(den)
