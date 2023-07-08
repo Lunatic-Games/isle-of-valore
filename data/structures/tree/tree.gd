@@ -56,3 +56,9 @@ func update_interact_text() -> void:
 		interact_label.text = "[center]Press F to infuse"
 	else:
 		interact_label.text = "[center]Infuse on cooldown[/center]"
+
+func harvest() -> void:
+	remaining_wood -= 1
+	
+	if remaining_wood <= 0:
+		pass

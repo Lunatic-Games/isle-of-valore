@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=26 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="3_wp46i"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="4_77g8i"]
 [ext_resource type="Texture2D" uid="uid://ccfmrsp0q6oeu" path="res://assets/art/structures/tree_infused.png" id="4_n6vdl"]
+[ext_resource type="Texture2D" uid="uid://bm5ks73n2ja5x" path="res://assets/art/structures/tree_stump.png" id="5_gtus0"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="5_qdq4i"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_vlnr7"]
 
@@ -184,7 +185,11 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(-12, -206)
 texture = ExtResource("4_n6vdl")
 
-[node name="InfusedParticles" type="GPUParticles2D" parent="." index="2"]
+[node name="TreeStump" type="Sprite2D" parent="." index="2"]
+position = Vector2(0, -28)
+texture = ExtResource("5_gtus0")
+
+[node name="InfusedParticles" type="GPUParticles2D" parent="." index="3"]
 material = SubResource("CanvasItemMaterial_mkgbn")
 position = Vector2(0, -280)
 emitting = false
@@ -194,13 +199,13 @@ texture = ExtResource("5_qdq4i")
 lifetime = 4.0
 speed_scale = 0.8
 
-[node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_vlnr7")]
+[node name="NavColliderComponent" parent="." index="4" instance=ExtResource("5_vlnr7")]
 polygon = PackedVector2Array(54, -50, -86, -50, -86, -4, 54, -3)
 
-[node name="HarvestLocation" type="Marker2D" parent="." index="4"]
+[node name="HarvestLocation" type="Marker2D" parent="." index="5"]
 position = Vector2(-13, 28)
 
-[node name="InteractLabel" type="PanelContainer" parent="." index="5"]
+[node name="InteractLabel" type="PanelContainer" parent="." index="6"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 z_as_relative = false
@@ -215,7 +220,7 @@ bbcode_enabled = true
 text = "[center]Press F to infuse: 10 presence[/center]"
 fit_content = true
 
-[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="6"]
+[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="7"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 z_as_relative = false
@@ -235,27 +240,27 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "+5"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
 "": SubResource("AnimationLibrary_2cbbt")
 }
 
-[node name="InfuseAnimator" type="AnimationPlayer" parent="." index="8"]
+[node name="InfuseAnimator" type="AnimationPlayer" parent="." index="9"]
 libraries = {
 "": SubResource("AnimationLibrary_fcbaw")
 }
 
-[node name="InteractAnimator" type="AnimationPlayer" parent="." index="9"]
+[node name="InteractAnimator" type="AnimationPlayer" parent="." index="10"]
 libraries = {
 "": SubResource("AnimationLibrary_b2c76")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="10"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="11"]
 position = Vector2(-12, -29)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_r1pr0")
 
-[node name="InteractionComponent" type="Area2D" parent="." index="11"]
+[node name="InteractionComponent" type="Area2D" parent="." index="12"]
 monitoring = false
 script = ExtResource("3_wp46i")
 

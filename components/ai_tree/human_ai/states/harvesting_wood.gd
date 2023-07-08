@@ -35,11 +35,8 @@ func on_exit(_next_state: AIState = null):
 
 func _on_harvest_timer_timeout():
 	var human: Human = unit as Human
-	tree_harvesting.remaining_wood -= 1
+	tree_harvesting.harvest()
 	human.amount_wood_held += 1
-	
-	if tree_harvesting.remaining_wood == 0:
-		tree_harvesting.queue_free()
 	
 	if human.amount_wood_held >= human.MAX_WOOD_HELD:
 		ai_tree.transition_to("returning_to_hq")
