@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/returning_to_hq.gd" id="5_hs3fi"]
 
 [node name="HumanAITreeComponent" node_paths=PackedStringArray("start_state") instance=ExtResource("1_tdxrn")]
-path_desired_distance = 50.0
 target_desired_distance = 50.0
 avoidance_enabled = true
 radius = 30.0
 max_speed = 100000.0
+debug_enabled = true
 start_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="." index="0"]

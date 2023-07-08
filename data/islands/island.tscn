@@ -30,7 +30,7 @@ script = ExtResource("2_yjrk1")
 y_sort_enabled = true
 
 [node name="Tree" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(1368, 826)
+position = Vector2(1368, 827)
 
 [node name="Tree2" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(461, 851)

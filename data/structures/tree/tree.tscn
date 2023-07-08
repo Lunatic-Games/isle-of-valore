@@ -183,10 +183,10 @@ lifetime = 4.0
 speed_scale = 0.8
 
 [node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_vlnr7")]
-polygon = PackedVector2Array(25, -35, -48, -35, -48, -23, 24, -22)
+polygon = PackedVector2Array(54, -50, -86, -50, -86, -4, 54, -3)
 
 [node name="HarvestLocation" type="Marker2D" parent="." index="4"]
-position = Vector2(-8, 17)
+position = Vector2(-13, 28)
 
 [node name="InteractLabel" type="PanelContainer" parent="." index="5"]
 modulate = Color(1, 1, 1, 0)
