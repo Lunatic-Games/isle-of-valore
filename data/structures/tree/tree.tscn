@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=10 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
+[ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
 [ext_resource type="Texture2D" uid="uid://baiyqkvw87skr" path="res://assets/art/structures/tree.png" id="2_y0plm"]
 [ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="3_wp46i"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="4_77g8i"]
@@ -58,6 +59,7 @@ _data = {
 }
 
 [node name="Tree" instance=ExtResource("1_sc78k")]
+script = ExtResource("2_gamew")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(0, -215)
