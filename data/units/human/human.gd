@@ -4,6 +4,8 @@ extends Unit
 
 const MOVE_SPEED: float = 200
 const TIME_TO_HARVEST: float = 1.0
+const ENEMY_STRUCTURE_SIGHT_RANGE: float = 800.0
+const ENEMY_UNIT_SIGHT_RANGE: float = 500.0
 
 const MAX_WOOD_HELD: int = 2
 const MAX_FOOD_HELD: int = 2
@@ -11,6 +13,7 @@ const MAX_FOOD_HELD: int = 2
 var amount_wood_held: int = 0
 var amount_food_held: int = 0
 
+var targetted_unit: Unit = null
 var targetted_structure: Structure = null
 
 @onready var animation_player = $AnimationPlayer

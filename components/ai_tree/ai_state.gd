@@ -1,8 +1,9 @@
 class_name AIState
-extends Node
+extends Node2D
 
 
 @export var state_name: String = ""
+@export var priority_level: int = 1
 
 @onready var ai_tree: AITreeComponent = get_parent()
 @onready var unit: Unit = get_parent().get_parent()
@@ -18,3 +19,7 @@ func update():
 
 func on_exit(_next_state: AIState = null):
 	pass
+
+
+func should_auto_transition() -> bool:
+	return false

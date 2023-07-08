@@ -1,7 +1,6 @@
 extends AIState
 
 
-
 func on_enter(_previous_state: AIState = null):
 	var human: Human = unit as Human
 	var target_structure: Structure = human.targetted_structure
