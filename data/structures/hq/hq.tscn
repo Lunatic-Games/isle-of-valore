@@ -13,17 +13,17 @@ height = 386.0
 script = ExtResource("2_ibh7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-position = Vector2(6, -96)
+position = Vector2(6, -131)
 texture = ExtResource("3_viboc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(30, 17)
+position = Vector2(30, -0.599998)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_kjnhy")
 
 [node name="NavColliderComponent" parent="." index="2" instance=ExtResource("6_r86s4")]
-position = Vector2(8, 16)
-polygon = PackedVector2Array(-171, -21, 223, -20, 219, 26, -177, 27)
+position = Vector2(8, -1.6)
+polygon = PackedVector2Array(-177, -25.4, 224, -26.4, 219, 26, -177, 27)
 
 [node name="DropOffLocation" type="Marker2D" parent="." index="3"]
 position = Vector2(0, 57)
