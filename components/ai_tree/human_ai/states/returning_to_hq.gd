@@ -2,7 +2,8 @@ extends AIState
 
 
 func on_enter(_previous_state: AIState = null):
-	ai_tree.target_position = GlobalGameState.game.island.hq.drop_off_location.global_position
+	var hq: HQStructure = GlobalGameState.game.island.hq
+	ai_tree.target_position = hq.get_closest_interact_position(unit.global_position)
 
 
 func update():

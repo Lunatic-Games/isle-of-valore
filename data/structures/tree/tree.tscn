@@ -246,3 +246,15 @@ script = ExtResource("3_wp46i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" index="0"]
 position = Vector2(-16, -11)
 shape = SubResource("RectangleShape2D_264dm")
+
+[node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
+position = Vector2(-13, 28)
+
+[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
+position = Vector2(91, -25)
+
+[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
+position = Vector2(-123, -27)
+
+[node name="BackLeftPoint" type="Marker2D" parent="AIInteractPoints" index="3"]
+position = Vector2(-58, -89)

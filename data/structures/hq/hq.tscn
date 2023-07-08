@@ -25,5 +25,11 @@ shape = SubResource("CapsuleShape2D_kjnhy")
 position = Vector2(8, -1.6)
 polygon = PackedVector2Array(-190, -26.4, 228, -25.4, 228, 35.6, -190, 35.6)
 
-[node name="DropOffLocation" type="Marker2D" parent="." index="3"]
-position = Vector2(0, 57)
+[node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
+position = Vector2(24, 56)
+
+[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
+position = Vector2(-217, 0)
+
+[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
+position = Vector2(271, -1)

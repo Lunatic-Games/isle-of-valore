@@ -29,3 +29,12 @@ time_until_spawn = 20.0
 
 [node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_d0b1g")]
 polygon = PackedVector2Array(-134, -23, 143, -22, 139, 30, -134, 27)
+
+[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
+position = Vector2(172, 0)
+
+[node name="BottomPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
+position = Vector2(-1, 58)
+
+[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
+position = Vector2(-188, 0)

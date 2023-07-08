@@ -4,3 +4,5 @@
 
 [node name="Structure" type="StaticBody2D"]
 script = ExtResource("1_wswni")
+
+[node name="AIInteractPoints" type="Node2D" parent="."]

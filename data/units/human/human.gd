@@ -11,7 +11,7 @@ const MAX_FOOD_HELD: int = 2
 var amount_wood_held: int = 0
 var amount_food_held: int = 0
 
-var targetted_resource_structure: Structure = null
+var targetted_structure: Structure = null
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -33,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_human_ai_tree_component_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
-	if abs(velocity.x) > 1.0:
+	if abs(velocity.x) > 10.0:
 		sprite.flip_h = velocity.x > 0.0
 
 

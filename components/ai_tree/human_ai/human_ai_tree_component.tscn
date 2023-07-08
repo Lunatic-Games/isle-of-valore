@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4gs06x5qiuj6"]
+[gd_scene load_steps=7 format=3 uid="uid://b4gs06x5qiuj6"]
 
 [ext_resource type="PackedScene" uid="uid://bedvarjm3tlcp" path="res://components/ai_tree/ai_tree_component.tscn" id="1_tdxrn"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/idle.gd" id="2_1t0sx"]
+[ext_resource type="Script" path="res://components/ai_tree/human_ai/human_ai_tree_component.gd" id="2_74ou3"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/harvesting_wood.gd" id="3_83ptu"]
-[ext_resource type="Script" path="res://components/ai_tree/human_ai/states/going_to_resource.gd" id="4_alhut"]
+[ext_resource type="Script" path="res://components/ai_tree/human_ai/states/going_to_structure.gd" id="5_gmgke"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/returning_to_hq.gd" id="5_hs3fi"]
 
 [node name="HumanAITreeComponent" node_paths=PackedStringArray("start_state") instance=ExtResource("1_tdxrn")]
@@ -12,6 +13,7 @@ avoidance_enabled = true
 radius = 30.0
 max_speed = 100000.0
 debug_enabled = true
+script = ExtResource("2_74ou3")
 start_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="." index="0"]
@@ -23,8 +25,8 @@ script = ExtResource("3_83ptu")
 state_name = "harvesting_wood"
 
 [node name="GoingToResource" type="Node" parent="." index="2"]
-script = ExtResource("4_alhut")
-state_name = "going_to_resource"
+script = ExtResource("5_gmgke")
+state_name = "going_to_structure"
 
 [node name="ReturningToHQ" type="Node" parent="." index="3"]
 script = ExtResource("5_hs3fi")
