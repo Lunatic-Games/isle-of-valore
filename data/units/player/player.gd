@@ -18,6 +18,14 @@ var wolf_den_cost: int = 40
 var bear_den_cost: int = 90
 var squirrel_den_cost: int = 65
 
+@onready var infuse_particles: GPUParticles2D = $InfuseParticles
+
+
+func _ready() -> void:
+	GlobalGameState.infuse_controller.connect("ready_to_infuse", activate_infuse_particles)
+	GlobalGameState.infuse_controller.connect("infused", deactivate_infuse_particles)
+	
+
 func _physics_process(delta: float) -> void:
 	var movement := Vector2()
 	
@@ -109,6 +117,7 @@ func spawn_squirrel_den() -> void:
 	GlobalGameState.game.add_child(squirrel_den)
 	GlobalGameState.HUD.update_currency(-squirrel_den_cost)
 
+
 func spawn_bear_den() -> void:
 	if GlobalGameState.HUD.currency < bear_den_cost:
 		return
@@ -117,3 +126,9 @@ func spawn_bear_den() -> void:
 	bear_den.global_position = Vector2(global_position.x, global_position.y - 50)
 	GlobalGameState.game.add_child(bear_den)
 	GlobalGameState.HUD.update_currency(-bear_den_cost)
+
+func activate_infuse_particles() -> void:
+	infuse_particles.emitting = true
+
+func deactivate_infuse_particles() -> void:
+	infuse_particles.emitting = false

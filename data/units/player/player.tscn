@@ -1,8 +1,46 @@
-[gd_scene load_steps=9 format=3 uid="uid://r8adsu6lxnpr"]
+[gd_scene load_steps=16 format=3 uid="uid://r8adsu6lxnpr"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_07r1j"]
 [ext_resource type="Script" path="res://data/units/player/player.gd" id="2_n2bcx"]
 [ext_resource type="Texture2D" uid="uid://vocx0o1e7272" path="res://assets/art/units/player.png" id="3_uaiqm"]
+[ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="4_pd2rf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ppvrf"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_15byg"]
+offsets = PackedFloat32Array(0, 0.155556, 0.755556, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l2xje"]
+gradient = SubResource("Gradient_15byg")
+
+[sub_resource type="Curve" id="Curve_y6n2i"]
+max_value = 1.2
+_data = [Vector2(0, 0.79579), 0.0, 0.90016, 0, 0, Vector2(1, 1.2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bj7fu"]
+curve = SubResource("Curve_y6n2i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sxmxw"]
+emission_shape = 1
+emission_sphere_radius = 60.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -20, 0)
+angular_velocity_min = -5.0
+angular_velocity_max = 5.0
+orbit_velocity_min = -0.02
+orbit_velocity_max = 0.02
+scale_min = 0.4
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_bj7fu")
+color_ramp = SubResource("GradientTexture1D_l2xje")
+hue_variation_min = -0.01
+anim_offset_max = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y52et"]
 radius = 3.99999
@@ -47,7 +85,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 4
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.1, 0.2, 0.4, 0.5),
@@ -59,7 +97,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5, 0.6),
@@ -79,23 +117,30 @@ collision_layer = 4
 collision_mask = 1
 script = ExtResource("2_n2bcx")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="InfuseParticles" type="GPUParticles2D" parent="." index="0"]
+material = SubResource("CanvasItemMaterial_ppvrf")
+position = Vector2(-18, -97)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_sxmxw")
+texture = ExtResource("4_pd2rf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 position = Vector2(5, -83)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_uaiqm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_y52et")
 
-[node name="InteractableSearcher" type="Area2D" parent="." index="2"]
+[node name="InteractableSearcher" type="Area2D" parent="." index="3"]
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableSearcher" index="0"]
 position = Vector2(-2, -10.5)
 shape = SubResource("RectangleShape2D_0oqk0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_uj0wo")
 }
