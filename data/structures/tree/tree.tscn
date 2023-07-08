@@ -1,10 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=15 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
 [ext_resource type="Texture2D" uid="uid://baiyqkvw87skr" path="res://assets/art/structures/tree.png" id="2_y0plm"]
 [ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="3_wp46i"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="4_77g8i"]
+[ext_resource type="Texture2D" uid="uid://ddoco8mvl45np" path="res://assets/art/structures/tree_infused.png" id="4_n6vdl"]
+[ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="5_qdq4i"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8dqx8"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1pr0"]
 radius = 7.0
@@ -58,6 +66,27 @@ _data = {
 "generate_currency": SubResource("Animation_0gtrg")
 }
 
+[sub_resource type="Animation" id="Animation_eun7k"]
+resource_name = "infuse"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InfusedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fcbaw"]
+_data = {
+"infuse": SubResource("Animation_eun7k")
+}
+
 [node name="Tree" instance=ExtResource("1_sc78k")]
 script = ExtResource("2_gamew")
 
@@ -65,12 +94,21 @@ script = ExtResource("2_gamew")
 position = Vector2(0, -215)
 texture = ExtResource("2_y0plm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="InfusedSprite" type="Sprite2D" parent="." index="1"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-12, -206)
+texture = ExtResource("4_n6vdl")
+
+[node name="InfusedParticles" type="GPUParticles2D" parent="." index="2"]
+process_material = SubResource("ParticleProcessMaterial_8dqx8")
+texture = ExtResource("5_qdq4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 position = Vector2(-15, -16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_r1pr0")
 
-[node name="InteractionComponent" type="Area2D" parent="." index="2"]
+[node name="InteractionComponent" type="Area2D" parent="." index="4"]
 monitoring = false
 script = ExtResource("3_wp46i")
 
@@ -78,7 +116,7 @@ script = ExtResource("3_wp46i")
 position = Vector2(-16, -11)
 shape = SubResource("RectangleShape2D_264dm")
 
-[node name="InfusedLabel" type="RichTextLabel" parent="." index="3"]
+[node name="InfusedLabel" type="RichTextLabel" parent="." index="5"]
 visible = false
 offset_left = -40.0
 offset_top = -47.0
@@ -86,13 +124,13 @@ offset_right = 21.0
 offset_bottom = -7.0
 text = "Infused"
 
-[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="4"]
+[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="6"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 offset_left = -44.0
-offset_top = -478.0
+offset_top = -442.0
 offset_right = 122.0
-offset_bottom = -428.0
+offset_bottom = -392.0
 
 [node name="TextureRect" type="TextureRect" parent="CurrencyUpdated" index="0"]
 layout_mode = 2
@@ -105,7 +143,12 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "+5"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_2cbbt")
+}
+
+[node name="InfuseAnimator" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_fcbaw")
 }

@@ -7,6 +7,7 @@ const CURRENCY_GENERATED: int = 5
 
 @onready var infused_label: RichTextLabel = $InfusedLabel
 @onready var animation_palyer: AnimationPlayer = $AnimationPlayer
+@onready var infuse_animator: AnimationPlayer = $InfuseAnimator
 
 
 func interact() -> void:
@@ -16,6 +17,8 @@ func interact() -> void:
 func infuse():
 	get_tree().create_timer(INFUSE_TIMER).connect("timeout", infuse_trigger)
 	infused_label.visible = true
+	infuse_animator.play("infuse")
+	
 
 
 func infuse_trigger() -> void:
