@@ -12,10 +12,17 @@ func update_currency(amount):
 	$CurrencyContainer/CurrencyLeft.text = str(currency)
 
 func cycle_ability(change) -> void:
+	var color_rect: ColorRect = $AbilityContainer.get_children()[current_ability]
+	color_rect.color.v = 0
+	
 	current_ability += change
 	if current_ability < 0:
 		current_ability = 0
 	if current_ability > $AbilityContainer.get_child_count() -1:
 		current_ability = $AbilityContainer.get_child_count() -1
 	
-	$AbilityContainer.get_children()[current_ability]
+	color_rect = $AbilityContainer.get_children()[current_ability]
+	color_rect.color.v = 100
+
+func get_current_ability_index() -> int:
+	return current_ability
