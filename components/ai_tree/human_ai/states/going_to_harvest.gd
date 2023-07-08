@@ -6,7 +6,7 @@ func on_enter(_previous_state: AIState = null):
 	var target_structure: Structure = human.target as Structure
 	assert(target_structure != null, "No target structure")
 	
-	ai_tree.target_position = target_structure.get_closest_interact_position(human.global_position)
+	ai_tree.target_position = human.target_access_point.global_position
 
 
 func update():

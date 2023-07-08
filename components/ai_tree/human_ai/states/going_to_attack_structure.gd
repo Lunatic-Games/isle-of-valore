@@ -3,10 +3,9 @@ extends AIState
 
 func on_enter(_previous_state: AIState = null):
 	var human: Human = unit as Human
-	var target_structure: Structure = human.target
-	assert(target_structure != null, "No target structure")
-	
-	ai_tree.target_position = target_structure.get_closest_interact_position(human.global_position)
+	var target_access_point: AccessPoint = human.target_access_point
+	assert(target_access_point != null, "No target access point")
+	ai_tree.target_position = target_access_point.global_position
 
 
 func update():
@@ -34,11 +33,14 @@ func passive_update() -> void:
 		if body.health <= 0 or body.is_queued_for_deletion():
 			continue
 		
+		if human.can_target_structure(body) == false:
+			return
+		
 		var distance_squared: float = human.global_position.distance_squared_to(body.global_position)
 		if distance_squared < closest_distance_squared:
 			closest_distance_squared = distance_squared
 			closest_den_in_range = body
 	
 	if closest_den_in_range != null:
-		human.target = closest_den_in_range
+		human.target_structure(closest_den_in_range)
 		ai_tree.transition_to(state_name)

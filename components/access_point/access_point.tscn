@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hr0niu03d1vx"]
+
+[ext_resource type="Script" path="res://components/access_point/access_point.gd" id="1_3sw38"]
+
+[node name="AccessPoint" type="Marker2D"]
+script = ExtResource("1_3sw38")

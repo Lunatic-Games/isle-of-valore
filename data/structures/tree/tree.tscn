@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=27 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bm5ks73n2ja5x" path="res://assets/art/structures/tree_stump.png" id="5_gtus0"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="5_qdq4i"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_vlnr7"]
-[ext_resource type="Texture2D" uid="uid://o7r2f8us6ucy" path="res://assets/art/resources/log.png" id="10_rsw2m"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="10_lu67n"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mkgbn"]
 particles_animation = true
@@ -174,214 +174,21 @@ height = 70.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_264dm"]
 size = Vector2(250, 68)
 
-[sub_resource type="Animation" id="Animation_7kksh"]
-resource_name = "fell_tree"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("InfusedParticles:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TreeCutParticles:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TreeStump:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_slqqm"]
-resource_name = "fell_tree_infused"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("InfusedParticles:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("InfusedSprite:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TreeCutParticles:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TreeStump:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5ypwj"]
-resource_name = "harvest_wood"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0349066, -0.0349066, 0.0174533, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("InfusedSprite:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0349066, -0.0349066, 0.0174533, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TreeStump:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0349066, -0.0349066, 0.0174533, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_503by"]
-_data = {
-"fell_tree": SubResource("Animation_7kksh"),
-"fell_tree_infused": SubResource("Animation_slqqm"),
-"harvest_wood": SubResource("Animation_5ypwj")
-}
-
-[sub_resource type="Gradient" id="Gradient_8ghnr"]
-offsets = PackedFloat32Array(0, 0.0740741, 0.592593, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_eh233"]
-gradient = SubResource("Gradient_8ghnr")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pcioq"]
-emission_shape = 3
-emission_box_extents = Vector3(30, 100, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 60.0
-gravity = Vector3(0, 98, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-angular_velocity_min = -60.0
-angular_velocity_max = 60.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_min = -180.0
-angle_max = 180.0
-scale_min = 0.4
-scale_max = 0.5
-color_ramp = SubResource("GradientTexture1D_eh233")
-
 [node name="Tree" instance=ExtResource("1_sc78k")]
 script = ExtResource("2_gamew")
 
-[node name="TreeStump" type="Sprite2D" parent="." index="0"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(1, -28)
-rotation = 0.0349066
-texture = ExtResource("5_gtus0")
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(0, -215)
-rotation = 0.0349066
 texture = ExtResource("2_y0plm")
 
-[node name="InfusedSprite" type="Sprite2D" parent="." index="2"]
+[node name="InfusedSprite" type="Sprite2D" parent="." index="1"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-12, -206)
-rotation = 0.0349066
 texture = ExtResource("4_n6vdl")
+
+[node name="TreeStump" type="Sprite2D" parent="." index="2"]
+position = Vector2(0, -28)
+texture = ExtResource("5_gtus0")
 
 [node name="InfusedParticles" type="GPUParticles2D" parent="." index="3"]
 material = SubResource("CanvasItemMaterial_mkgbn")
@@ -462,29 +269,14 @@ script = ExtResource("3_wp46i")
 position = Vector2(-16, -11)
 shape = SubResource("RectangleShape2D_264dm")
 
-[node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
-position = Vector2(-13, 28)
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("10_lu67n")]
+position = Vector2(-143, -21)
 
-[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
-position = Vector2(91, -25)
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("10_lu67n")]
+position = Vector2(-75, 32)
 
-[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
-position = Vector2(-123, -27)
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("10_lu67n")]
+position = Vector2(20, 31)
 
-[node name="BackLeftPoint" type="Marker2D" parent="AIInteractPoints" index="3"]
-position = Vector2(-58, -89)
-
-[node name="TreeCutAnimator" type="AnimationPlayer" parent="." index="14"]
-libraries = {
-"": SubResource("AnimationLibrary_503by")
-}
-
-[node name="TreeCutParticles" type="GPUParticles2D" parent="." index="15"]
-position = Vector2(0, -219)
-emitting = false
-amount = 10
-process_material = SubResource("ParticleProcessMaterial_pcioq")
-texture = ExtResource("10_rsw2m")
-lifetime = 1.2
-one_shot = true
-explosiveness = 0.7
+[node name="AccessPoint4" parent="AccessPointContainer" index="3" instance=ExtResource("10_lu67n")]
+position = Vector2(105, -21)

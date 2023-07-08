@@ -1,21 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1m0ja4p2lngf"]
+[gd_scene load_steps=7 format=3 uid="uid://b1m0ja4p2lngf"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_kb5hv"]
 [ext_resource type="Script" path="res://data/structures/hq/hq.gd" id="2_ibh7s"]
 [ext_resource type="Texture2D" uid="uid://npiibpyoon0h" path="res://assets/art/structures/house.png" id="3_viboc"]
-[ext_resource type="Texture2D" uid="uid://o7r2f8us6ucy" path="res://assets/art/resources/log.png" id="5_qfr0d"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="5_pjnej"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="6_r86s4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjnhy"]
 radius = 20.0
 height = 386.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1w8f"]
-bg_color = Color(0, 0, 0, 0.352941)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="HQ" instance=ExtResource("1_kb5hv")]
 script = ExtResource("2_ibh7s")
@@ -33,35 +26,14 @@ shape = SubResource("CapsuleShape2D_kjnhy")
 position = Vector2(8, -1.6)
 polygon = PackedVector2Array(-190, -26.4, 228, -25.4, 228, 35.6, -190, 35.6)
 
-[node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
-position = Vector2(24, 56)
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("5_pjnej")]
+position = Vector2(-124, 82)
 
-[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
-position = Vector2(-217, 0)
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("5_pjnej")]
+position = Vector2(-50, 79)
 
-[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
-position = Vector2(271, -1)
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("5_pjnej")]
+position = Vector2(66, 78)
 
-[node name="Icons" type="HBoxContainer" parent="." index="4"]
-offset_top = -391.0
-offset_right = 64.0
-offset_bottom = -339.0
-
-[node name="WoodIcon" type="PanelContainer" parent="Icons" index="0"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_a1w8f")
-
-[node name="WoodRect" type="TextureRect" parent="Icons/WoodIcon" index="0"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-texture = ExtResource("5_qfr0d")
-expand_mode = 5
-
-[node name="WoodLabel" type="RichTextLabel" parent="Icons/WoodIcon" index="1"]
-custom_minimum_size = Vector2(0, 23)
-layout_mode = 2
-size_flags_vertical = 8
-bbcode_enabled = true
-text = "[center]0"
-fit_content = true
-scroll_active = false
+[node name="AccessPoint4" parent="AccessPointContainer" index="3" instance=ExtResource("5_pjnej")]
+position = Vector2(166, 78)
