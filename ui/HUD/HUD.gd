@@ -1,11 +1,13 @@
 class_name HUD
 extends CanvasLayer
 
-var currency = 30
+var currency = 200
 var current_ability = 0
 
 func _ready() -> void:
 	GlobalGameState.HUD = self
+	$CurrencyContainer/CurrencyLeft.text = str(currency)
+
 
 func update_currency(amount):
 	currency += amount
