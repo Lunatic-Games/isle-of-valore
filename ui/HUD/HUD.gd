@@ -14,6 +14,7 @@ func update_currency(amount):
 func cycle_ability(change) -> void:
 	var color_rect: ColorRect = $AbilityContainer.get_children()[current_ability]
 	color_rect.color.v = 0
+	$AbilityContainer.get_children()[current_ability].get_child(2).play("deselect")
 	
 	current_ability += change
 	if current_ability < 0:
@@ -23,6 +24,8 @@ func cycle_ability(change) -> void:
 	
 	color_rect = $AbilityContainer.get_children()[current_ability]
 	color_rect.color.v = 100
+	$AbilityContainer.get_children()[current_ability].get_child(2).play("select")
+	
 
 func get_current_ability_index() -> int:
 	return current_ability
