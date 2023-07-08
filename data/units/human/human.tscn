@@ -156,6 +156,7 @@ libraries = {
 }
 
 [node name="HumanAITreeComponent" parent="." index="3" instance=ExtResource("3_whyu1")]
+debug_enabled = false
 
 [node name="StructureSightRange" type="Area2D" parent="." index="4"]
 collision_layer = 0
