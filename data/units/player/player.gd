@@ -64,13 +64,15 @@ func handle_interact() -> void:
 
 
 func _on_interactable_searcher_area_entered(area: Area2D) -> void:
-	interactables.append(area)
-	choose_currently_interactive()
+	if area is InteractComponent:
+		interactables.append(area)
+		choose_currently_interactive()
 
 
 func _on_interactable_searcher_area_exited(area: Area2D) -> void:
-	interactables.remove_at(interactables.find(area))
-	choose_currently_interactive()
+	if area is InteractComponent:
+		interactables.remove_at(interactables.find(area))
+		choose_currently_interactive()
 
 
 func choose_currently_interactive():

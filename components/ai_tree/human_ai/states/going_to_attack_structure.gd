@@ -1,19 +1,42 @@
 extends AIState
 
 
-var sight_area: Area2D = null
+func on_enter(_previous_state: AIState = null):
+	var human: Human = unit as Human
+	var target_structure: Structure = human.target
+	assert(target_structure != null, "No target structure")
+	
+	ai_tree.target_position = target_structure.get_closest_interact_position(human.global_position)
 
 
-func _ready() -> void:
-	sight_area = Area2D.new()
-	add_child(sight_area)
+func update():
+	var human: Human = unit as Human
+	var target: Structure = human.target
+	if target == null or target.is_queued_for_deletion():
+		ai_tree.transition_to("idle")
+		return
+	
+	if ai_tree.is_target_reached():
+		ai_tree.transition_to("attacking_structure")
+
+
+func passive_update() -> void:
+	if priority_level <= ai_tree.current_state.priority_level:
+		return
 	
 	var human: Human = unit as Human
-	var collider: CollisionShape2D = CollisionShape2D.new()
-	collider.shape = CircleShape2D.new()
-	collider.shape.radius = human.ENEMY_STRUCTURE_SIGHT_RANGE
-	sight_area.add_child(collider)
-
-
-func should_auto_transition() -> bool:
-	return false
+	var closest_den_in_range: Den = null
+	var closest_distance_squared: float = INF
+	
+	for body in human.structure_sight_range.get_overlapping_bodies():
+		if !(body is Den):
+			continue
+		
+		var distance_squared: float = human.global_position.distance_squared_to(body.global_position)
+		if distance_squared < closest_distance_squared:
+			closest_distance_squared = distance_squared
+			closest_den_in_range = body
+	
+	if closest_den_in_range != null:
+		human.target = closest_den_in_range
+		ai_tree.transition_to(state_name)

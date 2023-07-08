@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://clbjpfa1bby77"]
+[gd_scene load_steps=13 format=3 uid="uid://clbjpfa1bby77"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_lj6nc"]
 [ext_resource type="Script" path="res://data/units/human/human.gd" id="2_03m2e"]
@@ -61,6 +61,12 @@ _data = {
 "idle": SubResource("Animation_ch7bq")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ky8nn"]
+radius = 800.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l10m8"]
+radius = 500.0
+
 [node name="Human" instance=ExtResource("1_lj6nc")]
 script = ExtResource("2_03m2e")
 
@@ -80,5 +86,19 @@ libraries = {
 }
 
 [node name="HumanAITreeComponent" parent="." index="3" instance=ExtResource("3_whyu1")]
+
+[node name="StructureSightRange" type="Area2D" parent="." index="4"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StructureSightRange" index="0"]
+shape = SubResource("CircleShape2D_ky8nn")
+
+[node name="UnitSightRange" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnitSightRange" index="0"]
+shape = SubResource("CircleShape2D_l10m8")
+debug_color = Color(0.964706, 0, 0.501961, 0.419608)
 
 [connection signal="velocity_computed" from="HumanAITreeComponent" to="." method="_on_human_ai_tree_component_velocity_computed"]

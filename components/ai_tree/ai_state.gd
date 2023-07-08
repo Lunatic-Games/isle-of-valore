@@ -9,17 +9,17 @@ extends Node2D
 @onready var unit: Unit = get_parent().get_parent()
 
 
-func on_enter(_previous_state: AIState = null):
+func on_enter(_previous_state: AIState = null) -> void:
 	pass
 
 
-func update():
+func update() -> void:
 	pass
 
 
-func on_exit(_next_state: AIState = null):
+func on_exit(_next_state: AIState = null) -> void:
 	pass
 
 
-func should_auto_transition() -> bool:
-	return false
+func passive_update() -> void:
+	pass
