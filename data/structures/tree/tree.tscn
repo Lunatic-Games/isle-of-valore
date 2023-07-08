@@ -190,6 +190,8 @@ position = Vector2(-13, 28)
 
 [node name="InteractLabel" type="PanelContainer" parent="." index="5"]
 modulate = Color(1, 1, 1, 0)
+z_index = 1
+z_as_relative = false
 offset_left = -74.0
 offset_top = -211.0
 offset_right = 78.0
@@ -197,12 +199,14 @@ offset_bottom = -183.0
 
 [node name="InteractLabel" type="RichTextLabel" parent="InteractLabel" index="0"]
 layout_mode = 2
-text = "Press F to infuse"
+bbcode_enabled = true
+text = "[center]Press F to infuse[/center]"
 fit_content = true
 
 [node name="CurrencyUpdated" type="HBoxContainer" parent="." index="6"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
+z_as_relative = false
 offset_left = -44.0
 offset_top = -442.0
 offset_right = 122.0
