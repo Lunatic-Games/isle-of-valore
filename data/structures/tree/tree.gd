@@ -21,7 +21,7 @@ func _ready():
 	GlobalGameState.infuse_controller.connect("ready_to_infuse", update_interact_text)
 
 func interact() -> void:
-	if GlobalGameState.HUD.currency >= GlobalGameState.infuse_controller.cost_to_infuse && !infused && GlobalGameState.infuse_controller.can_infuse:
+	if GlobalGameState.HUD.currency >= GlobalGameState.infuse_controller.cost_to_infuse && !infused && GlobalGameState.infuse_controller.can_infuse && can_be_harvested():
 		infuse()
 		infused = true
 		GlobalGameState.HUD.update_currency(-GlobalGameState.infuse_controller.cost_to_infuse)
@@ -43,12 +43,12 @@ func infuse_trigger() -> void:
 
 func show_interactive() -> void:
 	update_interact_text()
-	if !infused:
+	if !infused && can_be_harvested():
 		interact_animator.play("spawn_interact")
 
 
 func hide_interactive() -> void:
-	if !infused:
+	if !infused && can_be_harvested():
 		interact_animator.play("despawn_interact")
 
 
