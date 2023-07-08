@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://djotxtf6uv0lb"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_26snv"]
-[ext_resource type="Texture2D" uid="uid://kknfardvfuq8" path="res://assets/art/structures/den_wolf_placeholder.png" id="2_4b0am"]
+[ext_resource type="Texture2D" uid="uid://dy0l083k12jqk" path="res://assets/art/structures/den_wolf.png" id="2_oacty"]
 [ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_f40ry"]
 [ext_resource type="PackedScene" uid="uid://c4j4eo05twugp" path="res://data/units/wolf/wolf.tscn" id="4_45rmb"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_d0b1g"]
@@ -15,7 +15,7 @@ height = 246.0
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(-2, -65)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_4b0am")
+texture = ExtResource("2_oacty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(3, 1)
