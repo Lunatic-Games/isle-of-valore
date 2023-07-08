@@ -15,6 +15,8 @@ var unit_reserving_harvest: Unit = null
 @onready var harvest_location: Node2D = $HarvestLocation
 @onready var interact_label: RichTextLabel = $InteractLabel/InteractLabel
 
+func _ready():
+	GlobalGameState.infuse_controller.connect("ready_to_infuse", update_interact_text)
 
 func interact() -> void:
 	pass
@@ -34,11 +36,7 @@ func infuse_trigger() -> void:
 
 
 func show_interactive() -> void:
-	if GlobalGameState.infuse_controller.can_infuse:
-		interact_label.text = "Press F to infuse"
-	else:
-		interact_label.text = "Infuse on cooldown"
-		GlobalGameState.infuse_controller.connect("ready_to_infuse", update_interact_text)
+	update_interact_text()
 	interact_animator.play("spawn_interact")
 
 
