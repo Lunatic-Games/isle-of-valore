@@ -33,7 +33,8 @@ func _physics_process(_delta: float) -> void:
 
 func _on_human_ai_tree_component_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
-	sprite.flip_h = velocity.x > 0.1
+	if abs(velocity.x) > 1.0:
+		sprite.flip_h = velocity.x > 0.0
 
 
 func _on_human_ai_component_started_harvesting_wood() -> void:
