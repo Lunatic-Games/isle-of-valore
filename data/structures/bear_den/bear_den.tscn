@@ -1,12 +1,87 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjbu45creh1hi"]
+[gd_scene load_steps=23 format=3 uid="uid://bjbu45creh1hi"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_rjijt"]
 [ext_resource type="Texture2D" uid="uid://ckgr1ra76khwu" path="res://assets/art/structures/den_bear.png" id="2_75a4j"]
 [ext_resource type="Script" path="res://data/structures/den.gd" id="2_a6aie"]
+[ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="3_87dtk"]
 [ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_ycoam"]
 [ext_resource type="PackedScene" uid="uid://dcnn5kn0khuas" path="res://data/units/bear/bear.tscn" id="4_64n7f"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_h6b1y"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="6_gaeww"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m04ma"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_71wxg"]
+offsets = PackedFloat32Array(0, 0.162963, 0.814815, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hgp38"]
+gradient = SubResource("Gradient_71wxg")
+
+[sub_resource type="Curve" id="Curve_lxsjl"]
+_data = [Vector2(0, 0), 0.0, 1.74737, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d27l3"]
+curve = SubResource("Curve_lxsjl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gnu5u"]
+emission_shape = 3
+emission_box_extents = Vector3(120, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 20.0
+gravity = Vector3(0, -36, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 45.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+angle_min = -10.0
+angle_max = 10.0
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_d27l3")
+color_ramp = SubResource("GradientTexture1D_hgp38")
+turbulence_noise_strength = 0.0
+anim_offset_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_p6bjy"]
+offsets = PackedFloat32Array(0, 0.162963, 0.814815, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1o5xn"]
+gradient = SubResource("Gradient_p6bjy")
+
+[sub_resource type="Curve" id="Curve_bkd4k"]
+_data = [Vector2(0, 0), 0.0, 1.74737, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u62sf"]
+curve = SubResource("Curve_bkd4k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d6j0u"]
+emission_shape = 3
+emission_box_extents = Vector3(120, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 20.0
+gravity = Vector3(0, -36, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 45.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+angle_min = -10.0
+angle_max = 10.0
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_u62sf")
+color_ramp = SubResource("GradientTexture1D_1o5xn")
+hue_variation_min = -0.05
+hue_variation_max = -0.05
+turbulence_noise_strength = 0.0
+anim_offset_max = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
 radius = 14.9999
@@ -48,23 +123,39 @@ _data = {
 script = ExtResource("2_a6aie")
 tier_cost = Array[int]([0, 0])
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Tier2Particles" type="GPUParticles2D" parent="." index="0"]
+material = SubResource("CanvasItemMaterial_m04ma")
+emitting = false
+amount = 9
+process_material = SubResource("ParticleProcessMaterial_gnu5u")
+texture = ExtResource("3_87dtk")
+lifetime = 3.5
+
+[node name="Tier3Particles" type="GPUParticles2D" parent="." index="1"]
+material = SubResource("CanvasItemMaterial_m04ma")
+emitting = false
+amount = 9
+process_material = SubResource("ParticleProcessMaterial_d6j0u")
+texture = ExtResource("3_87dtk")
+lifetime = 3.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
 position = Vector2(-2, -161)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_75a4j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 position = Vector2(3, 1)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_3pfdu")
 
-[node name="SpawningComponent" parent="." index="2" instance=ExtResource("3_ycoam")]
+[node name="SpawningComponent" parent="." index="4" instance=ExtResource("3_ycoam")]
 position = Vector2(0, 77)
 unit_to_spawn = ExtResource("4_64n7f")
 time_until_spawn = 20.0
 cost_to_spawn = 60
 
-[node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_h6b1y")]
+[node name="NavColliderComponent" parent="." index="5" instance=ExtResource("5_h6b1y")]
 polygon = PackedVector2Array(-134, -23, 143, -22, 139, 30, -134, 27)
 
 [node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
@@ -76,7 +167,7 @@ position = Vector2(-191, 0)
 [node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
 position = Vector2(189, 0)
 
-[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="5"]
+[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="7"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 z_as_relative = false
@@ -96,7 +187,7 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "-60"
 
-[node name="CurrencyAnimator" type="AnimationPlayer" parent="." index="6"]
+[node name="CurrencyAnimator" type="AnimationPlayer" parent="." index="8"]
 libraries = {
 "": SubResource("AnimationLibrary_7apxg")
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djotxtf6uv0lb"]
+[gd_scene load_steps=28 format=3 uid="uid://djotxtf6uv0lb"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_26snv"]
 [ext_resource type="Script" path="res://data/structures/den.gd" id="2_e633f"]
@@ -16,6 +16,20 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="Gradient" id="Gradient_s58ss"]
+offsets = PackedFloat32Array(0, 0.162963, 0.814815, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_76fb4"]
+gradient = SubResource("Gradient_s58ss")
+
+[sub_resource type="Curve" id="Curve_w3fj4"]
+_data = [Vector2(0, 0), 0.0, 1.74737, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ixwpf"]
+curve = SubResource("Curve_w3fj4")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s3sb6"]
 emission_shape = 3
 emission_box_extents = Vector3(120, 1, 1)
@@ -25,8 +39,49 @@ spread = 20.0
 gravity = Vector3(0, -36, 0)
 initial_velocity_min = 35.0
 initial_velocity_max = 45.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+angle_min = -10.0
+angle_max = 10.0
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_ixwpf")
+color_ramp = SubResource("GradientTexture1D_76fb4")
+turbulence_noise_strength = 0.0
+anim_offset_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_egmh5"]
+offsets = PackedFloat32Array(0, 0.162963, 0.814815, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uvaaq"]
+gradient = SubResource("Gradient_egmh5")
+
+[sub_resource type="Curve" id="Curve_yrb2a"]
+_data = [Vector2(0, 0), 0.0, 1.74737, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xrnpp"]
+curve = SubResource("Curve_yrb2a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6wwjy"]
+emission_shape = 3
+emission_box_extents = Vector3(120, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 20.0
+gravity = Vector3(0, -36, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 45.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+angle_min = -10.0
+angle_max = 10.0
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_xrnpp")
+color_ramp = SubResource("GradientTexture1D_uvaaq")
+hue_variation_min = -0.05
+hue_variation_max = -0.05
+turbulence_noise_strength = 0.0
 anim_offset_max = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
@@ -124,34 +179,41 @@ script = ExtResource("2_e633f")
 tier_cost = Array[int]([60, 100])
 
 [node name="Tier2Particles" type="GPUParticles2D" parent="." index="0"]
-visible = false
 material = SubResource("CanvasItemMaterial_my754")
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_s3sb6")
 texture = ExtResource("9_kf6sc")
 lifetime = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="Tier3Particles" type="GPUParticles2D" parent="." index="1"]
+material = SubResource("CanvasItemMaterial_my754")
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_6wwjy")
+texture = ExtResource("9_kf6sc")
+lifetime = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
 position = Vector2(-2, -65)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_oacty")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 position = Vector2(3, 1)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_3pfdu")
 
-[node name="SpawningComponent" parent="." index="3" instance=ExtResource("3_f40ry")]
+[node name="SpawningComponent" parent="." index="4" instance=ExtResource("3_f40ry")]
 position = Vector2(0, 77)
 unit_to_spawn = ExtResource("4_45rmb")
 time_until_spawn = 20.0
 cost_to_spawn = 20
 
-[node name="InteractionComponent" parent="." index="4" instance=ExtResource("5_qtvj7")]
+[node name="InteractionComponent" parent="." index="5" instance=ExtResource("5_qtvj7")]
 
 [node name="CollisionShape2D" parent="InteractionComponent" index="0"]
 position = Vector2(2.5, 14.5)
 
-[node name="NavColliderComponent" parent="." index="5" instance=ExtResource("5_d0b1g")]
+[node name="NavColliderComponent" parent="." index="6" instance=ExtResource("5_d0b1g")]
 polygon = PackedVector2Array(-134, -23, 143, -22, 139, 30, -134, 27)
 
 [node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
@@ -163,7 +225,7 @@ position = Vector2(-1, 58)
 [node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
 position = Vector2(-188, 0)
 
-[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="7"]
+[node name="CurrencyUpdated" type="HBoxContainer" parent="." index="8"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 z_as_relative = false
@@ -183,12 +245,12 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "-20"
 
-[node name="CurrencyAnimator" type="AnimationPlayer" parent="." index="8"]
+[node name="CurrencyAnimator" type="AnimationPlayer" parent="." index="9"]
 libraries = {
 "": SubResource("AnimationLibrary_7apxg")
 }
 
-[node name="InteractLabel" type="PanelContainer" parent="." index="9"]
+[node name="InteractLabel" type="PanelContainer" parent="." index="10"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 z_as_relative = false
@@ -203,7 +265,7 @@ bbcode_enabled = true
 text = "[center]Press F to upgrade: 10 presence[/center]"
 fit_content = true
 
-[node name="InteractAnimator" type="AnimationPlayer" parent="." index="10"]
+[node name="InteractAnimator" type="AnimationPlayer" parent="." index="11"]
 libraries = {
 "": SubResource("AnimationLibrary_b2c76")
 }

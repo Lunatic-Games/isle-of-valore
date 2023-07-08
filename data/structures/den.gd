@@ -8,6 +8,8 @@ var current_tier: int = 1
 @export var tier_cost: Array[int] = [0, 0]
 @onready var interact_animator: AnimationPlayer = $InteractAnimator
 @onready var interact_label: RichTextLabel = $InteractLabel/InteractLabel
+@onready var tier_2_particles: GPUParticles2D = $Tier2Particles
+@onready var tier_3_particles: GPUParticles2D = $Tier3Particles
 
 func interact() -> void:
 	if GlobalGameState.HUD.currency < tier_cost[current_tier-1]:
@@ -17,6 +19,11 @@ func interact() -> void:
 	current_tier += 1
 	interact_animator.play("despawn_interact")
 	update_interact_text()
+	
+	if current_tier == 2:
+		tier_2_particles.emitting = true
+	if current_tier == 3:
+		tier_3_particles.emitting = true
 
 
 func show_interactive() -> void:
