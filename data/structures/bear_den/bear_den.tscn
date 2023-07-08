@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bjbu45creh1hi"]
+[gd_scene load_steps=29 format=3 uid="uid://bjbu45creh1hi"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_rjijt"]
 [ext_resource type="Texture2D" uid="uid://ckgr1ra76khwu" path="res://assets/art/structures/den_bear.png" id="2_75a4j"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_h6b1y"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="6_gaeww"]
 [ext_resource type="PackedScene" uid="uid://bm1dymkqwjrg5" path="res://components/interaction_component/interaction_component.tscn" id="7_ky8g0"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="9_ahssa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m04ma"]
 particles_animation = true
@@ -218,14 +219,17 @@ position = Vector2(10, 4.25)
 [node name="NavColliderComponent" parent="." index="6" instance=ExtResource("5_h6b1y")]
 polygon = PackedVector2Array(-134, -23, 143, -22, 139, 30, -134, 27)
 
-[node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
-position = Vector2(0, 58)
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("9_ahssa")]
+position = Vector2(76, 71)
 
-[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
-position = Vector2(-191, 0)
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("9_ahssa")]
+position = Vector2(200, -1)
 
-[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
-position = Vector2(189, 0)
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("9_ahssa")]
+position = Vector2(-216, 0)
+
+[node name="AccessPoint4" parent="AccessPointContainer" index="3" instance=ExtResource("9_ahssa")]
+position = Vector2(-70, 75)
 
 [node name="CurrencyUpdated" type="HBoxContainer" parent="." index="8"]
 modulate = Color(1, 1, 1, 0)

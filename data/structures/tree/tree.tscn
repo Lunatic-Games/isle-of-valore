@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=27 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bm5ks73n2ja5x" path="res://assets/art/structures/tree_stump.png" id="5_gtus0"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="5_qdq4i"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_vlnr7"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="10_lu67n"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mkgbn"]
 particles_animation = true
@@ -268,14 +269,14 @@ script = ExtResource("3_wp46i")
 position = Vector2(-16, -11)
 shape = SubResource("RectangleShape2D_264dm")
 
-[node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
-position = Vector2(-13, 28)
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("10_lu67n")]
+position = Vector2(-143, -21)
 
-[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
-position = Vector2(91, -25)
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("10_lu67n")]
+position = Vector2(-75, 32)
 
-[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
-position = Vector2(-123, -27)
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("10_lu67n")]
+position = Vector2(20, 31)
 
-[node name="BackLeftPoint" type="Marker2D" parent="AIInteractPoints" index="3"]
-position = Vector2(-58, -89)
+[node name="AccessPoint4" parent="AccessPointContainer" index="3" instance=ExtResource("10_lu67n")]
+position = Vector2(105, -21)

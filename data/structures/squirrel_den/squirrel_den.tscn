@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://brgpt5w2nvr0c"]
+[gd_scene load_steps=29 format=3 uid="uid://brgpt5w2nvr0c"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_nl2nh"]
 [ext_resource type="Script" path="res://data/structures/den.gd" id="2_7gs4t"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_h4dsn"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="6_xhenq"]
 [ext_resource type="PackedScene" uid="uid://bm1dymkqwjrg5" path="res://components/interaction_component/interaction_component.tscn" id="7_h0hya"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="9_v547x"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8jfc5"]
 particles_animation = true
@@ -217,14 +218,17 @@ position = Vector2(0, 5.5)
 [node name="NavColliderComponent" parent="." index="6" instance=ExtResource("5_h4dsn")]
 polygon = PackedVector2Array(-88, -32, 100, -33, 98, 37, -89, 37)
 
-[node name="FrontPoint" type="Marker2D" parent="AIInteractPoints" index="0"]
-position = Vector2(1, 71)
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("9_v547x")]
+position = Vector2(-133, 3)
 
-[node name="LeftPoint" type="Marker2D" parent="AIInteractPoints" index="1"]
-position = Vector2(-121, 0)
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("9_v547x")]
+position = Vector2(-62, 72)
 
-[node name="RightPoint" type="Marker2D" parent="AIInteractPoints" index="2"]
-position = Vector2(128, -1)
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("9_v547x")]
+position = Vector2(55, 72)
+
+[node name="AccessPoint4" parent="AccessPointContainer" index="3" instance=ExtResource("9_v547x")]
+position = Vector2(140, -1)
 
 [node name="CurrencyUpdated" type="HBoxContainer" parent="." index="8"]
 modulate = Color(1, 1, 1, 0)

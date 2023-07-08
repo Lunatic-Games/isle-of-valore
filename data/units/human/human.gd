@@ -11,8 +11,7 @@ const MAX_FOOD_HELD: int = 2
 
 var amount_wood_held: int = 0
 var amount_food_held: int = 0
-
-var target: Node2D = null
+var last_tree_targeted: TreeStructure = null
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D

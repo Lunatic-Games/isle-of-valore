@@ -15,7 +15,9 @@ func update():
 		ai_tree.transition_to("returning_to_hq")
 		return
 	
-	if human.target == null:
+	if human.last_tree_targeted != null and human.can_target_structure(human.last_tree_targeted):
+		human.target_structure(human.last_tree_targeted)
+	else:
 		target_new_tree()
 	
 	if human.target == null:
@@ -44,10 +46,13 @@ func target_new_tree():
 		if tree.unit_reserving_harvest != null or tree.remaining_wood <= 0:
 			continue
 		
+		if human.can_target_structure(tree) == false:
+			continue
+		
 		possible_trees.append(tree)
 		if possible_trees.size() >= n_trees_to_randomly_pick_from:
 			break
 	
 	var chosen_tree: TreeStructure = possible_trees.pick_random()
-	human.target = chosen_tree
-	chosen_tree.unit_reserving_harvest = human
+	human.target_structure(chosen_tree)
+	human.last_tree_targeted = chosen_tree
