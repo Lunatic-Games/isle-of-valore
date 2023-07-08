@@ -1,26 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://2vqqbo2i8g4o"]
+[gd_scene load_steps=8 format=3 uid="uid://2vqqbo2i8g4o"]
 
 [ext_resource type="Script" path="res://data/islands/island.gd" id="1_3pcty"]
+[ext_resource type="Texture2D" uid="uid://co03m2ak4ew07" path="res://assets/art/map/island_map.png" id="2_g8c33"]
 [ext_resource type="Script" path="res://data/islands/island_navigation_region.gd" id="2_yjrk1"]
 [ext_resource type="PackedScene" uid="uid://b1m0ja4p2lngf" path="res://data/structures/hq/hq.tscn" id="3_0oiis"]
 [ext_resource type="PackedScene" uid="uid://ctm4vk0bsumfp" path="res://data/structures/tree/tree.tscn" id="4_wms3k"]
 [ext_resource type="PackedScene" uid="uid://gshe1olk3sk0" path="res://data/structures/fire/fire.tscn" id="5_ccikp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fqbrj"]
-vertices = PackedVector2Array(-537, -478, 5432, -474, 5436, 3301, -530, 3304)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-537, -478, 5432, -474, 5436, 3301, -530, 3304)])
+vertices = PackedVector2Array(1038, 186, 2917, -166, 5651, 357, 6366, 1521, 6115, 2717, 4412, 3272, 3152, 3230, 306, 3011, 231, 1350)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1038, 186, 2917, -166, 5651, 357, 6366, 1521, 6115, 2717, 4412, 3272, 3152, 3230, 306, 3011, 231, 1350)])
 
 [node name="Island" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3pcty")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 offset_left = -532.0
 offset_top = -471.0
 offset_right = 5436.0
 offset_bottom = 3301.0
-color = Color(0.435294, 0.568627, 0.352941, 1)
+texture = ExtResource("2_g8c33")
 
 [node name="NavigationRegion" type="NavigationRegion2D" parent="."]
 y_sort_enabled = true
@@ -33,14 +34,8 @@ y_sort_enabled = true
 [node name="Tree" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(1368, 827)
 
-[node name="Tree2" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(461, 851)
-
 [node name="Tree3" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(560, 912)
-
-[node name="Tree4" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(352, 949)
 
 [node name="Tree17" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(1716, 930)
@@ -156,6 +151,12 @@ position = Vector2(4889, 1806)
 [node name="Tree42" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(4681, 1843)
 
+[node name="Tree51" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
+position = Vector2(5559, 1292)
+
+[node name="Tree52" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
+position = Vector2(5326, 1178)
+
 [node name="Tree43" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(1347, 2561)
 
@@ -180,12 +181,6 @@ position = Vector2(2295, 2939)
 [node name="Tree50" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(2087, 2976)
 
-[node name="Tree51" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(1272, -72)
-
-[node name="Tree52" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(1064, -35)
-
 [node name="Tree53" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(2626, 24)
 
@@ -195,11 +190,8 @@ position = Vector2(2418, 61)
 [node name="Tree55" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(2441, -44)
 
-[node name="Tree56" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(2233, -7)
-
 [node name="Tree57" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(3888, -15)
+position = Vector2(3877, 92)
 
 [node name="Tree58" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(3680, 22)
@@ -209,18 +201,6 @@ position = Vector2(4921, 434)
 
 [node name="Tree60" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(4713, 471)
-
-[node name="Tree61" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(35, 78)
-
-[node name="Tree63" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(64, 199)
-
-[node name="Tree64" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(310, 146)
-
-[node name="Tree62" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
-position = Vector2(-173, 115)
 
 [node name="OtherStructures" type="Node2D" parent="NavigationRegion"]
 y_sort_enabled = true
