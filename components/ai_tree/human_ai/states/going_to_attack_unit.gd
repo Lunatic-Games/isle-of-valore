@@ -7,6 +7,7 @@ func on_enter(_previous_state: AIState = null):
 	assert(target_unit != null, "No target unit")
 	
 	ai_tree.target_position = target_unit.global_position
+	human.animation_player.play("walk")
 
 
 func update():

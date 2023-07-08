@@ -4,7 +4,7 @@ extends AIState
 func on_enter(_previous_state: AIState = null):
 	var hq: HQStructure = GlobalGameState.game.island.hq
 	var human: Human = unit as Human
-	human.animation_player.play("idle")
+	human.animation_player.play("walk")
 	human.target_structure(hq)
 	ai_tree.target_position = human.target_access_point.global_position
 

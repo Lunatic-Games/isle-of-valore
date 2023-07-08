@@ -6,6 +6,7 @@ func on_enter(_previous_state: AIState = null):
 	var target_access_point: AccessPoint = human.target_access_point
 	assert(target_access_point != null, "No target access point")
 	ai_tree.target_position = target_access_point.global_position
+	human.animation_player.play("walk")
 
 
 func update():
