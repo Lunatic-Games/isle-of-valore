@@ -5,13 +5,18 @@ extends Unit
 const MOVE_SPEED: float = 200
 const SQUIRREL_DEN_SCENE: PackedScene = preload("res://data/structures/squirrel_den/squirrel_den.tscn")
 const WOLF_DEN_SCENE: PackedScene = preload("res://data/structures/wolf_den/wolf_den.tscn")
+const BEAR_DEN_SCENE: PackedScene = preload("res://data/structures/bear_den/bear_den.tscn")
 
 var interactables: Array[Area2D] = []
 var currently_interactive: Area2D
 var ability_map: Dictionary = {
 	0: spawn_wolf_den,
-	1: spawn_squirrel_den
+	1: spawn_squirrel_den,
+	2: spawn_bear_den
 }
+var wolf_den_cost: int = 40
+var bear_den_cost: int = 90
+var squirrel_den_cost: int = 65
 
 func _physics_process(delta: float) -> void:
 	var movement := Vector2()
@@ -79,12 +84,29 @@ func choose_currently_interactive():
 
 
 func spawn_wolf_den() -> void:
+	if GlobalGameState.HUD.currency < wolf_den_cost:
+		return
+	
 	var den: Structure = WOLF_DEN_SCENE.instantiate()
 	den.global_position = Vector2(global_position.x, global_position.y - 50)
 	GlobalGameState.game.add_child(den)
+	GlobalGameState.HUD.update_currency(-wolf_den_cost)
 
 
 func spawn_squirrel_den() -> void:
+	if GlobalGameState.HUD.currency < squirrel_den_cost:
+		return
+	
 	var squirrel_den: Structure = SQUIRREL_DEN_SCENE.instantiate()
 	squirrel_den.global_position = Vector2(global_position.x, global_position.y - 50)
 	GlobalGameState.game.add_child(squirrel_den)
+	GlobalGameState.HUD.update_currency(-squirrel_den_cost)
+
+func spawn_bear_den() -> void:
+	if GlobalGameState.HUD.currency < bear_den_cost:
+		return
+		
+	var bear_den: Structure = BEAR_DEN_SCENE.instantiate()
+	bear_den.global_position = Vector2(global_position.x, global_position.y - 50)
+	GlobalGameState.game.add_child(bear_den)
+	GlobalGameState.HUD.update_currency(-bear_den_cost)

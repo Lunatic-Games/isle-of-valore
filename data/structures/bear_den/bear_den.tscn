@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjbu45creh1hi"]
+
+[ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_rjijt"]
+[ext_resource type="Texture2D" uid="uid://ckgr1ra76khwu" path="res://assets/art/structures/den_bear.png" id="2_75a4j"]
+[ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_ycoam"]
+[ext_resource type="PackedScene" uid="uid://c4j4eo05twugp" path="res://data/units/wolf/wolf.tscn" id="4_j3y0w"]
+[ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_h6b1y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
+radius = 14.9999
+height = 246.0
+
+[node name="BearDen" instance=ExtResource("1_rjijt")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(-2, -161)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_75a4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(3, 1)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_3pfdu")
+
+[node name="SpawningComponent" parent="." index="2" instance=ExtResource("3_ycoam")]
+position = Vector2(0, 77)
+unit_to_spawn = ExtResource("4_j3y0w")
+time_until_spawn = 20.0
+
+[node name="NavColliderComponent" parent="." index="3" instance=ExtResource("5_h6b1y")]
+polygon = PackedVector2Array(-134, -23, 143, -22, 139, 30, -134, 27)
