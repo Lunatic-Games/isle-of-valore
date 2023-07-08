@@ -2,6 +2,9 @@ class_name HumanAIComponent
 extends NavigationAgent2D
 
 
+signal started_harvesting_wood
+signal stopped_harvesting_wood
+
 enum AIState {
 	IDLE,
 	GOING_TO_RESOURCE,
@@ -63,6 +66,7 @@ func going_to_resource_logic():
 		return
 	
 	if is_target_reached():
+		started_harvesting_wood.emit()
 		state = AIState.COLLECTING_RESOURCE
 		target_position = human.global_position
 
@@ -86,6 +90,7 @@ func _on_harvest_timer_timeout() -> void:
 	if resource_harvest_target == null:
 		state = AIState.IDLE
 		harvest_timer.stop()
+		stopped_harvesting_wood.emit()
 		return
 	
 	var tree: TreeStructure = resource_harvest_target as TreeStructure
@@ -107,3 +112,4 @@ func _on_harvest_timer_timeout() -> void:
 func _return_to_hq_for_dropoff():
 	target_position = GlobalGameState.game.island.hq.drop_off_location.global_position
 	state = AIState.RETURNING
+	stopped_harvesting_wood.emit()

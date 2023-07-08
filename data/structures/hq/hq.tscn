@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1m0ja4p2lngf"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_kb5hv"]
-[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/trunk.png" id="2_4jh0a"]
 [ext_resource type="Script" path="res://data/structures/hq/hq.gd" id="2_ibh7s"]
 [ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_8k5ol"]
+[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/den_squirrels.png" id="3_el56y"]
 [ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="4_dicek"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="6_r86s4"]
 
@@ -15,9 +15,9 @@ height = 194.0
 script = ExtResource("2_ibh7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-self_modulate = Color(0.976471, 0.176471, 0.423529, 1)
+self_modulate = Color(0.431373, 0, 0.156863, 1)
 position = Vector2(6, -96)
-texture = ExtResource("2_4jh0a")
+texture = ExtResource("3_el56y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 rotation = 1.57079

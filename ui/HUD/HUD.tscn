@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/HUD/HUD.gd" id="1_dpath"]
 [ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="1_mgjmc"]
-[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/trunk.png" id="2_vfwnm"]
+[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/den_squirrels.png" id="2_vfwnm"]
 [ext_resource type="Texture2D" uid="uid://kknfardvfuq8" path="res://assets/art/structures/den_wolf_placeholder.png" id="4_c8y2v"]
 
 [node name="HUD" type="CanvasLayer"]
