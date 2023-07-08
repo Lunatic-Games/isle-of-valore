@@ -7,6 +7,7 @@ var can_infuse: bool = true
 var infused_trees: int = 0
 
 signal ready_to_infuse
+signal infused
 
 func _ready() -> void:
 	GlobalGameState.infuse_controller = self
@@ -15,6 +16,7 @@ func start_cooldown():
 	get_tree().create_timer(INFUSE_COOLDOWN).connect("timeout", ready_infuse)
 	can_infuse = false
 	infused_trees += 1
+	emit_signal("infused")
 	#cost_to_infuse += infused_trees * 10
 
 func ready_infuse():
