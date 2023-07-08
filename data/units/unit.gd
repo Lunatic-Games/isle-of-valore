@@ -10,7 +10,7 @@ var target_access_point: AccessPoint = null
 @onready var health = max_health
 
 
-func can_target_unit(unit: Unit):
+func can_target_unit(_unit: Unit):
 	return true
 
 

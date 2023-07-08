@@ -32,7 +32,6 @@ func on_exit(_next_state: AIState = null):
 
 
 func _on_attack_timer_timeout():
-	var human: Human = unit as Human
 	attack_target.damage(1)
 	
 	if attack_target.health == 0 or attack_target.is_queued_for_deletion():

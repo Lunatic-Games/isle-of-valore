@@ -15,7 +15,10 @@ func update():
 		ai_tree.transition_to("returning_to_hq")
 		return
 	
-	if human.last_tree_targeted != null and human.can_target_structure(human.last_tree_targeted):
+	var valid_last_tree_target: bool = human.last_tree_targeted != null
+	valid_last_tree_target = valid_last_tree_target and human.can_target_structure(human.last_tree_targeted)
+	valid_last_tree_target = valid_last_tree_target and human.last_tree_targeted.can_be_harvested()
+	if valid_last_tree_target:
 		human.target_structure(human.last_tree_targeted)
 	else:
 		target_new_tree()

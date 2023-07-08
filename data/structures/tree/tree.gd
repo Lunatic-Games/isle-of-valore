@@ -58,6 +58,11 @@ func update_interact_text() -> void:
 	else:
 		interact_label.text = "[center]Infuse on cooldown[/center]"
 
+
+func can_be_harvested() -> bool:
+	return remaining_wood > 0
+
+
 func harvest() -> int:
 	remaining_wood -= 1
 	
