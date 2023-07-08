@@ -1,7 +1,7 @@
 extends AIState
 
 
-@export var n_tree_to_randomly_pick_from: int = 3
+@export var n_trees_to_randomly_pick_from: int = 3
 
 
 func on_enter(_previous_state: AIState = null):
@@ -15,7 +15,18 @@ func update():
 		ai_tree.transition_to("returning_to_base")
 		return
 	
-	var trees: Array[Node] = GlobalGameState.game.island.tree_container.get_children()
+	if human.targetted_resource_structure == null:
+		target_new_tree()
+	
+	if human.targetted_resource_structure == null:
+		return
+	
+	ai_tree.transition_to("going_to_resource")
+
+
+func target_new_tree():
+	var trees: Array[TreeStructure] = []
+	trees.append_array(GlobalGameState.game.island.tree_container.get_children())
 	if trees.is_empty():
 		return
 	
@@ -27,7 +38,16 @@ func update():
 			return a_distance_squared < b_distance_squared
 	)
 	
-	var chosen_tree: TreeStructure = trees.slice(0, n_tree_to_randomly_pick_from).pick_random()
-	human.targetted_resource_structure = chosen_tree
+	var human: Human = unit as Human
+	var possible_trees: Array[TreeStructure] = []
+	for tree in trees:
+		if tree.unit_reserving_harvest != null:
+			continue
+		
+		possible_trees.append(tree)
+		if possible_trees.size() >= n_trees_to_randomly_pick_from:
+			break
 	
-	ai_tree.transition_to("going_to_resource")
+	var chosen_tree: TreeStructure = possible_trees.pick_random()
+	human.targetted_resource_structure = chosen_tree
+	chosen_tree.unit_reserving_harvest = human
