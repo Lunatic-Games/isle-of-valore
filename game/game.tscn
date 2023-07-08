@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=8 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
 [ext_resource type="PackedScene" uid="uid://dsofnkaffifsd" path="res://ui/HUD/HUD.tscn" id="2_2ddj7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3pmkj6xeff0u" path="res://game/infuse_controller.tscn" id="2_kycvj"]
 [ext_resource type="PackedScene" uid="uid://r8adsu6lxnpr" path="res://data/units/player/player.tscn" id="3_dyan5"]
 [ext_resource type="Script" path="res://game/camera.gd" id="4_k3nis"]
+[ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="7_v3wmp"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -34,3 +35,15 @@ position = Vector2(461, 475)
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 script = ExtResource("4_k3nis")
 follow_target = NodePath("../Player")
+
+[node name="Human" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(841, 702)
+
+[node name="Human2" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(999, 704)
+
+[node name="Human3" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(841, 845)
+
+[node name="Human4" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(1001, 845)
