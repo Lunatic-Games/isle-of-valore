@@ -1,0 +1,151 @@
+[gd_scene load_steps=16 format=3 uid="uid://c2dwg0dh3l0es"]
+
+[ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_8n7ij"]
+[ext_resource type="Script" path="res://data/structures/den_mound/den_mound.gd" id="2_bpfiw"]
+[ext_resource type="Texture2D" uid="uid://dt3x7wkbtd46x" path="res://assets/art/structures/pile_of_stuff.png" id="3_5b3qb"]
+[ext_resource type="Texture2D" uid="uid://dy0l083k12jqk" path="res://assets/art/structures/den_wolf.png" id="4_c7ocu"]
+[ext_resource type="PackedScene" uid="uid://dny3dsk35pfhj" path="res://ui/HUD/ability.tscn" id="7_bgfsi"]
+[ext_resource type="PackedScene" uid="uid://bm1dymkqwjrg5" path="res://components/interaction_component/interaction_component.tscn" id="7_ntxmv"]
+[ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/den_squirrels.png" id="8_414bi"]
+[ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="8_qgga5"]
+[ext_resource type="Texture2D" uid="uid://ckgr1ra76khwu" path="res://assets/art/structures/den_bear.png" id="9_res2h"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="9_wl5bk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pfdu"]
+radius = 14.9999
+height = 246.0
+
+[sub_resource type="Animation" id="Animation_52as2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_egxbh"]
+resource_name = "despawn_interact"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ft3cc"]
+resource_name = "spawn_interact"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2c76"]
+_data = {
+"RESET": SubResource("Animation_52as2"),
+"despawn_interact": SubResource("Animation_egxbh"),
+"spawn_interact": SubResource("Animation_ft3cc")
+}
+
+[node name="DenMound" instance=ExtResource("1_8n7ij")]
+script = ExtResource("2_bpfiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(-2, -65)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_5b3qb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(3, 1)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_3pfdu")
+
+[node name="InteractionComponent" parent="." index="2" instance=ExtResource("7_ntxmv")]
+
+[node name="CollisionShape2D" parent="InteractionComponent" index="0"]
+position = Vector2(2.5, 14.5)
+
+[node name="NavColliderComponent" parent="." index="3" instance=ExtResource("8_qgga5")]
+polygon = PackedVector2Array(-134, -23, 143, -22, 139, 30, -134, 27)
+
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("9_wl5bk")]
+position = Vector2(-198, -1)
+
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("9_wl5bk")]
+position = Vector2(-100, 70)
+
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("9_wl5bk")]
+position = Vector2(68, 67)
+
+[node name="AccessPoint4" parent="AccessPointContainer" index="3" instance=ExtResource("9_wl5bk")]
+position = Vector2(190, -1)
+
+[node name="InteractLabel" type="PanelContainer" parent="." index="5"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+z_as_relative = false
+offset_left = -74.0
+offset_top = -151.0
+offset_right = 78.0
+offset_bottom = -105.0
+
+[node name="InteractLabel" type="RichTextLabel" parent="InteractLabel" index="0"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Press F to select a den to build[/center]"
+fit_content = true
+
+[node name="InteractAnimator" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_b2c76")
+}
+
+[node name="DenContainer" type="HBoxContainer" parent="." index="7"]
+visible = false
+offset_left = -149.0
+offset_top = -280.0
+offset_right = 147.0
+offset_bottom = -184.0
+theme_override_constants/separation = 10
+
+[node name="Ability" parent="DenContainer" index="0" instance=ExtResource("7_bgfsi")]
+layout_mode = 2
+sprite = ExtResource("4_c7ocu")
+cost = 40
+index = 1
+
+[node name="Ability2" parent="DenContainer" index="1" instance=ExtResource("7_bgfsi")]
+layout_mode = 2
+sprite = ExtResource("8_414bi")
+cost = 65
+index = 2
+
+[node name="Ability3" parent="DenContainer" index="2" instance=ExtResource("7_bgfsi")]
+layout_mode = 2
+sprite = ExtResource("9_res2h")
+cost = 90
+index = 3
+
+[editable path="InteractionComponent"]

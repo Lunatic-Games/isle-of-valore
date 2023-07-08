@@ -29,14 +29,14 @@ func _physics_process(delta: float) -> void:
 		movement.y += 1
 	if Input.is_action_pressed("move_left"):
 		movement.x -= 1
-	if Input.is_action_just_pressed("perform_ability"):
-		perform_ability()
+	#if Input.is_action_just_pressed("perform_ability"):
+	#	perform_ability()
 	if Input.is_action_just_pressed("interact"):
 		handle_interact()
-	if Input.is_action_just_pressed("cycle_ability_left"):
-		GlobalGameState.HUD.cycle_ability(-1)
-	if Input.is_action_just_pressed("cycle_ability_right"):
-		GlobalGameState.HUD.cycle_ability(1)
+	#if Input.is_action_just_pressed("cycle_ability_left"):
+	#	GlobalGameState.HUD.cycle_ability(-1)
+	#if Input.is_action_just_pressed("cycle_ability_right"):
+	#	GlobalGameState.HUD.cycle_ability(1)
 	
 	if movement.x != 0 || movement.y != 0 && !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play("walking")

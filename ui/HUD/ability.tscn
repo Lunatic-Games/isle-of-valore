@@ -92,3 +92,22 @@ fit_content = true
 libraries = {
 "": SubResource("AnimationLibrary_xj5iu")
 }
+
+[node name="Number" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 73.0
+offset_right = 96.0
+offset_bottom = 96.0
+bbcode_enabled = true
+text = "[center]Press 1"
+fit_content = true
+scroll_active = false
+
+[node name="Cost" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 23.0
+bbcode_enabled = true
+text = "[center]Cost: 40"
+fit_content = true
+scroll_active = false

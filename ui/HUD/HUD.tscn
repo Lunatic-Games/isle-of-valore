@@ -27,6 +27,7 @@ text = "30"
 fit_content = true
 
 [node name="AbilityContainer" type="HBoxContainer" parent="."]
+visible = false
 offset_left = 840.0
 offset_top = 967.0
 offset_right = 1036.0
