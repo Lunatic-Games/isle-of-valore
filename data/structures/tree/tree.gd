@@ -66,5 +66,7 @@ func harvest() -> int:
 			tree_cut_animator.play("fell_tree_infused")
 		else:
 			tree_cut_animator.play("fell_tree")
+	else:
+		tree_cut_animator.play("harvest_wood")
 	
 	return 1

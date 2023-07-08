@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ctm4vk0bsumfp"]
+[gd_scene load_steps=34 format=3 uid="uid://ctm4vk0bsumfp"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_sc78k"]
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
@@ -213,6 +213,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TreeStump:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_slqqm"]
 resource_name = "fell_tree_infused"
@@ -265,11 +277,64 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TreeStump:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ypwj"]
+resource_name = "harvest_wood"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InfusedSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TreeStump:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0174533, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_503by"]
 _data = {
 "fell_tree": SubResource("Animation_7kksh"),
-"fell_tree_infused": SubResource("Animation_slqqm")
+"fell_tree_infused": SubResource("Animation_slqqm"),
+"harvest_wood": SubResource("Animation_5ypwj")
 }
 
 [sub_resource type="Gradient" id="Gradient_8ghnr"]
@@ -301,18 +366,22 @@ color_ramp = SubResource("GradientTexture1D_eh233")
 [node name="Tree" instance=ExtResource("1_sc78k")]
 script = ExtResource("2_gamew")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="TreeStump" type="Sprite2D" parent="." index="0"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1, -28)
+rotation = 0.0349066
+texture = ExtResource("5_gtus0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 position = Vector2(0, -215)
+rotation = 0.0349066
 texture = ExtResource("2_y0plm")
 
-[node name="InfusedSprite" type="Sprite2D" parent="." index="1"]
+[node name="InfusedSprite" type="Sprite2D" parent="." index="2"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-12, -206)
+rotation = 0.0349066
 texture = ExtResource("4_n6vdl")
-
-[node name="TreeStump" type="Sprite2D" parent="." index="2"]
-position = Vector2(0, -28)
-texture = ExtResource("5_gtus0")
 
 [node name="InfusedParticles" type="GPUParticles2D" parent="." index="3"]
 material = SubResource("CanvasItemMaterial_mkgbn")
