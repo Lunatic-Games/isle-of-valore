@@ -197,6 +197,7 @@ text = "Press F to infuse"
 fit_content = true
 
 [node name="CurrencyUpdated" type="HBoxContainer" parent="." index="6"]
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 offset_left = -44.0
 offset_top = -442.0
