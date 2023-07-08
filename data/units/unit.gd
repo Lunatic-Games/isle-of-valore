@@ -33,6 +33,13 @@ func target_unit(unit: Unit):
 	target_access_point = null
 
 
+func clear_target():
+	if target_access_point:
+		target_access_point.reserved_by_unit = null
+		target_access_point = null
+	target = null
+
+
 func damage(amount: int):
 	health -= amount
 	if health <= 0:

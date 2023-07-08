@@ -22,7 +22,7 @@ func on_enter(_previous_state: AIState = null):
 
 
 func update():
-	if tree_harvesting == null or tree_harvesting.is_queued_for_deletion():
+	if tree_harvesting == null or tree_harvesting.is_queued_for_deletion() or !tree_harvesting.can_be_harvested():
 		ai_tree.transition_to("idle")
 
 

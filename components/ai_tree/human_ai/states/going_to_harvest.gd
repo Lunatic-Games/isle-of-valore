@@ -16,5 +16,10 @@ func update():
 		ai_tree.transition_to("idle")
 		return
 	
+	var as_tree: TreeStructure = target as TreeStructure
+	if as_tree and !as_tree.can_be_harvested():
+		ai_tree.transition_to("idle")
+		return
+	
 	if ai_tree.is_target_reached():
 		ai_tree.transition_to("harvesting_wood")
