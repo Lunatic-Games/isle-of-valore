@@ -1,9 +1,9 @@
 class_name HQStructure
 extends Structure
 
-const spear_upgrade_costs: Array[int] = [60, 70]
-const axe_upgrade_costs: Array[int] = [60, 70]
-const armor_upgrade_costs: Array[int] = [60, 70]
+const spear_upgrade_costs: Array[int] = [40, 60]
+const axe_upgrade_costs: Array[int] = [40, 60]
+const armor_upgrade_costs: Array[int] = [40, 60]
 
 var held_wood: int = 0
 var held_food: int = 0
