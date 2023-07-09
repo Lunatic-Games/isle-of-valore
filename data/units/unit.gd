@@ -10,6 +10,7 @@ var target_access_point: AccessPoint = null
 
 @onready var health: int = max_health
 @onready var access_points: AccessPointContainer = $AccessPointContainer
+@onready var unit_sight_range: Area2D = $UnitSightRange
 
 
 func can_target_unit(unit: Unit, allow_reserved: bool = false):

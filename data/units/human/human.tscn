@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://clbjpfa1bby77"]
+[gd_scene load_steps=15 format=3 uid="uid://clbjpfa1bby77"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_lj6nc"]
 [ext_resource type="Script" path="res://data/units/human/human.gd" id="2_03m2e"]
@@ -135,9 +135,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_ky8nn"]
 radius = 800.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l10m8"]
-radius = 500.0
-
 [node name="Human" instance=ExtResource("1_lj6nc")]
 script = ExtResource("2_03m2e")
 
@@ -165,15 +162,6 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StructureSightRange" index="0"]
 visible = false
 shape = SubResource("CircleShape2D_ky8nn")
-
-[node name="UnitSightRange" type="Area2D" parent="." index="5"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UnitSightRange" index="0"]
-visible = false
-shape = SubResource("CircleShape2D_l10m8")
-debug_color = Color(0.964706, 0, 0.501961, 0.419608)
 
 [node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("7_jf3xk")]
 position = Vector2(44, -64)
