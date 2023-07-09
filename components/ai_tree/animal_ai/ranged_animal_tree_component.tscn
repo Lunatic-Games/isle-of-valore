@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://oxaj0ao6ckbt"]
+
+[ext_resource type="PackedScene" uid="uid://bedvarjm3tlcp" path="res://components/ai_tree/ai_tree_component.tscn" id="1_r738t"]
+[ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/attacking_human.gd" id="2_sbh2x"]
+[ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/going_to_attack_human.gd" id="3_yg7w1"]
+[ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/attacking_hq.gd" id="4_l8t6f"]
+[ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/going_to_attack_hq.gd" id="5_l7y4s"]
+[ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/idle.gd" id="6_630fx"]
+
+[node name="RangedAnimalTreeComponent" node_paths=PackedStringArray("start_state") instance=ExtResource("1_r738t")]
+target_desired_distance = 50.0
+avoidance_enabled = true
+max_speed = 100000.0
+start_state = NodePath("Idle")
+
+[node name="AttackingHuman" type="Node" parent="." index="0"]
+script = ExtResource("2_sbh2x")
+state_name = "attacking_human"
+priority_level = 2
+override_target_distance = true
+target_distance = 400.0
+
+[node name="GoingToAttackHuman" type="Node" parent="." index="1"]
+script = ExtResource("3_yg7w1")
+state_name = "going_to_attack_human"
+priority_level = 2
+override_target_distance = true
+target_distance = 400.0
+
+[node name="AttackingHQ" type="Node" parent="." index="2"]
+script = ExtResource("4_l8t6f")
+state_name = "attacking_hq"
+override_target_distance = true
+target_distance = 400.0
+
+[node name="GoingToAttackHQ" type="Node" parent="." index="3"]
+script = ExtResource("5_l7y4s")
+state_name = "going_to_attack_hq"
+override_target_distance = true
+target_distance = 400.0
+
+[node name="Idle" type="Node" parent="." index="4"]
+script = ExtResource("6_630fx")
+state_name = "idle"

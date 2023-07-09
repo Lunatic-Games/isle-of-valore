@@ -1,20 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://d14dss0mk65ej"]
+[gd_scene load_steps=8 format=3 uid="uid://d14dss0mk65ej"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_0wg7t"]
 [ext_resource type="Texture2D" uid="uid://7yxsf813i1m5" path="res://assets/art/units/squirrel.png" id="2_dx4bd"]
 [ext_resource type="Script" path="res://data/units/animal.gd" id="2_k3du6"]
-[ext_resource type="PackedScene" uid="uid://lh4xukvm4ol6" path="res://components/ai_tree/animal_ai/melee_animal_tree_component.tscn" id="4_7cmg4"]
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="4_yjtuw"]
+[ext_resource type="PackedScene" uid="uid://oxaj0ao6ckbt" path="res://components/ai_tree/animal_ai/ranged_animal_tree_component.tscn" id="5_myrwr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
-radius = 1.75
-height = 14.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdir6"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mu4et"]
+radius = 700.0
 
 [node name="Squirrel" node_paths=PackedStringArray("ai_tree_component", "sprite") instance=ExtResource("1_0wg7t")]
 script = ExtResource("2_k3du6")
 move_speed = 200.0
 max_healths = Array[int]([20, 40, 60])
-ai_tree_component = NodePath("MeleeAnimalTreeComponent")
+ai_tree_component = NodePath("RangedAnimalTreeComponent")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
@@ -25,7 +27,7 @@ texture = ExtResource("2_dx4bd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 0.25)
 rotation = 1.57079
-shape = SubResource("CapsuleShape2D_ovqx7")
+shape = SubResource("CircleShape2D_qdir6")
 
 [node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("4_yjtuw")]
 position = Vector2(37, 0)
@@ -36,4 +38,8 @@ position = Vector2(-1, 31)
 [node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("4_yjtuw")]
 position = Vector2(-39, 1)
 
-[node name="MeleeAnimalTreeComponent" parent="." index="3" instance=ExtResource("4_7cmg4")]
+[node name="CollisionShape2D" parent="UnitSightRange" index="0"]
+shape = SubResource("CircleShape2D_mu4et")
+
+[node name="RangedAnimalTreeComponent" parent="." index="4" instance=ExtResource("5_myrwr")]
+path_max_distance = 500.0

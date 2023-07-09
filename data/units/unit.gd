@@ -35,7 +35,7 @@ func target_structure(structure: Structure):
 
 
 func target_unit(unit: Unit):
-	if target_access_point:
+	if is_instance_valid(target_access_point):
 		target_access_point.reserved_by_unit = null
 	target = unit
 	target_access_point = unit.access_points.get_closest_access_point(global_position)
