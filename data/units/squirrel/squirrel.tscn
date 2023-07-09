@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://d14dss0mk65ej"]
+[gd_scene load_steps=6 format=3 uid="uid://d14dss0mk65ej"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_0wg7t"]
 [ext_resource type="Texture2D" uid="uid://7yxsf813i1m5" path="res://assets/art/units/squirrel.png" id="2_dx4bd"]
 [ext_resource type="Script" path="res://data/units/animal.gd" id="2_k3du6"]
+[ext_resource type="PackedScene" uid="uid://lh4xukvm4ol6" path="res://components/ai_tree/animal_ai/melee_animal_tree_component.tscn" id="4_7cmg4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
 radius = 1.75
 height = 14.0
 
-[node name="Squirrel" instance=ExtResource("1_0wg7t")]
+[node name="Squirrel" node_paths=PackedStringArray("ai_tree_component", "sprite") instance=ExtResource("1_0wg7t")]
 script = ExtResource("2_k3du6")
+move_speed = 200.0
 max_healths = Array[int]([20, 40, 60])
+ai_tree_component = NodePath("MeleeAnimalTreeComponent")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1, -21)
@@ -21,3 +25,5 @@ texture = ExtResource("2_dx4bd")
 position = Vector2(0, 0.25)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ovqx7")
+
+[node name="MeleeAnimalTreeComponent" parent="." index="3" instance=ExtResource("4_7cmg4")]

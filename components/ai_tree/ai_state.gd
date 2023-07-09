@@ -1,9 +1,11 @@
 class_name AIState
-extends Node2D
+extends Node
 
 
 @export var state_name: String = ""
 @export var priority_level: int = 1
+@export var override_target_distance: bool = false
+@export var target_distance: float = 0
 
 @onready var ai_tree: AITreeComponent = get_parent()
 @onready var unit: Unit = get_parent().get_parent()

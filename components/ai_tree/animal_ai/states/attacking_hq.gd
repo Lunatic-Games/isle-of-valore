@@ -1,20 +1,16 @@
 extends AIState
 
 
-var attack_target: Den = null
+var attack_target: HQStructure = null
 var attack_timer: Timer = null
 
 
 func on_enter(_previous_state: AIState = null):
-	var human: Human = unit as Human
-	human.animation_player.play("harvesting_wood")
-	
-	attack_target = human.target as Den
-	human.sprite.flip_h = attack_target.global_position.x > human.global_position.x
+	attack_target = unit.target as HQStructure
 	
 	if attack_timer == null:
 		attack_timer = Timer.new()
-		attack_timer.wait_time = human.time_to_attack
+		attack_timer.wait_time = unit.time_to_attack
 		attack_timer.timeout.connect(_on_attack_timer_timeout)
 		add_child(attack_timer)
 	

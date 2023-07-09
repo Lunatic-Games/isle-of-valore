@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4j4eo05twugp"]
+[gd_scene load_steps=6 format=3 uid="uid://c4j4eo05twugp"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_guwsx"]
 [ext_resource type="Script" path="res://data/units/animal.gd" id="2_f3wcw"]
 [ext_resource type="Texture2D" uid="uid://cgfvknk4k3hgp" path="res://assets/art/units/wolf.png" id="2_ha20o"]
+[ext_resource type="PackedScene" uid="uid://lh4xukvm4ol6" path="res://components/ai_tree/animal_ai/melee_animal_tree_component.tscn" id="4_pdumw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
 radius = 3.0
 height = 40.0
 
-[node name="Wolf" instance=ExtResource("1_guwsx")]
+[node name="Wolf" node_paths=PackedStringArray("ai_tree_component", "sprite") instance=ExtResource("1_guwsx")]
 script = ExtResource("2_f3wcw")
+move_speed = 200.0
 max_healths = Array[int]([20, 40, 60])
+ai_tree_component = NodePath("MeleeAnimalTreeComponent")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(2, -40.25)
@@ -21,3 +25,5 @@ texture = ExtResource("2_ha20o")
 position = Vector2(0, -0.25)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ovqx7")
+
+[node name="MeleeAnimalTreeComponent" parent="." index="3" instance=ExtResource("4_pdumw")]

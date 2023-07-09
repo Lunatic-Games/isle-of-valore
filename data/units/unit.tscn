@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ssymsxyggbph"]
+[gd_scene load_steps=3 format=3 uid="uid://ssymsxyggbph"]
 
 [ext_resource type="Script" path="res://data/units/unit.gd" id="1_t5cli"]
+[ext_resource type="PackedScene" uid="uid://cwo1ivfkq4veg" path="res://components/access_point_container/access_point_container.tscn" id="2_80btl"]
 
 [node name="Unit" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_t5cli")
+
+[node name="AccessPointContainer" parent="." instance=ExtResource("2_80btl")]

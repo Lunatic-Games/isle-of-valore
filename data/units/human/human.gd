@@ -4,7 +4,6 @@ extends Unit
 
 const MOVE_SPEED: float = 200
 const TIME_TO_HARVEST: float = 1.0
-const TIME_TO_ATTACK: float = 1.0
 
 const MAX_WOOD_HELD: int = 2
 const MAX_FOOD_HELD: int = 2
