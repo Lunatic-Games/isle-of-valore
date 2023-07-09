@@ -7,3 +7,17 @@ script = ExtResource("1_2nvs2")
 time_until_spawn = 2.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="SpawnLabel" type="PanelContainer" parent="."]
+z_index = 1
+z_as_relative = false
+offset_left = -107.0
+offset_top = -7.0
+offset_right = 104.0
+offset_bottom = 18.0
+
+[node name="SpawnLabel" type="RichTextLabel" parent="SpawnLabel"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Spawning in: 0.34 seconds[/center]"
+fit_content = true

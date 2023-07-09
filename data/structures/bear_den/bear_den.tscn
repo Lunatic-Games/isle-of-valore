@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bjbu45creh1hi"]
+[gd_scene load_steps=31 format=3 uid="uid://bjbu45creh1hi"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_rjijt"]
 [ext_resource type="Texture2D" uid="uid://ckgr1ra76khwu" path="res://assets/art/structures/den_bear.png" id="2_75a4j"]
@@ -175,6 +175,27 @@ _data = {
 "spawn_interact": SubResource("Animation_ft3cc")
 }
 
+[sub_resource type="Animation" id="Animation_004pm"]
+resource_name = "show_info"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InfoLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhylj"]
+_data = {
+"show_info": SubResource("Animation_004pm")
+}
+
 [node name="BearDen" instance=ExtResource("1_rjijt")]
 script = ExtResource("2_a6aie")
 tier_cost = Array[int]([320, 550])
@@ -282,5 +303,25 @@ offset_left = -72.0
 offset_top = -211.0
 offset_right = 72.0
 offset_bottom = -201.0
+
+[node name="InfoLabel" type="PanelContainer" parent="." index="13"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+z_as_relative = false
+offset_left = -107.0
+offset_top = -247.0
+offset_right = 104.0
+offset_bottom = -190.0
+
+[node name="InfoLabel" type="RichTextLabel" parent="InfoLabel" index="0"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Unable to spawn unit, not enough acorns[/center]"
+fit_content = true
+
+[node name="InfoAnimator" type="AnimationPlayer" parent="." index="14"]
+libraries = {
+"": SubResource("AnimationLibrary_nhylj")
+}
 
 [editable path="InteractionComponent"]
