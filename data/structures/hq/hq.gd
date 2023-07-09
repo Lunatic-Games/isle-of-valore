@@ -44,16 +44,16 @@ func upgrade_spears() -> void:
 	held_wood -= spear_upgrade_costs[spear_tier]
 	spear_tier += 1
 	emit_signal("spear_upgraded")
-	print("spear_upgraded")
+	wood_label.text = "[center]" + str(held_wood)
 
 func upgrade_axe() -> void:
 	held_wood -= axe_upgrade_costs[axe_tier]
 	axe_tier += 1
 	emit_signal("axe_upgraded")
-	print("axe_upgraded")
+	wood_label.text = "[center]" + str(held_wood)
 
 func upgrade_armor() -> void:
 	held_wood -= armor_upgrade_costs[armor_tier]
 	armor_tier += 1
 	emit_signal("armor_upgraded")
-	print("armor_upgraded")
+	wood_label.text = "[center]" + str(held_wood)
