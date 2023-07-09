@@ -12,6 +12,7 @@ var can_interact: bool = false
 @onready var tier_2_particles: GPUParticles2D = $Tier2Particles
 @onready var tier_3_particles: GPUParticles2D = $Tier3Particles
 @onready var currency_label: RichTextLabel = $CurrencyUpdated/RichTextLabel
+@onready var info_animator: AnimationPlayer = $InfoAnimator
 
 func interact() -> void:
 	if current_tier == MAX_TIER or GlobalGameState.HUD.currency < tier_cost[current_tier-1]:
@@ -43,4 +44,4 @@ func hide_interactive() -> void:
 
 func update_interact_text() -> void:
 	if current_tier != MAX_TIER:
-		interact_label.text = "[center]Press F to upgrade: " + str(tier_cost[current_tier-1]) + " acorns"
+		interact_label.text = "[center]Press F to upgrade: " + str(round(tier_cost[current_tier-1])) + " acorns"
