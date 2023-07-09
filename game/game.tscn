@@ -31,8 +31,6 @@ color = Color(0.329412, 0.501961, 0.839216, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_dyan5")]
 position = Vector2(2091, 1397)
-max_health = null
-time_to_attack = null
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 script = ExtResource("4_k3nis")

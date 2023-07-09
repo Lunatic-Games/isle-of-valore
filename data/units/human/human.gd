@@ -35,3 +35,8 @@ func _on_human_ai_tree_component_velocity_computed(safe_velocity: Vector2) -> vo
 	velocity = safe_velocity
 	if abs(velocity.x) > 10.0:
 		sprite.flip_h = velocity.x > 0.0
+
+func heal(amount_to_heal) -> void:
+	health += amount_to_heal
+	if health > max_health:
+		health = max_health

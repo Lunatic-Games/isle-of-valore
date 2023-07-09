@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4gs06x5qiuj6"]
+[gd_scene load_steps=11 format=3 uid="uid://b4gs06x5qiuj6"]
 
 [ext_resource type="PackedScene" uid="uid://bedvarjm3tlcp" path="res://components/ai_tree/ai_tree_component.tscn" id="1_tdxrn"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/idle.gd" id="2_1t0sx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/attacking_structure.gd" id="4_nnas2"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/returning_to_hq.gd" id="5_hs3fi"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/going_to_harvest.gd" id="5_o8dbd"]
+[ext_resource type="Script" path="res://components/ai_tree/human_ai/GoingToCampfire.gd" id="10_uqhni"]
 
 [node name="HumanAITreeComponent" node_paths=PackedStringArray("start_state") instance=ExtResource("1_tdxrn")]
 target_desired_distance = 50.0
@@ -52,3 +53,7 @@ state_name = "going_to_harvest"
 [node name="ReturningToHQ" type="Node" parent="." index="7"]
 script = ExtResource("5_hs3fi")
 state_name = "returning_to_hq"
+
+[node name="GoingToCampfire" type="Node" parent="." index="8"]
+script = ExtResource("10_uqhni")
+state_name = "going_to_campfire"

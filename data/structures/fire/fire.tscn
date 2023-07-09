@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://gshe1olk3sk0"]
+[gd_scene load_steps=12 format=3 uid="uid://gshe1olk3sk0"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_g5qmw"]
 [ext_resource type="Texture2D" uid="uid://cswfti0prenq" path="res://assets/art/structures/fire.png" id="2_44snm"]
+[ext_resource type="Script" path="res://data/structures/fire/fire.gd" id="2_txd0v"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="3_u58md"]
 [ext_resource type="Texture2D" uid="uid://d4b3o3exghhbe" path="res://assets/art/particles/smoke.png" id="3_uxq11"]
 
 [sub_resource type="Gradient" id="Gradient_wlwvu"]
@@ -40,6 +42,16 @@ color_ramp = SubResource("GradientTexture1D_t4asv")
 hue_variation_max = 0.01
 
 [node name="Fire" instance=ExtResource("1_g5qmw")]
+script = ExtResource("2_txd0v")
+
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("3_u58md")]
+position = Vector2(-90, -2)
+
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("3_u58md")]
+position = Vector2(96, 1)
+
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("3_u58md")]
+position = Vector2(1, 43)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 position = Vector2(0, -27)
