@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddxelkbfu1lpk"]
+[gd_scene load_steps=8 format=3 uid="uid://ddxelkbfu1lpk"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_wpwuw"]
 [ext_resource type="Script" path="res://data/structures/weapon_stand/weapond_stand.gd" id="2_vfrpd"]
 [ext_resource type="Texture2D" uid="uid://bijigwt6bsi7a" path="res://assets/art/structures/wood spear.png" id="3_syxpm"]
 [ext_resource type="Texture2D" uid="uid://djn2g60qvwm2h" path="res://assets/art/structures/copper spear.png" id="4_cqfsj"]
 [ext_resource type="Texture2D" uid="uid://cewhwfb0g0v2e" path="res://assets/art/structures/iron spear.png" id="5_a4o1r"]
+[ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="6_5ev2k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lngsa"]
+radius = 39.0128
 
 [node name="WeaponStand" instance=ExtResource("1_wpwuw")]
 script = ExtResource("2_vfrpd")
@@ -22,3 +26,13 @@ texture = ExtResource("4_cqfsj")
 visible = false
 position = Vector2(0, -116)
 texture = ExtResource("5_a4o1r")
+
+[node name="HealthBar" parent="." index="4"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_lngsa")
+
+[node name="NavColliderComponent" parent="." index="6" instance=ExtResource("6_5ev2k")]
+polygon = PackedVector2Array(-60, 3, -40, -48, -1, -70, 54, -46, 62, 2, 27, 41, -27, 42)

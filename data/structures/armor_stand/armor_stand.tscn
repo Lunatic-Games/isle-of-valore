@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://xyoyx3cujwa6"]
+[gd_scene load_steps=8 format=3 uid="uid://xyoyx3cujwa6"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_r315k"]
 [ext_resource type="Script" path="res://data/structures/armor_stand/armor_stand.gd" id="2_v5dmg"]
 [ext_resource type="Texture2D" uid="uid://h16yljfwn1" path="res://assets/art/structures/no armor.png" id="3_vb182"]
 [ext_resource type="Texture2D" uid="uid://p88i8rxkd5e2" path="res://assets/art/structures/copper armor.png" id="4_3hghi"]
 [ext_resource type="Texture2D" uid="uid://mqigk4oyni58" path="res://assets/art/structures/iron armor.png" id="5_dokef"]
+[ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="6_ievvx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fr8pi"]
 
 [node name="ArmorStand" instance=ExtResource("1_r315k")]
 script = ExtResource("2_v5dmg")
@@ -22,3 +25,13 @@ texture = ExtResource("4_3hghi")
 visible = false
 position = Vector2(0, -116)
 texture = ExtResource("5_dokef")
+
+[node name="HealthBar" parent="." index="4"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_fr8pi")
+
+[node name="NavColliderComponent" parent="." index="6" instance=ExtResource("6_ievvx")]
+polygon = PackedVector2Array(0, 9, -29, -10, 0, -30, 28, -10)

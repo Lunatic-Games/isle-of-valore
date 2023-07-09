@@ -213,18 +213,6 @@ position = Vector2(4921, 434)
 [node name="Tree60" parent="NavigationRegion/Trees" instance=ExtResource("4_wms3k")]
 position = Vector2(4713, 471)
 
-[node name="OtherStructures" type="Node2D" parent="NavigationRegion"]
-y_sort_enabled = true
-
-[node name="HQ" parent="NavigationRegion/OtherStructures" instance=ExtResource("3_0oiis")]
-position = Vector2(2772, 1343)
-
-[node name="Fire" parent="NavigationRegion/OtherStructures" instance=ExtResource("5_ccikp")]
-position = Vector2(2496, 1465)
-
-[node name="WeaponStand" parent="NavigationRegion/OtherStructures" instance=ExtResource("7_5gmfh")]
-position = Vector2(2391, 1265)
-
 [node name="DenMounds" type="Node2D" parent="NavigationRegion"]
 y_sort_enabled = true
 
@@ -264,8 +252,20 @@ position = Vector2(5803, 1267)
 [node name="DenMound4" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
 position = Vector2(1332, 2748)
 
-[node name="ArmorStand" parent="." instance=ExtResource("9_j7w4r")]
+[node name="OtherStructures" type="Node2D" parent="NavigationRegion"]
+y_sort_enabled = true
+
+[node name="HQ" parent="NavigationRegion/OtherStructures" instance=ExtResource("3_0oiis")]
+position = Vector2(2772, 1344)
+
+[node name="Fire" parent="NavigationRegion/OtherStructures" instance=ExtResource("5_ccikp")]
+position = Vector2(2496, 1465)
+
+[node name="WeaponStand" parent="NavigationRegion/OtherStructures" instance=ExtResource("7_5gmfh")]
+position = Vector2(2391, 1265)
+
+[node name="ArmorStand" parent="NavigationRegion/OtherStructures" instance=ExtResource("9_j7w4r")]
 position = Vector2(3054, 1681)
 
-[node name="AxeStand" parent="." instance=ExtResource("10_mim6i")]
+[node name="AxeStand" parent="NavigationRegion/OtherStructures" instance=ExtResource("10_mim6i")]
 position = Vector2(2402, 1707)

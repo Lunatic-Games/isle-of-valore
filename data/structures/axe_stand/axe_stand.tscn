@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd7eta4itm6l"]
+[gd_scene load_steps=8 format=3 uid="uid://bd7eta4itm6l"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_xf18y"]
 [ext_resource type="Script" path="res://data/structures/axe_stand/axe_stand.gd" id="2_7beb1"]
 [ext_resource type="Texture2D" uid="uid://dnf6ol7p6kmp4" path="res://assets/art/structures/stone axe.png" id="3_l7bsr"]
 [ext_resource type="Texture2D" uid="uid://b5p85etwlgpdi" path="res://assets/art/structures/copper axe.png" id="4_t3ksr"]
 [ext_resource type="Texture2D" uid="uid://dei5hlbm4mc2s" path="res://assets/art/structures/iron axe.png" id="5_gjjko"]
+[ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="6_n0fqm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hbl4y"]
+radius = 34.0147
 
 [node name="AxeStand" instance=ExtResource("1_xf18y")]
 script = ExtResource("2_7beb1")
 
 [node name="WoodSpears" type="Sprite2D" parent="." index="1"]
-position = Vector2(0, -116)
+position = Vector2(0, -69)
 texture = ExtResource("3_l7bsr")
 
 [node name="CopperSpears" type="Sprite2D" parent="." index="2"]
@@ -22,3 +26,14 @@ texture = ExtResource("4_t3ksr")
 visible = false
 position = Vector2(0, -116)
 texture = ExtResource("5_gjjko")
+
+[node name="HealthBar" parent="." index="4"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_hbl4y")
+
+[node name="NavColliderComponent" parent="." index="6" instance=ExtResource("6_n0fqm")]
+position = Vector2(0, 47)
+polygon = PackedVector2Array(0, -4, -42, -27, -43, -85, 1, -106, 43, -85, 44, -26)

@@ -56,7 +56,8 @@ func _physics_process(delta: float) -> void:
 	if movement.x < 0:
 		$Sprite2D.flip_h = false
 	
-	move_and_collide(movement.normalized() * MOVE_SPEED * delta)
+	velocity = movement.normalized() * MOVE_SPEED
+	move_and_slide()
 
 
 func perform_ability() -> void:

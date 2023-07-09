@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://xqdntofbsn8k" path="res://assets/art/resources/meat.png" id="7_wp7j3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjnhy"]
-radius = 20.0
-height = 386.0
+radius = 38.6
+height = 372.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1w8f"]
 bg_color = Color(0, 0, 0, 0.352941)
@@ -27,13 +27,13 @@ position = Vector2(6, -131)
 texture = ExtResource("3_viboc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(30, -0.599998)
+position = Vector2(30, -29.6)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_kjnhy")
 
 [node name="NavColliderComponent" parent="." index="2" instance=ExtResource("6_r86s4")]
 position = Vector2(8, -1.6)
-polygon = PackedVector2Array(-190, -26.4, 228, -25.4, 228, 35.6, -190, 35.6)
+polygon = PackedVector2Array(-172, -81.4, 212, -83.4, 228, 24.6, -184, 25.6)
 
 [node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("5_1lmf4")]
 position = Vector2(-89, 50)
