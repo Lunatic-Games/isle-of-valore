@@ -28,7 +28,7 @@ func on_exit(_next_state: AIState = null):
 
 
 func _on_attack_timer_timeout():
-	unit.target.damage(1)
+	unit.target.damage(unit.attack_damage)
 	
 	if unit.target.health == 0 or unit.target.is_queued_for_deletion():
 		ai_tree.transition_to("idle")

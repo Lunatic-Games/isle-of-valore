@@ -217,31 +217,31 @@ position = Vector2(4713, 471)
 y_sort_enabled = true
 
 [node name="DenMound" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
-position = Vector2(1634, 1462)
+position = Vector2(1302, 1578)
 
 [node name="DenMound2" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
-position = Vector2(1429, 1145)
+position = Vector2(913, 1077)
 
 [node name="DenMound3" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
 position = Vector2(1513, 2345)
 
 [node name="DenMound5" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
-position = Vector2(3469, 2189)
+position = Vector2(3849, 2465)
 
 [node name="DenMound6" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
-position = Vector2(4432, 2174)
+position = Vector2(4652, 2314)
 
 [node name="DenMound7" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
 position = Vector2(4875, 1318)
 
 [node name="DenMound10" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
-position = Vector2(4376, 733)
+position = Vector2(4416, 685)
 
 [node name="DenMound11" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
-position = Vector2(4320, 416)
+position = Vector2(4324, 324)
 
 [node name="DenMound12" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
-position = Vector2(2360, 310)
+position = Vector2(2380, 266)
 
 [node name="DenMound8" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
 position = Vector2(5611, 1509)

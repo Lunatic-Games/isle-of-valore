@@ -8,7 +8,7 @@ const MAX_FOOD_HELD: int = 2
 
 var max_wood_held = 2
 var wood_harvested = 1
-var attack_damage = 1
+var attack_damage = 8
 var amount_wood_held: int = 0
 var amount_food_held: int = 0
 var last_tree_targeted: TreeStructure = null
@@ -49,8 +49,8 @@ func update_axe_stats():
 	wood_harvested = 1
 
 func update_armor_stats():
-	max_health += 10
-	health += 10
+	max_health += 70
+	health += 70
 
 func update_spear_stats():
-	attack_damage += 1
+	attack_damage += 10

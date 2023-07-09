@@ -6,9 +6,12 @@ const MEAT_PARTICLES: PackedScene = preload("res://data/particles/meat_explosion
 @export var move_speed: float = 200.0
 @export var meat_on_death: int = 1
 @export var max_healths: Array[int] = [20, 40, 60]
+@export var max_damages: Array[int] = [6, 14, 22]
 @export var ai_tree_component: AITreeComponent
 @export var sprite: Sprite2D = null
 @export var animation_player: AnimationPlayer = null
+
+@onready var attack_damage: int = max_damages[0]
 
 
 var current_tier: int = 1
@@ -23,6 +26,7 @@ func update_tier(new_tier) -> void:
 	current_tier = new_tier
 	max_health = max_healths[current_tier-1]
 	health = max_health
+	attack_damage = max_damages[current_tier-1]
 
 
 func _physics_process(_delta: float) -> void:
