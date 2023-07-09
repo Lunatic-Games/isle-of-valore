@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv3j651purmj0"]
+[gd_scene load_steps=4 format=3 uid="uid://cv3j651purmj0"]
 
 [ext_resource type="Script" path="res://data/structures/structure.gd" id="1_wswni"]
 [ext_resource type="PackedScene" uid="uid://cwo1ivfkq4veg" path="res://components/access_point_container/access_point_container.tscn" id="2_4is4p"]
+[ext_resource type="PackedScene" uid="uid://fj3n8osfnuee" path="res://components/health_bar/health_bar.tscn" id="3_vch6s"]
 
 [node name="Structure" type="StaticBody2D"]
 script = ExtResource("1_wswni")
 
 [node name="AccessPointContainer" parent="." instance=ExtResource("2_4is4p")]
+
+[node name="HealthBar" parent="." instance=ExtResource("3_vch6s")]

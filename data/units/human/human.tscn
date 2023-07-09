@@ -181,4 +181,10 @@ position = Vector2(-88, -2)
 [node name="AccessPoint6" parent="AccessPointContainer" index="5" instance=ExtResource("7_jf3xk")]
 position = Vector2(-61, -61)
 
+[node name="HealthBar" parent="." index="7"]
+offset_left = -57.0
+offset_top = -152.0
+offset_right = 43.0
+offset_bottom = -142.0
+
 [connection signal="velocity_computed" from="HumanAITreeComponent" to="." method="_on_human_ai_tree_component_velocity_computed"]

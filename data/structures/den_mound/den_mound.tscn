@@ -148,4 +148,11 @@ sprite = ExtResource("9_res2h")
 cost = 90
 index = 3
 
+[node name="HealthBar" parent="." index="8"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -72.0
+offset_top = -113.0
+offset_right = 72.0
+offset_bottom = -103.0
+
 [editable path="InteractionComponent"]

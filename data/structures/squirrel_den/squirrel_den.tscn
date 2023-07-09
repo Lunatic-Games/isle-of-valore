@@ -275,4 +275,10 @@ libraries = {
 "": SubResource("AnimationLibrary_b2c76")
 }
 
+[node name="HealthBar" parent="." index="12"]
+offset_left = -72.0
+offset_top = -186.0
+offset_right = 72.0
+offset_bottom = -176.0
+
 [editable path="InteractionComponent"]
