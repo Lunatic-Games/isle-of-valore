@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsofnkaffifsd"]
 
 [ext_resource type="Script" path="res://ui/HUD/HUD.gd" id="1_dpath"]
-[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="1_mgjmc"]
+[ext_resource type="Texture2D" uid="uid://c5ua6aajgjmn2" path="res://assets/art/resources/acorn.png" id="2_68a8v"]
 [ext_resource type="Texture2D" uid="uid://bs2gn6tonp1r7" path="res://assets/art/structures/den_squirrels.png" id="2_vfwnm"]
 [ext_resource type="PackedScene" uid="uid://dny3dsk35pfhj" path="res://ui/HUD/ability.tscn" id="3_tabpp"]
 [ext_resource type="Texture2D" uid="uid://dy0l083k12jqk" path="res://assets/art/structures/den_wolf.png" id="4_7mi07"]
@@ -11,12 +11,15 @@
 script = ExtResource("1_dpath")
 
 [node name="CurrencyContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 19.0
+offset_top = 18.0
+offset_right = 145.0
+offset_bottom = 82.0
 
 [node name="CurrencySprite" type="TextureRect" parent="CurrencyContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_mgjmc")
+texture = ExtResource("2_68a8v")
 
 [node name="CurrencyLeft" type="RichTextLabel" parent="CurrencyContainer"]
 custom_minimum_size = Vector2(30, 30)

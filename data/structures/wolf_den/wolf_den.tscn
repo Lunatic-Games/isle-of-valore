@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c4j4eo05twugp" path="res://data/units/wolf/wolf.tscn" id="4_45rmb"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_d0b1g"]
 [ext_resource type="PackedScene" uid="uid://bm1dymkqwjrg5" path="res://components/interaction_component/interaction_component.tscn" id="5_qtvj7"]
-[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="6_heorl"]
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="9_ie6o8"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="9_kf6sc"]
+[ext_resource type="Texture2D" uid="uid://c5ua6aajgjmn2" path="res://assets/art/resources/acorn.png" id="10_ayltw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_my754"]
 particles_animation = true
@@ -177,7 +177,7 @@ _data = {
 
 [node name="WolfDen" instance=ExtResource("1_26snv")]
 script = ExtResource("2_e633f")
-tier_cost = Array[int]([120, 350])
+tier_cost = Array[int]([60, 100])
 
 [node name="Tier2Particles" type="GPUParticles2D" parent="." index="0"]
 material = SubResource("CanvasItemMaterial_my754")
@@ -207,7 +207,6 @@ shape = SubResource("CapsuleShape2D_3pfdu")
 position = Vector2(0, 77)
 unit_to_spawn = ExtResource("4_45rmb")
 time_until_spawn = 20.0
-costs_to_spawn = Array[int]([20, 40, 60])
 
 [node name="InteractionComponent" parent="." index="5" instance=ExtResource("5_qtvj7")]
 
@@ -239,8 +238,9 @@ offset_right = 97.0
 offset_bottom = -175.0
 
 [node name="TextureRect" type="TextureRect" parent="CurrencyUpdated" index="0"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("6_heorl")
+texture = ExtResource("10_ayltw")
 expand_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CurrencyUpdated" index="1"]
@@ -266,7 +266,7 @@ offset_bottom = -105.0
 [node name="InteractLabel" type="RichTextLabel" parent="InteractLabel" index="0"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]Press F to upgrade: 10 presence[/center]"
+text = "[center]Press F to upgrade: 10 acorns[/center]"
 fit_content = true
 
 [node name="InteractAnimator" type="AnimationPlayer" parent="." index="11"]
