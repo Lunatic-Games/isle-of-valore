@@ -55,7 +55,7 @@ func _on_human_ai_tree_component_velocity_computed(safe_velocity: Vector2) -> vo
 
 func update_axe_stats():
 	max_wood_held += 2
-	wood_harvested = 1
+	wood_harvested += 1
 
 func update_armor_stats():
 	max_health += 70
