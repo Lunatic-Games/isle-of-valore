@@ -219,5 +219,40 @@ position = Vector2(2772, 1343)
 [node name="Fire" parent="NavigationRegion/OtherStructures" instance=ExtResource("5_ccikp")]
 position = Vector2(2496, 1465)
 
-[node name="DenMound" parent="." instance=ExtResource("7_c34hy")]
+[node name="DenMounds" type="Node2D" parent="NavigationRegion"]
+
+[node name="DenMound" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
 position = Vector2(1634, 1462)
+
+[node name="DenMound2" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(1429, 1145)
+
+[node name="DenMound3" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(1513, 2345)
+
+[node name="DenMound5" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(3469, 2189)
+
+[node name="DenMound6" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(4432, 2174)
+
+[node name="DenMound7" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(4875, 1318)
+
+[node name="DenMound10" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(4376, 733)
+
+[node name="DenMound11" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(4320, 416)
+
+[node name="DenMound12" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(2360, 310)
+
+[node name="DenMound8" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(5611, 1509)
+
+[node name="DenMound9" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(5803, 1267)
+
+[node name="DenMound4" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
+position = Vector2(1332, 2748)
