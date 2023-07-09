@@ -33,6 +33,8 @@ func on_exit(_next_state: AIState = null):
 
 func _on_attack_timer_timeout():
 	var human: Human = unit as Human
+	if attack_target.health <= human.attack_damage and attack_target is Animal:
+		human.amount_food_held += attack_target.meat_on_death
 	attack_target.damage(human.attack_damage)
 	
 	if attack_target.health == 0 or attack_target.is_queued_for_deletion():

@@ -13,8 +13,8 @@ radius = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_mu4et"]
 radius = 700.0
 
-[sub_resource type="Animation" id="Animation_n6aug"]
-resource_name = "idle"
+[sub_resource type="Animation" id="Animation_apxyp"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,8 +40,36 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_apxyp"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_1dy2f"]
+resource_name = "attacking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_5cjwp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0872665]
+}
+
+[sub_resource type="Animation" id="Animation_n6aug"]
+resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,34 +124,6 @@ tracks/1/keys = {
 "values": [0.0, -0.0872665, 0.0, 0.0872665, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_1dy2f"]
-resource_name = "attacking"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_5cjwp")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0872665]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1nod"]
 _data = {
 "RESET": SubResource("Animation_apxyp"),
@@ -135,6 +135,7 @@ _data = {
 [node name="Squirrel" node_paths=PackedStringArray("ai_tree_component", "sprite", "animation_player") instance=ExtResource("1_0wg7t")]
 script = ExtResource("2_k3du6")
 move_speed = 200.0
+meat_on_death = 1
 max_healths = Array[int]([20, 40, 60])
 ai_tree_component = NodePath("RangedAnimalTreeComponent")
 sprite = NodePath("Sprite2D")
