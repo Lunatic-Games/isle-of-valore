@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://103ai0jycmuq" path="res://components/spawning_component/spawning_component.tscn" id="3_vagq7"]
 [ext_resource type="PackedScene" uid="uid://d14dss0mk65ej" path="res://data/units/squirrel/squirrel.tscn" id="4_o5yev"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_h4dsn"]
-[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="6_xhenq"]
 [ext_resource type="PackedScene" uid="uid://bm1dymkqwjrg5" path="res://components/interaction_component/interaction_component.tscn" id="7_h0hya"]
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="9_v547x"]
+[ext_resource type="Texture2D" uid="uid://c5ua6aajgjmn2" path="res://assets/art/resources/acorn.png" id="10_rfaut"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8jfc5"]
 particles_animation = true
@@ -240,8 +240,9 @@ offset_right = 97.0
 offset_bottom = -175.0
 
 [node name="TextureRect" type="TextureRect" parent="CurrencyUpdated" index="0"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("6_xhenq")
+texture = ExtResource("10_rfaut")
 expand_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CurrencyUpdated" index="1"]
@@ -262,7 +263,7 @@ offset_bottom = -105.0
 [node name="InteractLabel" type="RichTextLabel" parent="InteractLabel" index="0"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]Press F to upgrade: 10 presence[/center]"
+text = "[center]Press F to upgrade: 10 acorns[/center]"
 fit_content = true
 
 [node name="CurrencyAnimator" type="AnimationPlayer" parent="." index="10"]

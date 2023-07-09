@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://data/structures/tree/tree.gd" id="2_gamew"]
 [ext_resource type="Texture2D" uid="uid://baiyqkvw87skr" path="res://assets/art/structures/tree.png" id="2_y0plm"]
 [ext_resource type="Script" path="res://components/interaction_component/interaction_component.gd" id="3_wp46i"]
-[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="4_77g8i"]
 [ext_resource type="Texture2D" uid="uid://ccfmrsp0q6oeu" path="res://assets/art/structures/tree_infused.png" id="4_n6vdl"]
 [ext_resource type="Texture2D" uid="uid://bm5ks73n2ja5x" path="res://assets/art/structures/tree_stump.png" id="5_gtus0"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="5_qdq4i"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="5_vlnr7"]
+[ext_resource type="Texture2D" uid="uid://c5ua6aajgjmn2" path="res://assets/art/resources/acorn.png" id="8_tru11"]
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="10_ourdq"]
 [ext_resource type="Texture2D" uid="uid://o7r2f8us6ucy" path="res://assets/art/resources/log.png" id="10_rsw2m"]
 
@@ -475,11 +475,12 @@ z_as_relative = false
 offset_left = -44.0
 offset_top = -442.0
 offset_right = 122.0
-offset_bottom = -392.0
+offset_bottom = -378.0
 
 [node name="TextureRect" type="TextureRect" parent="CurrencyUpdated" index="0"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("4_77g8i")
+texture = ExtResource("8_tru11")
 expand_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CurrencyUpdated" index="1"]

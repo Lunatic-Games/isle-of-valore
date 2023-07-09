@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/HUD/AbilitySlotUI.gd" id="1_2hb6f"]
 [ext_resource type="Texture2D" uid="uid://dy0l083k12jqk" path="res://assets/art/structures/den_wolf.png" id="2_fowqb"]
-[ext_resource type="Texture2D" uid="uid://bll638c511ool" path="res://assets/art/units/bird.png" id="3_pjgyi"]
+[ext_resource type="Texture2D" uid="uid://c5ua6aajgjmn2" path="res://assets/art/resources/acorn.png" id="3_gmrba"]
 
 [sub_resource type="Animation" id="Animation_8ib20"]
 resource_name = "deselect"
@@ -77,8 +77,9 @@ offset_right = 121.0
 offset_bottom = 3.0
 
 [node name="CurrencySprite" type="TextureRect" parent="CurrencyContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("3_pjgyi")
+texture = ExtResource("3_gmrba")
 
 [node name="CurrencyLeft" type="RichTextLabel" parent="CurrencyContainer"]
 custom_minimum_size = Vector2(30, 30)
