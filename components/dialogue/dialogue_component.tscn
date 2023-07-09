@@ -16,7 +16,8 @@ vertical_alignment = 2
 autowrap_mode = 2
 script = ExtResource("2_iig27")
 combat_dialogues = Array[String](["Take that you stupid animals!", "I hate nature, man.", "I wonder if we can make a mob farm?", "Where are all of these animals coming from?", "I'm going to put these animals in their place!"])
-random_dialogues = Array[String](["Can you make a chest in this game?", "Have we made beds yet?", "Man I need to upgrade my axe...", "Any chance someone has extra wood I can use?"])
+random_dialogues = Array[String](["Can you make a chest in this game?", "Have we made beds yet?", "Man I need to upgrade my axe...", "Any chance someone has extra wood I can use?", "Another typical  early access survival game.", "This game doesn't have too much content yet does it?"])
+respawn_dialogues = Array[String](["Man the respawn time in this game is way too long...", "Thanks for saving me, guys...", "Good timing, I just got back from the bathroom.", "It's way too easy to die in this game...", "Hey guys maybe we can turn the difficulty down?", "Did anyone pick up my stuff?", "Crap all of my stuff despawned.", "I'm this close to alt-f4'ing."])
 start_dialogues = Array[String](["Let's get this party started!", "Is everyone ready?", "Is anyone else lagging a bit?", "Man the graphics in this game are pretty good!"])
 
 [node name="Timer" type="Timer" parent="."]

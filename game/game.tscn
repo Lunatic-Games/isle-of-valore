@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=12 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
 [ext_resource type="PackedScene" uid="uid://dsofnkaffifsd" path="res://ui/HUD/HUD.tscn" id="2_2ddj7"]
@@ -6,7 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://3pmkj6xeff0u" path="res://game/infuse_controller.tscn" id="2_kycvj"]
 [ext_resource type="PackedScene" uid="uid://r8adsu6lxnpr" path="res://data/units/player/player.tscn" id="3_dyan5"]
 [ext_resource type="Script" path="res://game/camera.gd" id="4_k3nis"]
+[ext_resource type="Script" path="res://game/menus/press_spacebar.gd" id="4_p8khy"]
+[ext_resource type="FontFile" uid="uid://dplber8yexnpv" path="res://assets/fonts/FjallaOne-Regular.ttf" id="4_uvi0b"]
 [ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="7_v3wmp"]
+
+[sub_resource type="Animation" id="Animation_wrxvd"]
+resource_name = "intro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5kkd"]
+_data = {
+"intro": SubResource("Animation_wrxvd")
+}
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -27,23 +37,87 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.329412, 0.501961, 0.839216, 1)
 
+[node name="Menus" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="PressSpacebar" type="ColorRect" parent="Menus"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.290196)
+script = ExtResource("4_p8khy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menus/PressSpacebar"]
+libraries = {
+"": SubResource("AnimationLibrary_s5kkd")
+}
+
+[node name="Title" type="Label" parent="Menus/PressSpacebar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.5
+offset_top = -209.5
+offset_right = 495.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 200
+text = "Isle of Valore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Menus/PressSpacebar/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = 128.0
+offset_right = 234.5
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 48
+text = "PRESS SPACEBAR TO START"
+
 [node name="Island" parent="." instance=ExtResource("2_hjbwl")]
+position = Vector2(0, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_dyan5")]
 position = Vector2(2091, 1397)
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(2792, 1388)
 script = ExtResource("4_k3nis")
 follow_target = NodePath("../Player")
+follow_enabled = true
 
 [node name="Human" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2705, 1507)
+should_play_spawn_animation = false
 
 [node name="Human2" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2863, 1509)
+should_play_spawn_animation = false
 
 [node name="Human3" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2705, 1650)
+should_play_spawn_animation = false
 
 [node name="Human4" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2865, 1650)
+should_play_spawn_animation = false
+
+[node name="RespawnMarker" type="Marker2D" parent="."]
+position = Vector2(2785, 1466)

@@ -48,6 +48,7 @@ position = Vector2(33, 66)
 position = Vector2(90, 44)
 
 [node name="Icons" type="HBoxContainer" parent="." index="4"]
+visible = false
 offset_left = -44.0
 offset_top = -397.0
 offset_right = 88.0

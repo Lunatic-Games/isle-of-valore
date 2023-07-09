@@ -7,6 +7,11 @@ var current_ability = 0
 func _ready() -> void:
 	GlobalGameState.HUD = self
 	$CurrencyContainer/CurrencyLeft.text = str(currency)
+	hide()
+	GlobalGameState.game_started.connect(
+		func():
+			show()
+	)
 
 
 func update_currency(amount):
