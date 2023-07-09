@@ -17,7 +17,6 @@ var ability_map: Dictionary = {
 var wolf_den_cost: int = 40
 var bear_den_cost: int = 90
 var squirrel_den_cost: int = 65
-var is_casting: bool = false
 
 @onready var infuse_particles: GPUParticles2D = $InfuseParticles
 
@@ -28,9 +27,6 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	if is_casting:
-		return
-	
 	var movement := Vector2()
 	
 	if Input.is_action_pressed("move_up"):
@@ -52,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 	if movement.x != 0 || movement.y != 0 && !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play("walking")
-	elif movement.x == 0 and movement.y == 0 and !is_casting:
+	elif movement.x == 0 and movement.y == 0:
 		$AnimationPlayer.play("stop")
 	
 	if movement.x > 0:
@@ -136,9 +132,3 @@ func activate_infuse_particles() -> void:
 
 func deactivate_infuse_particles() -> void:
 	infuse_particles.emitting = false
-	print("should cast")
-	is_casting = true
-	$AnimationPlayer.play("casting")
-
-func set_not_casting():
-	is_casting = false

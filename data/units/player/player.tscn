@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://r8adsu6lxnpr"]
+[gd_scene load_steps=17 format=3 uid="uid://r8adsu6lxnpr"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_07r1j"]
 [ext_resource type="Script" path="res://data/units/player/player.gd" id="2_n2bcx"]
 [ext_resource type="Texture2D" uid="uid://vocx0o1e7272" path="res://assets/art/units/player.png" id="3_uaiqm"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="4_pd2rf"]
-[ext_resource type="Texture2D" uid="uid://di7mo8qujh3d5" path="res://assets/art/units/player_casting.png" id="4_sco4y"]
 [ext_resource type="Texture2D" uid="uid://72g7w72130sh" path="res://assets/art/units/player_running.png" id="5_fw3cn"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ppvrf"]
@@ -132,39 +131,8 @@ tracks/2/keys = {
 "values": [ExtResource("5_fw3cn")]
 }
 
-[sub_resource type="Animation" id="Animation_e2i6b"]
-resource_name = "casting"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("4_sco4y"), ExtResource("3_uaiqm")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"set_not_casting"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uj0wo"]
 _data = {
-"casting": SubResource("Animation_e2i6b"),
 "stop": SubResource("Animation_3cgv6"),
 "walking": SubResource("Animation_0budd")
 }
@@ -184,7 +152,7 @@ texture = ExtResource("4_pd2rf")
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 position = Vector2(5, -83)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_sco4y")
+texture = ExtResource("3_uaiqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 rotation = 1.57079
