@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/attacking_structure.gd" id="4_nnas2"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/returning_to_hq.gd" id="5_hs3fi"]
 [ext_resource type="Script" path="res://components/ai_tree/human_ai/states/going_to_harvest.gd" id="5_o8dbd"]
-[ext_resource type="Script" path="res://components/ai_tree/human_ai/GoingToCampfire.gd" id="10_uqhni"]
+[ext_resource type="Script" path="res://components/ai_tree/human_ai/states/going_to_campfire.gd" id="10_uqhni"]
 
 [node name="HumanAITreeComponent" node_paths=PackedStringArray("start_state") instance=ExtResource("1_tdxrn")]
 target_desired_distance = 50.0

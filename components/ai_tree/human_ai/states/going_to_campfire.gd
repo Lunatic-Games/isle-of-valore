@@ -12,5 +12,6 @@ func on_enter(_previous_state: AIState = null):
 func update():
 	var human: Human = unit as Human
 	if ai_tree.is_target_reached():
-		GlobalGameState.game.island.hq.eat_food(human.max_health - human.health, human)
+		var heal = GlobalGameState.game.island.campfire.eat_food(human.max_health - human.health)
+		human.heal(heal)
 		ai_tree.transition_to("idle")

@@ -12,7 +12,8 @@ func on_enter(_previous_state: AIState = null):
 
 func update():
 	var human: Human = unit as Human
-	if human.health < human.max_health/2 and GlobalGameState.game.island.hq.held_food > 0:
+	var health_ratio = float(human.health) / float(human.max_health)
+	if health_ratio < 0.5 and GlobalGameState.game.island.hq.held_food > 0:
 		ai_tree.transition_to("going_to_campfire")
 		return
 	
