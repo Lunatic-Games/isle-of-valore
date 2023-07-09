@@ -12,9 +12,13 @@ func on_enter(_previous_state: AIState = null):
 
 func update():
 	var human: Human = unit as Human
-	if human.health < human.max_health/2 and GlobalGameState.game.island.hq.held_food > 0:
-		ai_tree.transition_to("going_to_campfire")
-		return
+	var health_ratio = float(human.health) / float(human.max_health)
+	if health_ratio >= 0.0001 and health_ratio <= 0.9999:
+		var chance_to_heal: float = clampf(1.0 - (health_ratio - 0.3) / 0.7, 0.0, 1.0)
+		var wants_to_heal = chance_to_heal >= randf()
+		if wants_to_heal and GlobalGameState.game.island.hq.held_food > 0:
+			ai_tree.transition_to("going_to_campfire")
+			return
 	
 	if human.amount_wood_held >= human.max_wood_held:
 		ai_tree.transition_to("returning_to_hq")
