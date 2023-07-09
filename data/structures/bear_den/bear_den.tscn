@@ -229,7 +229,7 @@ shape = SubResource("CapsuleShape2D_3pfdu")
 [node name="SpawningComponent" parent="." index="4" instance=ExtResource("3_ycoam")]
 position = Vector2(0, 77)
 unit_to_spawn = ExtResource("4_64n7f")
-time_until_spawn = 20.0
+time_until_spawn = 25.0
 costs_to_spawn = Array[int]([50, 100, 160])
 
 [node name="InteractionComponent" parent="." index="5" instance=ExtResource("7_ky8g0")]
