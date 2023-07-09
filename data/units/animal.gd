@@ -1,7 +1,10 @@
 class_name Animal
 extends Unit
 
+const MEAT_PARTICLES: PackedScene = preload("res://data/particles/meat_explosion.tscn")
+
 @export var move_speed: float = 200.0
+@export var meat_on_death: int = 1
 @export var max_healths: Array[int] = [20, 40, 60]
 @export var ai_tree_component: AITreeComponent
 @export var sprite: Sprite2D = null
@@ -36,6 +39,12 @@ func _physics_process(_delta: float) -> void:
 	ai_tree_component.velocity = direction * move_speed
 	
 	move_and_slide()
+
+
+func die():
+	var particles = MEAT_PARTICLES.instantiate()
+	GlobalGameState.game.add_child(particles)
+	particles.global_position = global_position
 
 
 func _on_ai_tree_component_velocity_computed(safe_velocity: Vector2) -> void:

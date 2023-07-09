@@ -132,6 +132,7 @@ _data = {
 [node name="Bear" node_paths=PackedStringArray("ai_tree_component", "sprite", "animation_player") instance=ExtResource("1_mjuep")]
 script = ExtResource("2_qj521")
 move_speed = 200.0
+meat_on_death = 3
 max_healths = Array[int]([20, 40, 60])
 ai_tree_component = NodePath("MeleeAnimalTreeComponent")
 sprite = NodePath("Sprite2D")

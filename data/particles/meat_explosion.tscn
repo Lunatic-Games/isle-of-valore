@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://cewv4pqcwatrx"]
+
+[ext_resource type="Texture2D" uid="uid://xqdntofbsn8k" path="res://assets/art/resources/meat.png" id="1_mfknp"]
+[ext_resource type="Script" path="res://data/particles/meat_explosion.gd" id="2_vxyul"]
+
+[sub_resource type="Gradient" id="Gradient_rc1g3"]
+offsets = PackedFloat32Array(0, 0.733333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_okr0x"]
+gradient = SubResource("Gradient_rc1g3")
+
+[sub_resource type="Curve" id="Curve_0xlif"]
+_data = [Vector2(0, 0.705263), 0.0, 0.0, 0, 0, Vector2(1, 0.989474), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u5g3l"]
+curve = SubResource("Curve_0xlif")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hpwk2"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 40, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_u5g3l")
+color_ramp = SubResource("GradientTexture1D_okr0x")
+
+[node name="MeatExplosion" type="GPUParticles2D"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_hpwk2")
+texture = ExtResource("1_mfknp")
+explosiveness = 1.0
+script = ExtResource("2_vxyul")
