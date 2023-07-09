@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1m0ja4p2lngf"]
+[gd_scene load_steps=10 format=3 uid="uid://b1m0ja4p2lngf"]
 
 [ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_kb5hv"]
 [ext_resource type="Script" path="res://data/structures/hq/hq.gd" id="2_ibh7s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="5_1lmf4"]
 [ext_resource type="Texture2D" uid="uid://o7r2f8us6ucy" path="res://assets/art/resources/log.png" id="5_qfr0d"]
 [ext_resource type="PackedScene" uid="uid://2w65n8j6m7e4" path="res://components/nav_collider_component/nav_collider_component.tscn" id="6_r86s4"]
+[ext_resource type="Texture2D" uid="uid://xqdntofbsn8k" path="res://assets/art/resources/meat.png" id="7_wp7j3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjnhy"]
 radius = 20.0
@@ -47,9 +48,10 @@ position = Vector2(33, 66)
 position = Vector2(90, 44)
 
 [node name="Icons" type="HBoxContainer" parent="." index="4"]
-offset_top = -391.0
-offset_right = 64.0
-offset_bottom = -339.0
+offset_left = -44.0
+offset_top = -397.0
+offset_right = 88.0
+offset_bottom = -345.0
 
 [node name="WoodIcon" type="PanelContainer" parent="Icons" index="0"]
 layout_mode = 2
@@ -62,6 +64,25 @@ texture = ExtResource("5_qfr0d")
 expand_mode = 5
 
 [node name="WoodLabel" type="RichTextLabel" parent="Icons/WoodIcon" index="1"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+size_flags_vertical = 8
+bbcode_enabled = true
+text = "[center]0"
+fit_content = true
+scroll_active = false
+
+[node name="FoodIcon" type="PanelContainer" parent="Icons" index="1"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a1w8f")
+
+[node name="FoodRect" type="TextureRect" parent="Icons/FoodIcon" index="0"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+texture = ExtResource("7_wp7j3")
+expand_mode = 5
+
+[node name="FoodLabel" type="RichTextLabel" parent="Icons/FoodIcon" index="1"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 size_flags_vertical = 8
