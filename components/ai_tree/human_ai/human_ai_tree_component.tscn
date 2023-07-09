@@ -17,38 +17,38 @@ max_speed = 100000.0
 debug_enabled = true
 start_state = NodePath("Idle")
 
-[node name="AttackingUnit" type="Node2D" parent="." index="0"]
+[node name="AttackingUnit" type="Node" parent="." index="0"]
 script = ExtResource("3_oydx4")
 state_name = "attacking_unit"
 priority_level = 3
 
-[node name="GoingToAttackUnit" type="Node2D" parent="." index="1"]
+[node name="GoingToAttackUnit" type="Node" parent="." index="1"]
 script = ExtResource("3_mjlil")
 state_name = "going_to_attack_unit"
 priority_level = 3
 
-[node name="AttackingStructure" type="Node2D" parent="." index="2"]
+[node name="AttackingStructure" type="Node" parent="." index="2"]
 script = ExtResource("4_nnas2")
 state_name = "attacking_structure"
 priority_level = 2
 
-[node name="GoingToAttackStructure" type="Node2D" parent="." index="3"]
+[node name="GoingToAttackStructure" type="Node" parent="." index="3"]
 script = ExtResource("3_oboi2")
 state_name = "going_to_attack_structure"
 priority_level = 2
 
-[node name="Idle" type="Node2D" parent="." index="4"]
+[node name="Idle" type="Node" parent="." index="4"]
 script = ExtResource("2_1t0sx")
 state_name = "idle"
 
-[node name="HarvestingWood" type="Node2D" parent="." index="5"]
+[node name="HarvestingWood" type="Node" parent="." index="5"]
 script = ExtResource("3_83ptu")
 state_name = "harvesting_wood"
 
-[node name="GoingToHarvest" type="Node2D" parent="." index="6"]
+[node name="GoingToHarvest" type="Node" parent="." index="6"]
 script = ExtResource("5_o8dbd")
 state_name = "going_to_harvest"
 
-[node name="ReturningToHQ" type="Node2D" parent="." index="7"]
+[node name="ReturningToHQ" type="Node" parent="." index="7"]
 script = ExtResource("5_hs3fi")
 state_name = "returning_to_hq"

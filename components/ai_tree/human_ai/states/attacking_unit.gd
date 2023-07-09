@@ -14,7 +14,7 @@ func on_enter(_previous_state: AIState = null):
 	
 	if attack_timer == null:
 		attack_timer = Timer.new()
-		attack_timer.wait_time = human.TIME_TO_ATTACK
+		attack_timer.wait_time = human.time_to_attack
 		attack_timer.timeout.connect(_on_attack_timer_timeout)
 		add_child(attack_timer)
 	

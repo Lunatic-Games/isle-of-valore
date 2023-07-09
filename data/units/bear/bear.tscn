@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcnn5kn0khuas"]
+[gd_scene load_steps=6 format=3 uid="uid://dcnn5kn0khuas"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_mjuep"]
 [ext_resource type="Script" path="res://data/units/animal.gd" id="2_qj521"]
 [ext_resource type="Texture2D" uid="uid://b5ko4atgw55pq" path="res://assets/art/units/bear.png" id="2_wacm1"]
+[ext_resource type="PackedScene" uid="uid://lh4xukvm4ol6" path="res://components/ai_tree/animal_ai/melee_animal_tree_component.tscn" id="4_3r75h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
 radius = 3.0
 height = 60.0
 
-[node name="Bear" instance=ExtResource("1_mjuep")]
+[node name="Bear" node_paths=PackedStringArray("ai_tree_component", "sprite") instance=ExtResource("1_mjuep")]
 script = ExtResource("2_qj521")
+move_speed = 200.0
 max_healths = Array[int]([20, 40, 60])
+ai_tree_component = NodePath("MeleeAnimalTreeComponent")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1, -35)
@@ -21,3 +25,5 @@ texture = ExtResource("2_wacm1")
 position = Vector2(0, 0.25)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ovqx7")
+
+[node name="MeleeAnimalTreeComponent" parent="." index="3" instance=ExtResource("4_3r75h")]

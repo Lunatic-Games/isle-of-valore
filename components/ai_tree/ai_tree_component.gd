@@ -7,6 +7,7 @@ extends NavigationAgent2D
 var current_state: AIState = null
 var all_states: Dictionary = {}  # state name : state
 
+@onready var default_target_distance: float = target_desired_distance
 @onready var unit: Unit = get_parent()
 
 
@@ -47,6 +48,10 @@ func transition_to(state_name: String):
 	var previous_state: AIState = current_state
 	current_state = next_state
 	current_state.on_enter(previous_state)
+	if current_state.override_target_distance:
+		target_desired_distance = current_state.target_distance
+	else:
+		target_desired_distance = default_target_distance
 
 
 func get_current_state_name() -> String:
