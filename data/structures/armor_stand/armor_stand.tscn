@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://xyoyx3cujwa6"]
+
+[ext_resource type="PackedScene" uid="uid://cv3j651purmj0" path="res://data/structures/structure.tscn" id="1_r315k"]
+[ext_resource type="Script" path="res://data/structures/armor_stand/armor_stand.gd" id="2_v5dmg"]
+[ext_resource type="Texture2D" uid="uid://h16yljfwn1" path="res://assets/art/structures/no armor.png" id="3_vb182"]
+[ext_resource type="Texture2D" uid="uid://p88i8rxkd5e2" path="res://assets/art/structures/copper armor.png" id="4_3hghi"]
+[ext_resource type="Texture2D" uid="uid://mqigk4oyni58" path="res://assets/art/structures/iron armor.png" id="5_dokef"]
+
+[node name="ArmorStand" instance=ExtResource("1_r315k")]
+script = ExtResource("2_v5dmg")
+
+[node name="WoodArmor" type="Sprite2D" parent="." index="1"]
+position = Vector2(0, -116)
+texture = ExtResource("3_vb182")
+
+[node name="CopperArmor" type="Sprite2D" parent="." index="2"]
+visible = false
+position = Vector2(0, -116)
+texture = ExtResource("4_3hghi")
+
+[node name="IronArmor" type="Sprite2D" parent="." index="3"]
+visible = false
+position = Vector2(0, -116)
+texture = ExtResource("5_dokef")

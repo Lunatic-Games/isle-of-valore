@@ -2,7 +2,7 @@ extends AIState
 
 
 func on_enter(_previous_state: AIState = null):
-	var fire: FireStructure = GlobalGameState.game.island.campfire
+	var fire = GlobalGameState.game.island.campfire
 	var human: Human = unit as Human
 	human.animation_player.play("walk")
 	human.target_structure(fire)
