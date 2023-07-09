@@ -11,6 +11,7 @@ var can_interact: bool = false
 @onready var interact_label: RichTextLabel = $InteractLabel/InteractLabel
 @onready var tier_2_particles: GPUParticles2D = $Tier2Particles
 @onready var tier_3_particles: GPUParticles2D = $Tier3Particles
+@onready var currency_label: RichTextLabel = $CurrencyUpdated/RichTextLabel
 
 func interact() -> void:
 	if current_tier == MAX_TIER or GlobalGameState.HUD.currency < tier_cost[current_tier-1]:
