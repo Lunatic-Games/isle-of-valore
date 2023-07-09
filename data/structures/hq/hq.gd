@@ -54,7 +54,7 @@ func attempt_upgrade() -> void:
 	if spear_tier == 2 and armor_tier == 2 and axe_tier == 2:
 		if not GlobalGameState.game_decided:
 			GlobalGameState.game_decided = true
-			GlobalGameState.game_won.emit()
+			GlobalGameState.game_lost.emit()
 
 func upgrade_spears() -> void:
 	held_wood -= spear_upgrade_costs[spear_tier]
