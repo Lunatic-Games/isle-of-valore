@@ -24,6 +24,7 @@ func interact() -> void:
 	if GlobalGameState.HUD.currency >= GlobalGameState.infuse_controller.cost_to_infuse && !infused && GlobalGameState.infuse_controller.can_infuse && can_be_harvested():
 		infuse()
 		infused = true
+		GlobalGameState.player.do_casting_animation()
 		GlobalGameState.HUD.update_currency(-GlobalGameState.infuse_controller.cost_to_infuse)
 		GlobalGameState.infuse_controller.start_cooldown()
 

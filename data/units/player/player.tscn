@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://r8adsu6lxnpr"]
+[gd_scene load_steps=20 format=3 uid="uid://r8adsu6lxnpr"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_07r1j"]
 [ext_resource type="Script" path="res://data/units/player/player.gd" id="2_n2bcx"]
 [ext_resource type="Texture2D" uid="uid://vocx0o1e7272" path="res://assets/art/units/player.png" id="3_uaiqm"]
 [ext_resource type="Texture2D" uid="uid://bq8ji64urarnc" path="res://assets/art/particles/infuse_glow.png" id="4_pd2rf"]
 [ext_resource type="Texture2D" uid="uid://72g7w72130sh" path="res://assets/art/units/player_running.png" id="5_fw3cn"]
+[ext_resource type="Texture2D" uid="uid://di7mo8qujh3d5" path="res://assets/art/units/player_casting.png" id="6_fd2fq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ppvrf"]
 particles_animation = true
@@ -97,7 +98,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 4
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -131,8 +132,76 @@ tracks/2/keys = {
 "values": [ExtResource("5_fw3cn")]
 }
 
+[sub_resource type="Animation" id="Animation_q16lt"]
+resource_name = "casting"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_fd2fq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -114)]
+}
+
+[sub_resource type="Animation" id="Animation_w4emx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_uaiqm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -83)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uj0wo"]
 _data = {
+"RESET": SubResource("Animation_w4emx"),
+"casting": SubResource("Animation_q16lt"),
 "stop": SubResource("Animation_3cgv6"),
 "walking": SubResource("Animation_0budd")
 }
