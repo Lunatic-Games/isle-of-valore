@@ -138,6 +138,7 @@ _data = {
 }
 
 [node name="Player" instance=ExtResource("1_07r1j")]
+modulate = Color(1, 1, 1, 0.627451)
 collision_layer = 4
 collision_mask = 1
 script = ExtResource("2_n2bcx")
