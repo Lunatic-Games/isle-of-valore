@@ -42,4 +42,9 @@ position = Vector2(-39, 1)
 shape = SubResource("CircleShape2D_mu4et")
 
 [node name="RangedAnimalTreeComponent" parent="." index="4" instance=ExtResource("5_myrwr")]
-path_max_distance = 500.0
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -47.0
+offset_top = -74.0
+offset_right = 53.0
+offset_bottom = -64.0

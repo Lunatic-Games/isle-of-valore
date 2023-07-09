@@ -36,3 +36,9 @@ position = Vector2(90, -2)
 position = Vector2(1, 63)
 
 [node name="MeleeAnimalTreeComponent" parent="." index="3" instance=ExtResource("4_3r75h")]
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -55.0
+offset_top = -117.0
+offset_right = 45.0
+offset_bottom = -107.0

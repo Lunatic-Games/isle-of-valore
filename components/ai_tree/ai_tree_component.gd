@@ -47,11 +47,11 @@ func transition_to(state_name: String):
 	
 	var previous_state: AIState = current_state
 	current_state = next_state
-	current_state.on_enter(previous_state)
 	if current_state.override_target_distance:
 		target_desired_distance = current_state.target_distance
 	else:
 		target_desired_distance = default_target_distance
+	current_state.on_enter(previous_state)
 
 
 func get_current_state_name() -> String:

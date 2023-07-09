@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ssymsxyggbph"]
+[gd_scene load_steps=5 format=3 uid="uid://ssymsxyggbph"]
 
 [ext_resource type="Script" path="res://data/units/unit.gd" id="1_t5cli"]
 [ext_resource type="PackedScene" uid="uid://cwo1ivfkq4veg" path="res://components/access_point_container/access_point_container.tscn" id="2_80btl"]
+[ext_resource type="PackedScene" uid="uid://fj3n8osfnuee" path="res://components/health_bar/health_bar.tscn" id="3_6dpj2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jybrj"]
 radius = 500.0
@@ -21,3 +22,5 @@ collision_mask = 2
 visible = false
 shape = SubResource("CircleShape2D_jybrj")
 debug_color = Color(0.964706, 0, 0.501961, 0.419608)
+
+[node name="HealthBar" parent="." instance=ExtResource("3_6dpj2")]

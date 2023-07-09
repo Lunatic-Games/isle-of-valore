@@ -17,27 +17,22 @@ start_state = NodePath("Idle")
 script = ExtResource("2_sbh2x")
 state_name = "attacking_human"
 priority_level = 2
-override_target_distance = true
 target_distance = 400.0
 
 [node name="GoingToAttackHuman" type="Node" parent="." index="1"]
 script = ExtResource("3_yg7w1")
 state_name = "going_to_attack_human"
 priority_level = 2
-override_target_distance = true
 target_distance = 400.0
 
 [node name="AttackingHQ" type="Node" parent="." index="2"]
 script = ExtResource("4_l8t6f")
 state_name = "attacking_hq"
-override_target_distance = true
 target_distance = 400.0
 
 [node name="GoingToAttackHQ" type="Node" parent="." index="3"]
 script = ExtResource("5_l7y4s")
 state_name = "going_to_attack_hq"
-override_target_distance = true
-target_distance = 400.0
 
 [node name="Idle" type="Node" parent="." index="4"]
 script = ExtResource("6_630fx")

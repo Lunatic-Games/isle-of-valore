@@ -220,6 +220,7 @@ position = Vector2(2772, 1343)
 position = Vector2(2496, 1465)
 
 [node name="DenMounds" type="Node2D" parent="NavigationRegion"]
+y_sort_enabled = true
 
 [node name="DenMound" parent="NavigationRegion/DenMounds" instance=ExtResource("7_c34hy")]
 position = Vector2(1634, 1462)

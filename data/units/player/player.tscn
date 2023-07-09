@@ -170,5 +170,12 @@ libraries = {
 "": SubResource("AnimationLibrary_uj0wo")
 }
 
+[node name="HealthBar" parent="." index="7"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -109.0
+offset_top = -202.0
+offset_right = 91.0
+offset_bottom = -175.0
+
 [connection signal="area_entered" from="InteractableSearcher" to="." method="_on_interactable_searcher_area_entered"]
 [connection signal="area_exited" from="InteractableSearcher" to="." method="_on_interactable_searcher_area_exited"]
