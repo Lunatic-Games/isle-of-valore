@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://drb2imi4bsiwr"]
+
+[ext_resource type="FontFile" uid="uid://d26dfj0ngb20u" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="1_g35c8"]
+[ext_resource type="Script" path="res://components/dialogue/dialogue_component.gd" id="2_iig27"]
+
+[node name="DialogueComponent" type="Label"]
+offset_left = -151.0
+offset_top = -272.0
+offset_right = 152.0
+offset_bottom = -159.0
+theme_override_fonts/font = ExtResource("1_g35c8")
+theme_override_font_sizes/font_size = 20
+text = "Does any have any sticks?"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+script = ExtResource("2_iig27")
+combat_dialogues = Array[String](["Take that you stupid animals!", "I hate nature, man.", "I wonder if we can make a mob farm?", "Where are all of these animals coming from?", "I'm going to put these animals in their place!"])
+random_dialogues = Array[String](["Can you make a chest in this game?", "Have we made beds yet?", "Man I need to upgrade my axe..."])
+start_dialogues = Array[String](["Let's get this party started!", "Is everyone ready?", "Is anyone else lagging a bit?", "Man the graphics in this game are pretty good!"])
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="DisplayTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]

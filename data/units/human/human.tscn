@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clbjpfa1bby77"]
+[gd_scene load_steps=16 format=3 uid="uid://clbjpfa1bby77"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_lj6nc"]
 [ext_resource type="Script" path="res://data/units/human/human.gd" id="2_03m2e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dalqj3dta2fb4" path="res://assets/art/units/human/human_walking.png" id="5_0qd6c"]
 [ext_resource type="Texture2D" uid="uid://uave61juoodj" path="res://assets/art/units/human/humanchop.png" id="5_fuctl"]
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="7_jf3xk"]
+[ext_resource type="PackedScene" uid="uid://drb2imi4bsiwr" path="res://components/dialogue/dialogue_component.tscn" id="7_qo37d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qgbdg"]
 radius = 1.0
@@ -163,6 +164,8 @@ collision_layer = 0
 visible = false
 shape = SubResource("CircleShape2D_ky8nn")
 
+[node name="DialogueComponent" parent="." index="5" instance=ExtResource("7_qo37d")]
+
 [node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("7_jf3xk")]
 position = Vector2(44, -64)
 
@@ -181,7 +184,7 @@ position = Vector2(-88, -2)
 [node name="AccessPoint6" parent="AccessPointContainer" index="5" instance=ExtResource("7_jf3xk")]
 position = Vector2(-61, -61)
 
-[node name="HealthBar" parent="." index="7"]
+[node name="HealthBar" parent="." index="8"]
 offset_left = -57.0
 offset_top = -152.0
 offset_right = 43.0
