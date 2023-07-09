@@ -229,6 +229,7 @@ _data = {
 
 [node name="Human" instance=ExtResource("1_lj6nc")]
 script = ExtResource("2_03m2e")
+should_play_spawn_animation = true
 max_health = 70
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
@@ -282,7 +283,7 @@ offset_right = 43.0
 offset_bottom = -142.0
 
 [node name="SpawnAnimation" type="AnimationPlayer" parent="." index="9"]
-autoplay = "spawn"
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_b4fs6")
 }

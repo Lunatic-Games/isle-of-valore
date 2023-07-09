@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=12 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
 [ext_resource type="PackedScene" uid="uid://dsofnkaffifsd" path="res://ui/HUD/HUD.tscn" id="2_2ddj7"]
@@ -9,6 +9,14 @@
 [ext_resource type="Script" path="res://game/menus/press_spacebar.gd" id="4_p8khy"]
 [ext_resource type="FontFile" uid="uid://dplber8yexnpv" path="res://assets/fonts/FjallaOne-Regular.ttf" id="4_uvi0b"]
 [ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="7_v3wmp"]
+
+[sub_resource type="Animation" id="Animation_wrxvd"]
+resource_name = "intro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5kkd"]
+_data = {
+"intro": SubResource("Animation_wrxvd")
+}
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -30,6 +38,7 @@ grow_vertical = 2
 color = Color(0.329412, 0.501961, 0.839216, 1)
 
 [node name="Menus" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="PressSpacebar" type="ColorRect" parent="Menus"]
 visible = false
@@ -40,6 +49,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.290196)
 script = ExtResource("4_p8khy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menus/PressSpacebar"]
+libraries = {
+"": SubResource("AnimationLibrary_s5kkd")
+}
 
 [node name="Title" type="Label" parent="Menus/PressSpacebar"]
 layout_mode = 1
@@ -91,15 +105,19 @@ follow_enabled = true
 
 [node name="Human" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2705, 1507)
+should_play_spawn_animation = false
 
 [node name="Human2" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2863, 1509)
+should_play_spawn_animation = false
 
 [node name="Human3" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2705, 1650)
+should_play_spawn_animation = false
 
 [node name="Human4" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2865, 1650)
+should_play_spawn_animation = false
 
 [node name="RespawnMarker" type="Marker2D" parent="."]
 position = Vector2(2785, 1466)

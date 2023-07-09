@@ -13,10 +13,19 @@ var armor_tier: int = 0
 
 @onready var wood_label:RichTextLabel = $Icons/WoodIcon/WoodLabel
 @onready var food_label:RichTextLabel = $Icons/FoodIcon/FoodLabel
+@onready var icons: BoxContainer = $Icons
 
 signal spear_upgraded
 signal armor_upgraded
 signal axe_upgraded
+
+
+func _ready():
+	icons.hide()
+	GlobalGameState.game_started.connect(
+		func():
+			icons.show()
+	)
 
 
 func store_wood(wood_stored) -> void:

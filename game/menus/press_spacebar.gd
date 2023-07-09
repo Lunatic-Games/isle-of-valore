@@ -1,12 +1,17 @@
 extends ColorRect
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if visible:
 		get_tree().paused = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _input(event):
+	if visible and event.is_action_pressed("perform_ability"):
+		hide()
+		$AnimationPlayer.play("intro")
+
+
+func unpause():
+	get_tree().paused = false
+	GlobalGameState.game_started.emit()
