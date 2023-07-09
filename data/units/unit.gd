@@ -55,10 +55,14 @@ func damage(amount: int):
 	health = max(health - amount, 0)
 	health_bar.update(float(health) / float(max_health))
 	if health <= 0:
-		clear_target()
+		die()
 		queue_free()
 
 
 func heal(amount: int):
 	health = min(health + amount, max_health)
 	health_bar.update(float(health) / float(max_health))
+
+
+func die():
+	pass
