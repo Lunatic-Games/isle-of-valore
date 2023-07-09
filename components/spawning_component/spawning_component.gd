@@ -23,16 +23,16 @@ func _ready() -> void:
 
 func _process(delta):
 	time_elapsed += delta
-	spawn_label.text = "Spawning in: " + str(round(time_until_spawn - time_elapsed)) + " seconds"
+	spawn_label.text = "[center]Spawning in: " + str(round(time_until_spawn - time_elapsed)) + " seconds"
 
 func spawn_unit() -> void:
+	time_elapsed = 0
 	var true_spawn_cost = costs_to_spawn[get_parent().current_tier-1]
 	if GlobalGameState.game == null || GlobalGameState.HUD.currency < (true_spawn_cost):
 		if GlobalGameState.HUD.currency < (true_spawn_cost):
 			get_parent().info_animator.play("show_info")
 		return
 	
-	time_elapsed = 0
 	var unit: Unit = unit_to_spawn.instantiate()
 	unit.global_position = global_position
 	GlobalGameState.game.add_child(unit)
