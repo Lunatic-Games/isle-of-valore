@@ -44,6 +44,7 @@ func spawn_wolf_den() -> void:
 	if GlobalGameState.HUD.currency < wolf_den_cost:
 		return
 	
+	GlobalGameState.player.do_casting_animation()
 	var den: Den = WOLF_DEN_SCENE.instantiate()
 	den.global_position = Vector2(global_position.x, global_position.y)
 	GlobalGameState.game.add_child(den)
@@ -56,6 +57,7 @@ func spawn_squirrel_den() -> void:
 	if GlobalGameState.HUD.currency < squirrel_den_cost:
 		return
 	
+	GlobalGameState.player.do_casting_animation()
 	var squirrel_den: Den = SQUIRREL_DEN_SCENE.instantiate()
 	squirrel_den.global_position = Vector2(global_position.x, global_position.y)
 	GlobalGameState.game.add_child(squirrel_den)
@@ -66,7 +68,8 @@ func spawn_squirrel_den() -> void:
 func spawn_bear_den() -> void:
 	if GlobalGameState.HUD.currency < bear_den_cost:
 		return
-		
+	
+	GlobalGameState.player.do_casting_animation()
 	var bear_den: Den = BEAR_DEN_SCENE.instantiate()
 	bear_den.global_position = Vector2(global_position.x, global_position.y)
 	GlobalGameState.game.add_child(bear_den)

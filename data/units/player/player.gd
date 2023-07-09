@@ -2,7 +2,7 @@ class_name Player
 extends Unit
 
 
-const MOVE_SPEED: float = 200
+const MOVE_SPEED: float = 240
 const SQUIRREL_DEN_SCENE: PackedScene = preload("res://data/structures/squirrel_den/squirrel_den.tscn")
 const WOLF_DEN_SCENE: PackedScene = preload("res://data/structures/wolf_den/wolf_den.tscn")
 const BEAR_DEN_SCENE: PackedScene = preload("res://data/structures/bear_den/bear_den.tscn")
@@ -14,11 +14,15 @@ var currently_interactive: Area2D
 
 
 func _ready() -> void:
+	GlobalGameState.player = self
 	GlobalGameState.infuse_controller.connect("ready_to_infuse", activate_infuse_particles)
 	GlobalGameState.infuse_controller.connect("infused", deactivate_infuse_particles)
 	
 
 func _physics_process(_delta: float) -> void:
+	if $AnimationPlayer.current_animation == "casting":
+		return
+	
 	var movement := Vector2()
 	
 	if Input.is_action_pressed("move_up"):
@@ -31,8 +35,6 @@ func _physics_process(_delta: float) -> void:
 		movement.x -= 1
 	#if Input.is_action_just_pressed("perform_ability"):
 	#	perform_ability()
-	if Input.is_action_just_pressed("interact"):
-		handle_interact()
 	#if Input.is_action_just_pressed("cycle_ability_left"):
 	#	GlobalGameState.HUD.cycle_ability(-1)
 	#if Input.is_action_just_pressed("cycle_ability_right"):
@@ -47,6 +49,9 @@ func _physics_process(_delta: float) -> void:
 		$Sprite2D.flip_h = true
 	if movement.x < 0:
 		$Sprite2D.flip_h = false
+	
+	if Input.is_action_just_pressed("interact"):
+		handle_interact()
 	
 	velocity = movement.normalized() * MOVE_SPEED
 	move_and_slide()
@@ -88,5 +93,10 @@ func choose_currently_interactive():
 func activate_infuse_particles() -> void:
 	infuse_particles.emitting = true
 
+
 func deactivate_infuse_particles() -> void:
 	infuse_particles.emitting = false
+
+
+func do_casting_animation() -> void:
+	$AnimationPlayer.play("casting")

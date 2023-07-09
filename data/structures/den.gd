@@ -16,6 +16,7 @@ func interact() -> void:
 	if current_tier == MAX_TIER or GlobalGameState.HUD.currency < tier_cost[current_tier-1]:
 		return
 	
+	GlobalGameState.player.do_casting_animation()
 	GlobalGameState.HUD.update_currency(-tier_cost[current_tier-1])
 	current_tier += 1
 	interact_animator.play("despawn_interact")
