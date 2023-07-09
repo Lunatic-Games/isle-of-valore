@@ -2,7 +2,7 @@ extends AIState
 
 
 func on_enter(_previous_state: AIState = null) -> void:
-	pass
+	unit.animation_player.play("idle")
 
 
 func update() -> void:

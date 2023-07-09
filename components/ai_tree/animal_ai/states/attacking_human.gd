@@ -5,6 +5,9 @@ var attack_timer: Timer = null
 
 
 func on_enter(_previous_state: AIState = null):
+	unit.sprite.flip_h = unit.target.global_position.x > unit.global_position.x
+	unit.animation_player.play("attacking")
+	
 	if attack_timer == null:
 		attack_timer = Timer.new()
 		attack_timer.wait_time = unit.time_to_attack
