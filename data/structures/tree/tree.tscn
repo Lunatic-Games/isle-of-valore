@@ -475,7 +475,7 @@ z_as_relative = false
 offset_left = -44.0
 offset_top = -442.0
 offset_right = 122.0
-offset_bottom = -392.0
+offset_bottom = -378.0
 
 [node name="TextureRect" type="TextureRect" parent="CurrencyUpdated" index="0"]
 custom_minimum_size = Vector2(64, 64)

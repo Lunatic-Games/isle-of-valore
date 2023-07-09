@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=13 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
 [ext_resource type="PackedScene" uid="uid://dsofnkaffifsd" path="res://ui/HUD/HUD.tscn" id="2_2ddj7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game/menus/press_spacebar.gd" id="4_p8khy"]
 [ext_resource type="FontFile" uid="uid://dplber8yexnpv" path="res://assets/fonts/FjallaOne-Regular.ttf" id="4_uvi0b"]
 [ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="7_v3wmp"]
+[ext_resource type="AudioStream" uid="uid://cx32ppu40mg5x" path="res://assets/music/Wintersong.mp3" id="10_qp1f4"]
 
 [sub_resource type="Animation" id="Animation_wrxvd"]
 resource_name = "intro"
@@ -121,3 +122,9 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_uvi0b")
 theme_override_font_sizes/font_size = 48
 text = "PRESS SPACEBAR TO START"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("10_qp1f4")
+volume_db = -10.0
+autoplay = true
