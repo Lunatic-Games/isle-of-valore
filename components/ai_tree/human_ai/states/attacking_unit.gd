@@ -7,7 +7,7 @@ var attack_timer: Timer = null
 
 func on_enter(_previous_state: AIState = null):
 	var human: Human = unit as Human
-	human.animation_player.play("harvesting_wood")
+	human.animation_player.play("attacking")
 	
 	attack_target = human.target as Animal
 	human.sprite.flip_h = attack_target.global_position.x > human.global_position.x
