@@ -10,13 +10,13 @@ offset_right = 152.0
 offset_bottom = -159.0
 theme_override_fonts/font = ExtResource("1_g35c8")
 theme_override_font_sizes/font_size = 20
-text = "Does any have any sticks?"
+text = "Does anyone have any sticks?"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 script = ExtResource("2_iig27")
 combat_dialogues = Array[String](["Take that you stupid animals!", "I hate nature, man.", "I wonder if we can make a mob farm?", "Where are all of these animals coming from?", "I'm going to put these animals in their place!"])
-random_dialogues = Array[String](["Can you make a chest in this game?", "Have we made beds yet?", "Man I need to upgrade my axe..."])
+random_dialogues = Array[String](["Can you make a chest in this game?", "Have we made beds yet?", "Man I need to upgrade my axe...", "Any chance someone has extra wood I can use?"])
 start_dialogues = Array[String](["Let's get this party started!", "Is everyone ready?", "Is anyone else lagging a bit?", "Man the graphics in this game are pretty good!"])
 
 [node name="Timer" type="Timer" parent="."]

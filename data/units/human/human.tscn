@@ -134,7 +134,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ky8nn"]
-radius = 800.0
+radius = 500.0
 
 [node name="Human" instance=ExtResource("1_lj6nc")]
 script = ExtResource("2_03m2e")
@@ -161,7 +161,6 @@ debug_enabled = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StructureSightRange" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_ky8nn")
 
 [node name="DialogueComponent" parent="." index="5" instance=ExtResource("7_qo37d")]

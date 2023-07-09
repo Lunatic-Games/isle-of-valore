@@ -13,6 +13,7 @@ func update():
 	var human: Human = unit as Human
 	if ai_tree.is_target_reached():
 		GlobalGameState.game.island.hq.store_wood(human.amount_wood_held)
+		GlobalGameState.game.island.hq.store_food(human.amount_food_held)
 		GlobalGameState.game.island.hq.attempt_upgrade()
 		human.amount_wood_held = 0
 		ai_tree.transition_to("idle")
