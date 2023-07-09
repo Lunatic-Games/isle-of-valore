@@ -16,7 +16,7 @@ func update():
 		ai_tree.transition_to("returning_to_hq")
 		return
 	
-	var valid_last_tree_target: bool = human.last_tree_targeted != null
+	var valid_last_tree_target: bool = is_instance_valid(human.last_tree_targeted)
 	valid_last_tree_target = valid_last_tree_target and human.can_target_structure(human.last_tree_targeted)
 	valid_last_tree_target = valid_last_tree_target and human.last_tree_targeted.can_be_harvested()
 	if valid_last_tree_target:
@@ -47,7 +47,7 @@ func target_new_tree():
 	var human: Human = unit as Human
 	var possible_trees: Array[TreeStructure] = []
 	for tree in trees:
-		if tree.unit_reserving_harvest != null or tree.remaining_wood <= 0:
+		if is_instance_valid(tree) == false or tree.can_be_harvested() == false:
 			continue
 		
 		if human.can_target_structure(tree) == false:

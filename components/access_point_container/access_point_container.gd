@@ -23,7 +23,7 @@ func get_closest_access_point(to_position: Vector2) -> AccessPoint:
 	
 	for access_point in get_children():
 		var distance_squared: float = access_point.global_position.distance_squared_to(to_position)
-		if access_point.reserved_by_unit != null:
+		if access_point.reserved_by_unit == null:
 			if distance_squared < closest_unreserved_distance_squared:
 				closest_unreserved = access_point
 				closest_unreserved_distance_squared = distance_squared

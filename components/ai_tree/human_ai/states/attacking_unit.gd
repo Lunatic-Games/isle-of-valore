@@ -22,7 +22,7 @@ func on_enter(_previous_state: AIState = null):
 
 
 func update():
-	if attack_target == null or attack_target.is_queued_for_deletion():
+	if is_instance_valid(attack_target) == false:
 		ai_tree.transition_to("idle")
 
 
@@ -36,3 +36,7 @@ func _on_attack_timer_timeout():
 	
 	if attack_target.health == 0 or attack_target.is_queued_for_deletion():
 		ai_tree.transition_to("idle")
+	elif ai_tree.is_target_reached() == false:
+		ai_tree.transition_to("going_to_attack_unit")
+	else:
+		ai_tree.target_position = unit.target_access_point.global_position
