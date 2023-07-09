@@ -55,6 +55,7 @@ func damage(amount: int):
 	health = max(health - amount, 0)
 	health_bar.update(float(health) / float(max_health))
 	if health <= 0:
+		clear_target()
 		queue_free()
 
 
