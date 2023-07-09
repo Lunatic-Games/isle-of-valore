@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clbjpfa1bby77"]
+[gd_scene load_steps=16 format=3 uid="uid://clbjpfa1bby77"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_lj6nc"]
 [ext_resource type="Script" path="res://data/units/human/human.gd" id="2_03m2e"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4gs06x5qiuj6" path="res://components/ai_tree/human_ai/human_ai_tree_component.tscn" id="3_whyu1"]
 [ext_resource type="Texture2D" uid="uid://dalqj3dta2fb4" path="res://assets/art/units/human/human_walking.png" id="5_0qd6c"]
 [ext_resource type="Texture2D" uid="uid://uave61juoodj" path="res://assets/art/units/human/humanchop.png" id="5_fuctl"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="7_jf3xk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qgbdg"]
 radius = 1.0
@@ -173,5 +174,23 @@ collision_mask = 2
 visible = false
 shape = SubResource("CircleShape2D_l10m8")
 debug_color = Color(0.964706, 0, 0.501961, 0.419608)
+
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("7_jf3xk")]
+position = Vector2(44, -64)
+
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("7_jf3xk")]
+position = Vector2(88, -10)
+
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("7_jf3xk")]
+position = Vector2(42, 56)
+
+[node name="AccessPoint4" parent="AccessPointContainer" index="3" instance=ExtResource("7_jf3xk")]
+position = Vector2(-42, 57)
+
+[node name="AccessPoint5" parent="AccessPointContainer" index="4" instance=ExtResource("7_jf3xk")]
+position = Vector2(-88, -2)
+
+[node name="AccessPoint6" parent="AccessPointContainer" index="5" instance=ExtResource("7_jf3xk")]
+position = Vector2(-61, -61)
 
 [connection signal="velocity_computed" from="HumanAITreeComponent" to="." method="_on_human_ai_tree_component_velocity_computed"]

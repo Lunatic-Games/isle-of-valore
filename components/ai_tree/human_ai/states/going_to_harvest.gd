@@ -3,10 +3,8 @@ extends AIState
 
 func on_enter(_previous_state: AIState = null):
 	var human: Human = unit as Human
-	var target_structure: Structure = human.target as Structure
-	assert(target_structure != null, "No target structure")
 	
-	ai_tree.target_position = human.target_access_point.global_position
+	ai_tree.target_position = unit.target_access_point.global_position
 	human.animation_player.play("walk")
 
 

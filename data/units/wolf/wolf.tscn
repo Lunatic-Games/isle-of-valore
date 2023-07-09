@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4j4eo05twugp"]
+[gd_scene load_steps=7 format=3 uid="uid://c4j4eo05twugp"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_guwsx"]
 [ext_resource type="Script" path="res://data/units/animal.gd" id="2_f3wcw"]
 [ext_resource type="Texture2D" uid="uid://cgfvknk4k3hgp" path="res://assets/art/units/wolf.png" id="2_ha20o"]
 [ext_resource type="PackedScene" uid="uid://lh4xukvm4ol6" path="res://components/ai_tree/animal_ai/melee_animal_tree_component.tscn" id="4_pdumw"]
+[ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="4_su7i8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
 radius = 3.0
@@ -25,5 +26,14 @@ texture = ExtResource("2_ha20o")
 position = Vector2(0, -0.25)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ovqx7")
+
+[node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("4_su7i8")]
+position = Vector2(-51, 0)
+
+[node name="AccessPoint2" parent="AccessPointContainer" index="1" instance=ExtResource("4_su7i8")]
+position = Vector2(49, -1)
+
+[node name="AccessPoint3" parent="AccessPointContainer" index="2" instance=ExtResource("4_su7i8")]
+position = Vector2(-1, 34)
 
 [node name="MeleeAnimalTreeComponent" parent="." index="3" instance=ExtResource("4_pdumw")]

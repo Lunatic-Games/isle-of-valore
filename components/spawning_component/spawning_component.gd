@@ -13,6 +13,7 @@ extends Node2D
 func _ready() -> void:
 	assert(unit_to_spawn != null, "Unit to spawn not specified")
 	
+	spawn_unit()
 	spawn_timer.wait_time = time_until_spawn
 	spawn_timer.timeout.connect(spawn_unit)
 	spawn_timer.start()
