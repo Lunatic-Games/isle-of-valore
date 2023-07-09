@@ -37,6 +37,37 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.329412, 0.501961, 0.839216, 1)
 
+[node name="Island" parent="." instance=ExtResource("2_hjbwl")]
+position = Vector2(0, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_dyan5")]
+position = Vector2(2091, 1397)
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(2792, 1388)
+script = ExtResource("4_k3nis")
+follow_target = NodePath("../Player")
+follow_enabled = true
+
+[node name="Human" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(2705, 1507)
+should_play_spawn_animation = false
+
+[node name="Human2" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(2863, 1509)
+should_play_spawn_animation = false
+
+[node name="Human3" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(2705, 1650)
+should_play_spawn_animation = false
+
+[node name="Human4" parent="." instance=ExtResource("7_v3wmp")]
+position = Vector2(2865, 1650)
+should_play_spawn_animation = false
+
+[node name="RespawnMarker" type="Marker2D" parent="."]
+position = Vector2(2785, 1466)
+
 [node name="Menus" type="CanvasLayer" parent="."]
 process_mode = 3
 
@@ -90,34 +121,3 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_uvi0b")
 theme_override_font_sizes/font_size = 48
 text = "PRESS SPACEBAR TO START"
-
-[node name="Island" parent="." instance=ExtResource("2_hjbwl")]
-position = Vector2(0, 1)
-
-[node name="Player" parent="." instance=ExtResource("3_dyan5")]
-position = Vector2(2091, 1397)
-
-[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(2792, 1388)
-script = ExtResource("4_k3nis")
-follow_target = NodePath("../Player")
-follow_enabled = true
-
-[node name="Human" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2705, 1507)
-should_play_spawn_animation = false
-
-[node name="Human2" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2863, 1509)
-should_play_spawn_animation = false
-
-[node name="Human3" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2705, 1650)
-should_play_spawn_animation = false
-
-[node name="Human4" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2865, 1650)
-should_play_spawn_animation = false
-
-[node name="RespawnMarker" type="Marker2D" parent="."]
-position = Vector2(2785, 1466)

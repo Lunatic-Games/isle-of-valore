@@ -4,6 +4,8 @@ extends ColorRect
 func _ready():
 	if visible:
 		get_tree().paused = true
+	else:
+		GlobalGameState.game_started.emit()
 
 
 func _input(event):
