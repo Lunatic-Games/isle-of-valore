@@ -7,6 +7,8 @@ var attack_timer: Timer = null
 
 func on_enter(_previous_state: AIState = null):
 	attack_target = unit.target as HQStructure
+	unit.sprite.flip_h = unit.target.global_position.x > unit.global_position.x
+	unit.animation_player.play("attacking")
 	
 	if attack_timer == null:
 		attack_timer = Timer.new()

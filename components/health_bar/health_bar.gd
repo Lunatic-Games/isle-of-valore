@@ -6,6 +6,6 @@ func _ready():
 	hide()
 
 
-func update(ratio: float):
-	value = float(max_value) * ratio
+func update(value_ratio: float):
+	value = float(max_value) * value_ratio
 	visible = value < max_value

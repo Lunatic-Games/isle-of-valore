@@ -1,20 +1,141 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcnn5kn0khuas"]
+[gd_scene load_steps=13 format=3 uid="uid://dcnn5kn0khuas"]
 
 [ext_resource type="PackedScene" uid="uid://ssymsxyggbph" path="res://data/units/unit.tscn" id="1_mjuep"]
 [ext_resource type="Script" path="res://data/units/animal.gd" id="2_qj521"]
 [ext_resource type="Texture2D" uid="uid://b5ko4atgw55pq" path="res://assets/art/units/bear.png" id="2_wacm1"]
 [ext_resource type="PackedScene" uid="uid://lh4xukvm4ol6" path="res://components/ai_tree/animal_ai/melee_animal_tree_component.tscn" id="4_3r75h"]
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="4_a5pcp"]
+[ext_resource type="Texture2D" uid="uid://dw4hecxk4yay7" path="res://assets/art/units/bear_attack.png" id="6_t36qo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7shbn"]
 radius = 1.0
 
-[node name="Bear" node_paths=PackedStringArray("ai_tree_component", "sprite") instance=ExtResource("1_mjuep")]
+[sub_resource type="Animation" id="Animation_1ch70"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wacm1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n2ss8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wacm1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_17gko"]
+resource_name = "moving"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0, 0.0872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wacm1")]
+}
+
+[sub_resource type="Animation" id="Animation_jxgvn"]
+resource_name = "attacking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.174533]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_t36qo")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_efbbe"]
+_data = {
+"RESET": SubResource("Animation_n2ss8"),
+"attacking": SubResource("Animation_jxgvn"),
+"idle": SubResource("Animation_1ch70"),
+"moving": SubResource("Animation_17gko")
+}
+
+[node name="Bear" node_paths=PackedStringArray("ai_tree_component", "sprite", "animation_player") instance=ExtResource("1_mjuep")]
 script = ExtResource("2_qj521")
 move_speed = 200.0
 max_healths = Array[int]([20, 40, 60])
 ai_tree_component = NodePath("MeleeAnimalTreeComponent")
 sprite = NodePath("Sprite2D")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1, -35)
@@ -39,6 +160,12 @@ position = Vector2(1, 63)
 
 [node name="HealthBar" parent="." index="5"]
 offset_left = -55.0
-offset_top = -117.0
+offset_top = -134.0
 offset_right = 45.0
-offset_bottom = -107.0
+offset_bottom = -124.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_efbbe")
+}

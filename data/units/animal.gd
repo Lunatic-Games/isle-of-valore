@@ -5,6 +5,7 @@ extends Unit
 @export var max_healths: Array[int] = [20, 40, 60]
 @export var ai_tree_component: AITreeComponent
 @export var sprite: Sprite2D = null
+@export var animation_player: AnimationPlayer = null
 
 
 var current_tier: int = 1
