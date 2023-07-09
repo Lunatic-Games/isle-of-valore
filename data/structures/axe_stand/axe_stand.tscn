@@ -19,12 +19,12 @@ texture = ExtResource("3_l7bsr")
 
 [node name="CopperSpears" type="Sprite2D" parent="." index="2"]
 visible = false
-position = Vector2(0, -116)
+position = Vector2(0, -69)
 texture = ExtResource("4_t3ksr")
 
 [node name="IronSpears" type="Sprite2D" parent="." index="3"]
 visible = false
-position = Vector2(0, -116)
+position = Vector2(0, -69)
 texture = ExtResource("5_gjjko")
 
 [node name="HealthBar" parent="." index="4"]
