@@ -52,7 +52,9 @@ func attempt_upgrade() -> void:
 		potential_upgrades[randi()%potential_upgrades.size()].call()
 	
 	if spear_tier == 2 and armor_tier == 2 and axe_tier == 2:
-		emit_signal("game_lost")
+		if not GlobalGameState.game_decided:
+			GlobalGameState.game_decided = true
+			GlobalGameState.game_won.emit()
 
 func upgrade_spears() -> void:
 	held_wood -= spear_upgrade_costs[spear_tier]
@@ -76,4 +78,6 @@ func damage(amount: int):
 	health = max(health - amount, 0)
 	health_bar.update(float(health) / float(max_health))
 	if health <= 0:
-		emit_signal("game_won")
+		if not GlobalGameState.game_decided:
+			GlobalGameState.game_decided = true
+			GlobalGameState.game_won.emit()

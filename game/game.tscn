@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=16 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
 [ext_resource type="PackedScene" uid="uid://dsofnkaffifsd" path="res://ui/HUD/HUD.tscn" id="2_2ddj7"]
@@ -9,7 +9,9 @@
 [ext_resource type="Script" path="res://game/menus/press_spacebar.gd" id="4_p8khy"]
 [ext_resource type="FontFile" uid="uid://dplber8yexnpv" path="res://assets/fonts/FjallaOne-Regular.ttf" id="4_uvi0b"]
 [ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="7_v3wmp"]
+[ext_resource type="Script" path="res://game/menus/game_won.gd" id="10_fejde"]
 [ext_resource type="AudioStream" uid="uid://cx32ppu40mg5x" path="res://assets/music/Wintersong.mp3" id="10_qp1f4"]
+[ext_resource type="Script" path="res://game/menus/game_lost.gd" id="11_splom"]
 
 [sub_resource type="Animation" id="Animation_2dfmi"]
 length = 0.001
@@ -301,7 +303,7 @@ text = "Isle of Valore"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Menus/PressSpacebar/Title"]
+[node name="Label2" type="Label" parent="Menus/PressSpacebar/Title"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -316,7 +318,159 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_uvi0b")
 theme_override_font_sizes/font_size = 48
+text = "Made by Matthias Harden, Joe Zlonicky, and Emily Adam-Oro"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Menus/PressSpacebar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -234.5
+offset_top = -113.0
+offset_right = 234.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 48
 text = "PRESS SPACEBAR TO START"
+horizontal_alignment = 1
+
+[node name="GameWon" type="ColorRect" parent="Menus"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.290196)
+script = ExtResource("10_fejde")
+
+[node name="Title" type="Label" parent="Menus/GameWon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.5
+offset_top = -209.5
+offset_right = 495.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 200
+text = "VICTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Menus/GameWon/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = 109.0
+offset_right = 299.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 48
+text = "The Isle of Valore has been saved!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Menus/GameWon"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -299.0
+offset_top = -119.0
+offset_right = 299.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 48
+text = "Press 'R' to play again!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="GameLost" type="ColorRect" parent="Menus"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.290196)
+script = ExtResource("11_splom")
+
+[node name="Title" type="Label" parent="Menus/GameLost"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.5
+offset_top = -209.5
+offset_right = 495.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 200
+text = "DEFEAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Menus/GameLost/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.5
+offset_top = 112.0
+offset_right = 366.5
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 48
+text = "The Players have reached the end-game
+and the island is doomed..."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Menus/GameLost"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -299.0
+offset_top = -119.0
+offset_right = 299.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_uvi0b")
+theme_override_font_sizes/font_size = 48
+text = "Press 'R' to play again!"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
