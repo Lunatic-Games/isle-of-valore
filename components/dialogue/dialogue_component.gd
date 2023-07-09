@@ -25,7 +25,6 @@ const COMBAT_AI_STATE_NAMES: Array[String] = [
 
 func _ready():
 	display_timer.wait_time = dialogue_display_time
-	do_start_dialogue(randi_range(0, 3))
 
 
 func do_start_dialogue(index: int):
@@ -36,12 +35,16 @@ func do_respawn_dialogue():
 	display_dialogue(respawn_dialogues.pick_random())
 
 
-func display_dialogue(dialogue_text: String):
+func display_dialogue(dialogue_text: String, short_time=false):
 	text = dialogue_text
 	show()
 	
 	var next_cooldown: int = randi_range(min_cooldown, max_cooldown)
 	timer.wait_time = next_cooldown
+	if short_time:
+		display_timer.wait_time = 2
+	else:
+		display_timer.wait_time = dialogue_display_time
 	display_timer.start()
 	timer.start()
 

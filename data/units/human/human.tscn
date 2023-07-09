@@ -257,6 +257,8 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_ky8nn")
 
 [node name="DialogueComponent" parent="." index="5" instance=ExtResource("7_qo37d")]
+process_mode = 3
+text = ""
 
 [node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("7_jf3xk")]
 position = Vector2(44, -64)

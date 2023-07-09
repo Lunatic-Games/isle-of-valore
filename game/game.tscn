@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xkk68s32w4wt"]
+[gd_scene load_steps=14 format=3 uid="uid://xkk68s32w4wt"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_0w4wi"]
 [ext_resource type="PackedScene" uid="uid://dsofnkaffifsd" path="res://ui/HUD/HUD.tscn" id="2_2ddj7"]
@@ -11,11 +11,203 @@
 [ext_resource type="PackedScene" uid="uid://clbjpfa1bby77" path="res://data/units/human/human.tscn" id="7_v3wmp"]
 [ext_resource type="AudioStream" uid="uid://cx32ppu40mg5x" path="res://assets/music/Wintersong.mp3" id="10_qp1f4"]
 
+[sub_resource type="Animation" id="Animation_2dfmi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Human:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Human2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Human3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Human4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Camera:follow_enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Camera:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2792, 1388)]
+}
+
 [sub_resource type="Animation" id="Animation_wrxvd"]
 resource_name = "intro"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Human:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Human2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Human3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.7, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Human4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.5, 5.4, 8.2, 11.1, 14, 17.3, 23.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_dialogue_1"
+}, {
+"args": [],
+"method": &"play_dialogue_2"
+}, {
+"args": [],
+"method": &"play_dialogue_3"
+}, {
+"args": [],
+"method": &"play_dialogue_4"
+}, {
+"args": [],
+"method": &"play_dialogue_5"
+}, {
+"args": [],
+"method": &"play_dialogue_6"
+}, {
+"args": [],
+"method": &"done_cutscene"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../Camera:follow_enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 23.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../Camera:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.9, 18.6, 23.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2792, 1388), Vector2(2792, 1388), Vector2(2648, 236)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s5kkd"]
 _data = {
+"RESET": SubResource("Animation_2dfmi"),
 "intro": SubResource("Animation_wrxvd")
 }
 
@@ -42,28 +234,32 @@ color = Color(0.329412, 0.501961, 0.839216, 1)
 position = Vector2(0, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_dyan5")]
-position = Vector2(2091, 1397)
+position = Vector2(2648, 236)
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
+process_mode = 3
 position = Vector2(2792, 1388)
 script = ExtResource("4_k3nis")
 follow_target = NodePath("../Player")
-follow_enabled = true
 
 [node name="Human" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2705, 1507)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2607, 1585)
 should_play_spawn_animation = false
 
 [node name="Human2" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2863, 1509)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2740, 1587)
 should_play_spawn_animation = false
 
 [node name="Human3" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2705, 1650)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2864, 1578)
 should_play_spawn_animation = false
 
 [node name="Human4" parent="." instance=ExtResource("7_v3wmp")]
-position = Vector2(2865, 1650)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2981, 1575)
 should_play_spawn_animation = false
 
 [node name="RespawnMarker" type="Marker2D" parent="."]
@@ -73,7 +269,6 @@ position = Vector2(2785, 1466)
 process_mode = 3
 
 [node name="PressSpacebar" type="ColorRect" parent="Menus"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

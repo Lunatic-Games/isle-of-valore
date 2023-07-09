@@ -256,10 +256,10 @@ position = Vector2(1332, 2748)
 y_sort_enabled = true
 
 [node name="HQ" parent="NavigationRegion/OtherStructures" instance=ExtResource("3_0oiis")]
-position = Vector2(2772, 1344)
+position = Vector2(2772, 1289)
 
 [node name="Fire" parent="NavigationRegion/OtherStructures" instance=ExtResource("5_ccikp")]
-position = Vector2(2496, 1465)
+position = Vector2(2795, 1634)
 
 [node name="WeaponStand" parent="NavigationRegion/OtherStructures" instance=ExtResource("7_5gmfh")]
 position = Vector2(2391, 1265)
