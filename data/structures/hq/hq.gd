@@ -18,6 +18,8 @@ var armor_tier: int = 0
 signal spear_upgraded
 signal armor_upgraded
 signal axe_upgraded
+signal game_won
+signal game_lost
 
 
 func _ready():
@@ -48,6 +50,9 @@ func attempt_upgrade() -> void:
 	
 	if potential_upgrades.size() > 0:
 		potential_upgrades[randi()%potential_upgrades.size()].call()
+	
+	if spear_tier == 2 and armor_tier == 2 and axe_tier == 2:
+		emit_signal("game_lost")
 
 func upgrade_spears() -> void:
 	held_wood -= spear_upgrade_costs[spear_tier]
@@ -66,3 +71,9 @@ func upgrade_armor() -> void:
 	armor_tier += 1
 	emit_signal("armor_upgraded")
 	wood_label.text = "[center]" + str(held_wood)
+
+func damage(amount: int):
+	health = max(health - amount, 0)
+	health_bar.update(float(health) / float(max_health))
+	if health <= 0:
+		emit_signal("game_won")
