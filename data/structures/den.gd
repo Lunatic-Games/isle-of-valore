@@ -42,4 +42,4 @@ func hide_interactive() -> void:
 
 func update_interact_text() -> void:
 	if current_tier != MAX_TIER:
-		interact_label.text = "[center]Press F to upgrade: " + str(tier_cost[current_tier-1]) + " presence"
+		interact_label.text = "[center]Press F to upgrade: " + str(tier_cost[current_tier-1]) + " acorns"
