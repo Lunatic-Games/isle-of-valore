@@ -177,7 +177,7 @@ _data = {
 
 [node name="BearDen" instance=ExtResource("1_rjijt")]
 script = ExtResource("2_a6aie")
-tier_cost = Array[int]([0, 0])
+tier_cost = Array[int]([320, 550])
 
 [node name="Tier2Particles" type="GPUParticles2D" parent="." index="0"]
 material = SubResource("CanvasItemMaterial_m04ma")
@@ -209,7 +209,7 @@ shape = SubResource("CapsuleShape2D_3pfdu")
 position = Vector2(0, 77)
 unit_to_spawn = ExtResource("4_64n7f")
 time_until_spawn = 20.0
-cost_to_spawn = 60
+costs_to_spawn = Array[int]([50, 100, 160])
 
 [node name="InteractionComponent" parent="." index="5" instance=ExtResource("7_ky8g0")]
 

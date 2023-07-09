@@ -53,4 +53,4 @@ func update_armor_stats():
 	health += 70
 
 func update_spear_stats():
-	attack_damage += 10
+	attack_damage += 5

@@ -1,7 +1,7 @@
 class_name HUD
 extends CanvasLayer
 
-var currency = 200
+var currency = 0
 var current_ability = 0
 
 func _ready() -> void:
