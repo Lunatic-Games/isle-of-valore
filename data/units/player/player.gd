@@ -9,14 +9,6 @@ const BEAR_DEN_SCENE: PackedScene = preload("res://data/structures/bear_den/bear
 
 var interactables: Array[Area2D] = []
 var currently_interactive: Area2D
-var ability_map: Dictionary = {
-	0: spawn_wolf_den,
-	1: spawn_squirrel_den,
-	2: spawn_bear_den
-}
-var wolf_den_cost: int = 40
-var bear_den_cost: int = 90
-var squirrel_den_cost: int = 65
 
 @onready var infuse_particles: GPUParticles2D = $InfuseParticles
 
@@ -26,7 +18,7 @@ func _ready() -> void:
 	GlobalGameState.infuse_controller.connect("infused", deactivate_infuse_particles)
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var movement := Vector2()
 	
 	if Input.is_action_pressed("move_up"):
@@ -58,12 +50,6 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = movement.normalized() * MOVE_SPEED
 	move_and_slide()
-
-
-func perform_ability() -> void:
-	var ability_index = GlobalGameState.HUD.get_current_ability_index()
-	print(ability_index)
-	ability_map[ability_index].call()
 
 
 func handle_interact() -> void:
@@ -98,35 +84,6 @@ func choose_currently_interactive():
 	if currently_interactive:
 		currently_interactive.show_interactive()
 
-
-func spawn_wolf_den() -> void:
-	if GlobalGameState.HUD.currency < wolf_den_cost:
-		return
-	
-	var den: Den = WOLF_DEN_SCENE.instantiate()
-	den.global_position = Vector2(global_position.x, global_position.y - 50)
-	GlobalGameState.game.add_child(den)
-	GlobalGameState.HUD.update_currency(-wolf_den_cost)
-
-
-func spawn_squirrel_den() -> void:
-	if GlobalGameState.HUD.currency < squirrel_den_cost:
-		return
-	
-	var squirrel_den: Den = SQUIRREL_DEN_SCENE.instantiate()
-	squirrel_den.global_position = Vector2(global_position.x, global_position.y - 50)
-	GlobalGameState.game.add_child(squirrel_den)
-	GlobalGameState.HUD.update_currency(-squirrel_den_cost)
-
-
-func spawn_bear_den() -> void:
-	if GlobalGameState.HUD.currency < bear_den_cost:
-		return
-		
-	var bear_den: Den = BEAR_DEN_SCENE.instantiate()
-	bear_den.global_position = Vector2(global_position.x, global_position.y - 50)
-	GlobalGameState.game.add_child(bear_den)
-	GlobalGameState.HUD.update_currency(-bear_den_cost)
 
 func activate_infuse_particles() -> void:
 	infuse_particles.emitting = true

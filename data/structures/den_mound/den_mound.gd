@@ -49,7 +49,7 @@ func spawn_wolf_den() -> void:
 	GlobalGameState.game.add_child(den)
 	GlobalGameState.HUD.update_currency(-wolf_den_cost)
 	current_den = den
-	visible = false
+	queue_free()
 
 
 func spawn_squirrel_den() -> void:
@@ -61,7 +61,7 @@ func spawn_squirrel_den() -> void:
 	GlobalGameState.game.add_child(squirrel_den)
 	GlobalGameState.HUD.update_currency(-squirrel_den_cost)
 	current_den = squirrel_den
-	visible = false
+	queue_free()
 
 func spawn_bear_den() -> void:
 	if GlobalGameState.HUD.currency < bear_den_cost:
@@ -72,4 +72,4 @@ func spawn_bear_den() -> void:
 	GlobalGameState.game.add_child(bear_den)
 	GlobalGameState.HUD.update_currency(-bear_den_cost)
 	current_den = bear_den
-	visible = false
+	queue_free()
