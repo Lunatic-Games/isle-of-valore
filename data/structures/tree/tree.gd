@@ -63,8 +63,8 @@ func can_be_harvested() -> bool:
 	return remaining_wood > 0
 
 
-func harvest() -> int:
-	remaining_wood -= 1
+func harvest(wood_taken) -> int:
+	remaining_wood -= wood_taken
 	
 	if remaining_wood <= 0:
 		if infused:
@@ -74,4 +74,4 @@ func harvest() -> int:
 	else:
 		tree_cut_animator.play("harvest_wood")
 	
-	return 1
+	return wood_taken

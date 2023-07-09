@@ -33,7 +33,7 @@ func on_exit(_next_state: AIState = null):
 
 func _on_harvest_timer_timeout():
 	var human: Human = unit as Human
-	human.amount_wood_held += tree_harvesting.harvest()
+	human.amount_wood_held += tree_harvesting.harvest(human.wood_harvested)
 	
-	if human.amount_wood_held >= human.MAX_WOOD_HELD:
+	if human.amount_wood_held >= human.max_wood_held:
 		ai_tree.transition_to("returning_to_hq")

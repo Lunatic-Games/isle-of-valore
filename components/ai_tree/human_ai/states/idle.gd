@@ -16,7 +16,7 @@ func update():
 		ai_tree.transition_to("going_to_campfire")
 		return
 	
-	if human.amount_wood_held >= human.MAX_WOOD_HELD:
+	if human.amount_wood_held >= human.max_wood_held:
 		ai_tree.transition_to("returning_to_hq")
 		return
 	
