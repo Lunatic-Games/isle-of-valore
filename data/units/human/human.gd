@@ -2,6 +2,8 @@ class_name Human
 extends Unit
 
 
+signal died
+
 const MOVE_SPEED: float = 200
 const TIME_TO_HARVEST: float = 1.0
 const MAX_FOOD_HELD: int = 2
@@ -17,6 +19,8 @@ var last_tree_targeted: TreeStructure = null
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var ai: AITreeComponent = $HumanAITreeComponent
 @onready var structure_sight_range: Area2D = $StructureSightRange
+@onready var dialogue: DialogueComponent = $DialogueComponent
+
 
 func _ready():
 	await get_tree().process_frame
@@ -34,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 	var next_location: Vector2 = ai.get_next_path_position()
 	var direction: Vector2 = global_position.direction_to(next_location)
 	ai.velocity = direction * MOVE_SPEED
-	
+	pass
 	move_and_slide()
 
 
@@ -54,3 +58,6 @@ func update_armor_stats():
 
 func update_spear_stats():
 	attack_damage += 10
+
+func die():
+	died.emit()

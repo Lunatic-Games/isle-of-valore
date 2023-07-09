@@ -1,3 +1,4 @@
+class_name DialogueComponent
 extends Label
 
 
@@ -14,6 +15,7 @@ const COMBAT_AI_STATE_NAMES: Array[String] = [
 
 @export_multiline var combat_dialogues: Array[String]
 @export_multiline var random_dialogues: Array[String]
+@export_multiline var respawn_dialogues: Array[String]
 @export_multiline var start_dialogues: Array[String]
 
 @onready var timer = $Timer
@@ -28,6 +30,10 @@ func _ready():
 
 func do_start_dialogue(index: int):
 	display_dialogue(start_dialogues[index])
+
+
+func do_respawn_dialogue():
+	display_dialogue(respawn_dialogues.pick_random())
 
 
 func display_dialogue(dialogue_text: String):

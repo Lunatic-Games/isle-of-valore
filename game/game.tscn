@@ -100,3 +100,6 @@ position = Vector2(2705, 1650)
 
 [node name="Human4" parent="." instance=ExtResource("7_v3wmp")]
 position = Vector2(2865, 1650)
+
+[node name="RespawnMarker" type="Marker2D" parent="."]
+position = Vector2(2785, 1466)
