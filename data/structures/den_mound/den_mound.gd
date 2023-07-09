@@ -16,7 +16,7 @@ var bear_den_cost: int = 90
 var squirrel_den_cost: int = 65
 
 func interact() -> void:
-	interact_label.text = "[center]Press the number to build the den"
+	interact_label.text = "[center]Dens will use acorns to create units. Keep infusing trees to keep up production!"
 	den_container.visible = true
 	is_purchasing_den = true
 

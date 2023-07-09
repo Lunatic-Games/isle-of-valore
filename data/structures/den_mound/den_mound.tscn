@@ -106,9 +106,9 @@ position = Vector2(190, -1)
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 z_as_relative = false
-offset_left = -74.0
+offset_left = -113.0
 offset_top = -151.0
-offset_right = 78.0
+offset_right = 114.0
 offset_bottom = -105.0
 
 [node name="InteractLabel" type="RichTextLabel" parent="InteractLabel" index="0"]
