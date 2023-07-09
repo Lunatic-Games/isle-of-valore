@@ -4,6 +4,7 @@ extends Structure
 const MAX_TIER: int = 3
 
 var current_tier: int = 1
+var can_interact: bool = false
 
 @export var tier_cost: Array[int] = [0, 0]
 @onready var interact_animator: AnimationPlayer = $InteractAnimator
@@ -12,7 +13,7 @@ var current_tier: int = 1
 @onready var tier_3_particles: GPUParticles2D = $Tier3Particles
 
 func interact() -> void:
-	if GlobalGameState.HUD.currency < tier_cost[current_tier-1]:
+	if current_tier == MAX_TIER or GlobalGameState.HUD.currency < tier_cost[current_tier-1]:
 		return
 	
 	GlobalGameState.HUD.update_currency(-tier_cost[current_tier-1])
@@ -28,11 +29,13 @@ func interact() -> void:
 
 func show_interactive() -> void:
 	update_interact_text()
+	can_interact = true
 	if current_tier != MAX_TIER:
 		interact_animator.play("spawn_interact")
 
 
 func hide_interactive() -> void:
+	can_interact = false
 	if current_tier != MAX_TIER:
 		interact_animator.play("despawn_interact")
 
