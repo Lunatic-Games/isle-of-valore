@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://lh4xukvm4ol6"]
+[gd_scene load_steps=7 format=3 uid="uid://lh4xukvm4ol6"]
 
 [ext_resource type="PackedScene" uid="uid://bedvarjm3tlcp" path="res://components/ai_tree/ai_tree_component.tscn" id="1_3lkka"]
+[ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/attacking_human.gd" id="2_tu8um"]
 [ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/idle.gd" id="2_vxd5s"]
 [ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/going_to_attack_hq.gd" id="3_qbhpg"]
 [ext_resource type="Script" path="res://components/ai_tree/animal_ai/states/attacking_hq.gd" id="4_7h3jm"]
@@ -10,11 +11,10 @@
 target_desired_distance = 50.0
 avoidance_enabled = true
 max_speed = 100000.0
-debug_enabled = true
 start_state = NodePath("Idle")
 
 [node name="AttackingHuman" type="Node" parent="." index="0"]
-script = ExtResource("4_7h3jm")
+script = ExtResource("2_tu8um")
 state_name = "attacking_human"
 priority_level = 2
 

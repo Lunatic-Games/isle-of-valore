@@ -16,7 +16,6 @@ var last_tree_targeted: TreeStructure = null
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var ai: AITreeComponent = $HumanAITreeComponent
 @onready var structure_sight_range: Area2D = $StructureSightRange
-@onready var unit_sight_range: Area2D = $UnitSightRange
 
 
 func _physics_process(_delta: float) -> void:

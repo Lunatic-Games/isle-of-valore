@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://lh4xukvm4ol6" path="res://components/ai_tree/animal_ai/melee_animal_tree_component.tscn" id="4_pdumw"]
 [ext_resource type="PackedScene" uid="uid://hr0niu03d1vx" path="res://components/access_point/access_point.tscn" id="4_su7i8"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovqx7"]
-radius = 3.0
-height = 40.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnhg5"]
+radius = 1.0
 
 [node name="Wolf" node_paths=PackedStringArray("ai_tree_component", "sprite") instance=ExtResource("1_guwsx")]
 script = ExtResource("2_f3wcw")
@@ -25,7 +24,7 @@ texture = ExtResource("2_ha20o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -0.25)
 rotation = 1.57079
-shape = SubResource("CapsuleShape2D_ovqx7")
+shape = SubResource("CircleShape2D_nnhg5")
 
 [node name="AccessPoint" parent="AccessPointContainer" index="0" instance=ExtResource("4_su7i8")]
 position = Vector2(-51, 0)
